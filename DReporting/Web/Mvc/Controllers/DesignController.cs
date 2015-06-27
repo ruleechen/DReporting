@@ -39,7 +39,7 @@ namespace DReporting.Web.Mvc.Controllers
 
             var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
 
-            var dataSources = this.ReportDatas.QueryDataSources().ToDictionary(x => x.DataSourceName, x => x.DataSource.QueryData(query, true));
+            var dataSources = this.ReportDatas.QueryDataSources().ToDictionary(x => x.DataSourceName, x => x.DataSource.GetBindingSource(query, true));
 
             return new DesignerVM
             {

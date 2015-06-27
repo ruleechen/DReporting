@@ -111,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contextual.cs" />
-    <Compile Include="Core\IDataConnection.cs" />
     <Compile Include="Core\IDataSource.cs" />
     <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\DataSourceModel.cs" />

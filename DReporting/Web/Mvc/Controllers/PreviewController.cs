@@ -19,7 +19,7 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
                 var dataSource = this.ReportDatas.GetDataSource(dataSourceId).DataSource;
-                report.XtraReport.DataSource = dataSource.QueryData(query, false);
+                report.XtraReport.DataSource = dataSource.GetBindingSource(query, false);
                 report.XtraReport.FillDataSource();
             }
 

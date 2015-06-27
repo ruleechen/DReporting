@@ -21,7 +21,7 @@ namespace DReporting.Web.ReportDatas
             }
         }
 
-        public object QueryData(NameValueCollection query, bool designTime)
+        public object GetBindingSource(NameValueCollection query, bool designTime)
         {
             var users = new UserCollection();
             users.Add(new User

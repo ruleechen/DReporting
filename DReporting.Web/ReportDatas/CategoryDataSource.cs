@@ -16,7 +16,7 @@ namespace DReporting.Web.ReportDatas
             get { return "Categories"; }
         }
 
-        public object QueryData(NameValueCollection query, bool designTime)
+        public object GetBindingSource(NameValueCollection query, bool designTime)
         {
             return new Categories();
         }

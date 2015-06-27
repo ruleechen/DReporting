@@ -11,6 +11,6 @@ namespace DReporting.Core
     {
         string DataSourceName { get; }
 
-        object QueryData(NameValueCollection query, bool designTime);
+        object GetBindingSource(NameValueCollection query, bool designTime);
     }
 }
