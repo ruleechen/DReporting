@@ -109,7 +109,9 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Core\IDataSource.cs" />
     <Compile Include="Core\IReportStorage.cs" />
+    <Compile Include="Models\DataSourceModel.cs" />
     <Compile Include="Models\HomeVM.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Services\InjectContainer.cs" />
     <Compile Include="Core\IReportDatas.cs" />
     <Compile Include="Services\DefaultReportDatas.cs" />

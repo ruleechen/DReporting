@@ -15,27 +15,27 @@ namespace DReporting.Web.Area.Controllers
     {
         public ActionResult Index(string reportId)
         {
-            var template = this.ReportStorage.GetReport(reportId);
-            var dataSources = this.ReportDatas.AllDataSources().ToDictionary(x => x.Value.DataSourceName, x => (object)x.Value);
+            var report = this.ReportStorage.GetReport(reportId);
+            var dataSources = this.ReportDatas.QueryDataSources().ToDictionary(x => x.DataSourceId, x => (object)x.DataSource);
 
             return View(new DesignerVM
             {
-                ReportId = reportId,
-                ReportName = template.DisplayName,
-                DesignerModel = ReportDesignerExtension.GetModel(template, dataSources)
+                ReportId = report.ReportId,
+                ReportName = report.ReportName,
+                DesignerModel = ReportDesignerExtension.GetModel(report.XtraReport, dataSources)
             });
         }
 
         public ActionResult Create()
         {
-            var template = this.ReportStorage.GetDefaultReport();
-            var dataSources = this.ReportDatas.AllDataSources().ToDictionary(x => x.Value.DataSourceName, x => (object)x.Value);
+            var report = this.ReportStorage.GetDefaultReport();
+            var dataSources = this.ReportDatas.QueryDataSources().ToDictionary(x => x.DataSourceId, x => (object)x.DataSource);
 
             return View(new DesignerVM
             {
                 ReportId = null,
-                ReportName = template.DisplayName,
-                DesignerModel = ReportDesignerExtension.GetModel(template, dataSources)
+                ReportName = report.ReportName,
+                DesignerModel = ReportDesignerExtension.GetModel(report.XtraReport, dataSources)
             });
         }
 

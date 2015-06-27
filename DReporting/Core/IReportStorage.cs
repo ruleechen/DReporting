@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraReports.UI;
+using DReporting.Models;
 
 namespace DReporting.Core
 {
     public interface IReportStorage
     {
-        IDictionary<string, XtraReport> AllReports();
+        IEnumerable<ReportModel> QueryReports(int? skip = null, int? take = null);
 
-        XtraReport GetDefaultReport();
+        ReportModel GetDefaultReport();
 
-        XtraReport GetReport(string reportId);
+        ReportModel GetReport(string reportId);
 
         void RemoveReport(string reportId);
 

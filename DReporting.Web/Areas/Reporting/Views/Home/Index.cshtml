@@ -17,64 +17,62 @@
     </script>
 }
 
-<div class="body-content">
-
-    <div class="table-responsive">
-        <h2>Reports</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>ID</td>
-                    <td></td>
-                </tr>
-            </thead>
-            @if (Model.Reports != null)
+<div class="table-responsive">
+    <h2>Reports</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>ID</td>
+                <td></td>
+            </tr>
+        </thead>
+        @if (Model.Reports != null)
+        {
+            <tbody>
+            @foreach (var item in Model.Reports)
             {
-                <tbody>
-                @foreach (var item in Model.Reports)
-                {
-                    <tr>
-                        <td><a href="@Url.Action("Index", "Design", new { Area = Consts.AreaName, ReportId = item.Key })" data-action="edit">@item.Value.DisplayName</a></td>
-                        <td>@item.Key</td>
-                        <td><a href="@Url.Action("Delete", "Home", new { Area = Consts.AreaName, ReportId = item.Key })" data-action="delete" data-reportname="@item.Value.DisplayName">Delete</a></td>
-                    </tr>
-                }
-                </tbody>
+                <tr>
+                    <td><a href="@Url.Action("Index", "Design", new { Area = Consts.AreaName, ReportId = item.ReportId })" data-action="edit">@item.ReportName</a></td>
+                    <td>@item.ReportId</td>
+                    <td><a href="@Url.Action("Delete", "Home", new { Area = Consts.AreaName, ReportId = item.ReportId })" data-action="delete" data-reportname="@item.ReportName">Delete</a></td>
+                </tr>
             }
-            <tfoot>
-                <tr>
-                    <td colspan="3"><a href="@Url.Action("Create", "Design", new { Area = Consts.AreaName })" data-action="create">Create New</a></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="3"><a target="_blank" href="@Url.Action("Create", "Design", new { Area = Consts.AreaName })" data-action="create">Create New</a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
 
-    <div class="table-responsive">
-        <h2>Data Sources</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                </tr>
-            </thead>
-            @if (Model.DataSources != null)
+<div class="table-responsive">
+    <h2>Data Sources</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>ID</td>
+            </tr>
+        </thead>
+        @if (Model.DataSources != null)
+        {
+            <tbody>
+            @foreach (var item in Model.DataSources)
             {
-                <tbody>
-                @foreach (var item in Model.DataSources)
-                {
-                    <tr>
-                        <td>@item.Key</td>
-                    </tr>
-                }
-                </tbody>
-            }
-            <tfoot>
                 <tr>
-                    <td></td>
+                    <td>@item.DataSourceName</td>
+                    <td>@item.DataSourceId</td>
                 </tr>
-            </tfoot>
-        </table>
-    </div>
-
+            }
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+        </tfoot>
+    </table>
 </div>

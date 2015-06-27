@@ -13,36 +13,36 @@ namespace DReporting.Web.Area.Controllers
     {
         public ActionResult Index(string reportId, string dataSourceId)
         {
-            var template = this.ReportStorage.GetReport(reportId);
+            var report = this.ReportStorage.GetReport(reportId);
 
             //var dataSource = this.ReportService.GetDataSource(dataSourceId);
-            //template.DataSource = dataSource;
-            //template.FillDataSource();
+            //report.XtraReport.DataSource = dataSource;
+            //report.XtraReport.FillDataSource();
 
             return View("Index", new ViewerVM
             {
                 ReportId = reportId,
-                ReportName = template.DisplayName,
-                Report = template
+                ReportName = report.ReportName,
+                XtraReport = report.XtraReport
             });
         }
 
         public ActionResult Callback(string reportId)
         {
-            var template = this.ReportStorage.GetReport(reportId);
+            var report = this.ReportStorage.GetReport(reportId);
 
             return PartialView("Viewer", new ViewerVM
             {
                 ReportId = reportId,
-                ReportName = template.DisplayName,
-                Report = template
+                ReportName = report.ReportName,
+                XtraReport = report.XtraReport
             });
         }
 
         public ActionResult Export(string reportId)
         {
             var report = this.ReportStorage.GetReport(reportId);
-            return DocumentViewerExtension.ExportTo(report);
+            return DocumentViewerExtension.ExportTo(report.XtraReport);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace DReporting.Models
 {
     public class HomeVM
     {
-        public IDictionary<string, XtraReport> Reports { get; set; }
+        public IEnumerable<ReportModel> Reports { get; set; }
 
-        public IDictionary<string, IDataSource> DataSources { get; set; }
+        public IEnumerable<DataSourceModel> DataSources { get; set; }
     }
 }

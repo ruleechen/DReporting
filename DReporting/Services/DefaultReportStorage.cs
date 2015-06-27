@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
-using DReporting.Core;
 using DevExpress.XtraReports.UI;
+using DReporting.Core;
+using DReporting.Models;
 
 namespace DReporting.Services
 {
@@ -20,27 +21,69 @@ namespace DReporting.Services
             if (!Directory.Exists(ReportsDir)) { Directory.CreateDirectory(ReportsDir); }
         }
 
-        public IDictionary<string, XtraReport> AllReports()
+        public IEnumerable<ReportModel> QueryReports(int? skip = null, int? take = null)
         {
             var reports = Directory.GetFiles(ReportsDir, "*.xml");
-            return reports.Select(x => new
+
+            var query = reports.Select(x => new
             {
                 file = new FileInfo(x),
                 report = XtraReport.FromFile(x, true)
             })
-            .OrderByDescending(x => x.file.LastWriteTimeUtc)
-            .ToDictionary(x => Path.GetFileNameWithoutExtension(x.file.Name), x => x.report);
+            .Select(x => new ReportModel
+            {
+                ReportId = Path.GetFileNameWithoutExtension(x.file.Name),
+                ReportName = x.report.DisplayName,
+                XtraReport = x.report,
+                CreationTime = x.file.CreationTimeUtc,
+                LastUpdateTime = x.file.LastWriteTimeUtc
+            });
+
+            query = query.OrderByDescending(x => x.CreationTime);
+
+            if (skip.HasValue)
+            {
+                query = query.Skip(skip.Value);
+            }
+
+            if (take.HasValue)
+            {
+                query = query.Take(take.Value);
+            }
+
+            return query;
         }
 
-        public XtraReport GetDefaultReport()
+        public ReportModel GetDefaultReport()
         {
-            return new DefaultXtraReport();
+            var template = new DefaultXtraReport();
+
+            return new ReportModel
+            {
+                ReportId = null,
+                ReportName = template.DisplayName,
+                CreationTime = DateTime.Now,
+                LastUpdateTime = null,
+                XtraReport = template
+            };
         }
 
-        public XtraReport GetReport(string reportId)
+        public ReportModel GetReport(string reportId)
         {
             var file = Path.Combine(ReportsDir, reportId + ".xml");
-            return XtraReport.FromFile(file, true);
+
+            var info = new FileInfo(file);
+
+            var template = XtraReport.FromFile(file, true);
+
+            return new ReportModel
+            {
+                ReportId = reportId,
+                ReportName = template.DisplayName,
+                CreationTime = info.CreationTimeUtc,
+                LastUpdateTime = info.LastWriteTimeUtc,
+                XtraReport = template
+            };
         }
 
         public void RemoveReport(string reportId)

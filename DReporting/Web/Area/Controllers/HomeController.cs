@@ -13,8 +13,8 @@ namespace DReporting.Web.Area.Controllers
         {
             return View(new HomeVM
             {
-                Reports = this.ReportStorage.AllReports(),
-                DataSources = this.ReportDatas.AllDataSources()
+                Reports = this.ReportStorage.QueryReports(),
+                DataSources = this.ReportDatas.QueryDataSources()
             });
         }
 
