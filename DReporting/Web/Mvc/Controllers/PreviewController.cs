@@ -7,7 +7,7 @@ using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
 using DReporting.Models;
 
-namespace DReporting.Web.Area.Controllers
+namespace DReporting.Web.Mvc.Controllers
 {
     public class PreviewController : ControllerBase
     {
@@ -15,13 +15,17 @@ namespace DReporting.Web.Area.Controllers
         {
             var report = this.ReportStorage.GetReport(reportId);
 
-            //var dataSource = this.ReportService.GetDataSource(dataSourceId);
-            //report.XtraReport.DataSource = dataSource;
-            //report.XtraReport.FillDataSource();
+            if (!string.IsNullOrEmpty(dataSourceId))
+            {
+                var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
+                var dataSource = this.ReportDatas.GetDataSource(dataSourceId).DataSource;
+                report.XtraReport.DataSource = dataSource.QueryData(query, false);
+                report.XtraReport.FillDataSource();
+            }
 
             return View("Index", new ViewerVM
             {
-                ReportId = reportId,
+                ReportID = reportId,
                 ReportName = report.ReportName,
                 XtraReport = report.XtraReport
             });
@@ -33,7 +37,7 @@ namespace DReporting.Web.Area.Controllers
 
             return PartialView("Viewer", new ViewerVM
             {
-                ReportId = reportId,
+                ReportID = reportId,
                 ReportName = report.ReportName,
                 XtraReport = report.XtraReport
             });

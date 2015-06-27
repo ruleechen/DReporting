@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Optimization;
 
-namespace DReporting.Web.Area
+namespace DReporting.Web.Mvc
 {
     public class AreaRegistration : System.Web.Mvc.AreaRegistration
     {
@@ -26,7 +26,7 @@ namespace DReporting.Web.Area
                 this.AreaName + "_default",
                 this.AreaName + "/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                new string[] { "DReporting.Web.Area.Controllers" }
+                new string[] { "DReporting.Web.Mvc.Controllers" }
             );
         }
     }

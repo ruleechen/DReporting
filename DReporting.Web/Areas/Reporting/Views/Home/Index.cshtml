@@ -7,9 +7,15 @@
 @section scripts {
     <script type="text/javascript">
         $(function () {
-            $('a[data-action="delete"]').click(function () {
-                var reportName = $(this).data('reportname');
-                if (!confirm('Are you sure to delete report "' + reportName + '" ?')) {
+            $('a[data-action="deletereport"]').click(function () {
+                var name = $(this).data('reportname');
+                if (!confirm('Are you sure to delete report "' + name + '" ?')) {
+                    return false;
+                }
+            });
+            $('a[data-action="deletecategory"]').click(function () {
+                var name = $(this).data('categoryname');
+                if (!confirm('Are you sure to delete category "' + name + '" ?')) {
                     return false;
                 }
             });
@@ -18,12 +24,19 @@
 }
 
 <div class="table-responsive">
-    <h2>Reports</h2>
+    <h3>Reports</h3>
     <table class="table table-striped">
         <thead>
             <tr>
                 <td>Name</td>
-                <td>ID</td>
+                <td>Code</td>
+                <td>Category</td>
+                <td>Creation</td>
+                <td>LastUpdate</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
             </tr>
         </thead>
@@ -33,23 +46,61 @@
             @foreach (var item in Model.Reports)
             {
                 <tr>
-                    <td><a href="@Url.Action("Index", "Design", new { Area = Consts.AreaName, ReportId = item.ReportId })" data-action="edit">@item.ReportName</a></td>
-                    <td>@item.ReportId</td>
-                    <td><a href="@Url.Action("Delete", "Home", new { Area = Consts.AreaName, ReportId = item.ReportId })" data-action="delete" data-reportname="@item.ReportName">Delete</a></td>
+                    <td>@item.ReportName</td>
+                    <td>@item.ReportCode</td>
+                    <td>@(Model.Categories.Where(x => x.CategoryID.Equals(item.CategoryID, StringComparison.InvariantCultureIgnoreCase)).Select(x=>x.CategoryName).FirstOrDefault())</td>
+                    <td>@item.CreationTime</td>
+                    <td>@item.LastUpdateTime</td>
+                    <td><a href="@Url.Action("CopyReport", "Home", new { Area = Consts.AreaName, ReportID = item.ReportID })" data-action="copyreport">Copy</a></td>
+                    <td><a href="@Url.Action("DeleteReport", "Home", new { Area = Consts.AreaName, ReportID = item.ReportID })" data-action="deletereport" data-reportname="@item.ReportName">Delete</a></td>
+                    <td><a href="@Url.Action("EditReport", "Home", new { Area = Consts.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="editreport">Edit</a></td>
+                    <td><a href="@Url.Action("Index", "Design", new { Area = Consts.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="design">Design</a></td>
+                    <td><a href="@Url.Action("Index", "Preview", new { Area = Consts.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="preview">Preview</a></td>
                 </tr>
             }
             </tbody>
         }
         <tfoot>
             <tr>
-                <td colspan="3"><a target="_blank" href="@Url.Action("Create", "Design", new { Area = Consts.AreaName })" data-action="create">Create New</a></td>
+                <td colspan="10"><a href="@Url.Action("Create", "Design", new { Area = Consts.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="createreport">Create Report</a></td>
             </tr>
         </tfoot>
     </table>
 </div>
 
 <div class="table-responsive">
-    <h2>Data Sources</h2>
+    <h3>Categories</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        @if (Model.Categories != null)
+        {
+            <tbody>
+            @foreach (var item in Model.Categories)
+            {
+                <tr>
+                    <td>@item.CategoryName</td>
+                    <td><a href="@Url.Action("EditCategory", "Home", new { Area = Consts.AreaName, CategoryID = item.CategoryID, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="editcategory">Edit</a></td>
+                    <td><a href="@Url.Action("DeleteCategory", "Home", new { Area = Consts.AreaName, CategoryID = item.CategoryID })" data-action="deletecategory" data-categoryname="@item.CategoryName">Delete</a></td>
+                </tr>
+            }
+            </tbody>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="3"><a href="@Url.Action("CreateCategory", "Home", new { Area = Consts.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = Consts.AreaName }) })" data-action="createcategory">Create Category</a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <h3>Data Sources</h3>
     <table class="table table-striped">
         <thead>
             <tr>

@@ -9,9 +9,13 @@ namespace DReporting.Models
 {
     public class ReportModel
     {
-        public string ReportId { get; set; }
+        public string ReportID { get; set; }
+
+        public string ReportCode { get; set; }
 
         public string ReportName { get; set; }
+
+        public string CategoryID { get; set; }
 
         public DateTime CreationTime { get; set; }
 

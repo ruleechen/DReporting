@@ -9,14 +9,22 @@ namespace DReporting.Core
 {
     public interface IReportStorage
     {
-        IEnumerable<ReportModel> QueryReports(int? skip = null, int? take = null);
+        IQueryable<ReportModel> QueryReports();
+
+        IQueryable<CategoryModel> QueryCategories();
 
         ReportModel GetDefaultReport();
 
         ReportModel GetReport(string reportId);
 
-        void RemoveReport(string reportId);
+        CategoryModel GetCategory(string categoryId);
 
-        void SaveReport(string reportId, byte[] xmlContext);
+        void DeleteReport(string reportId);
+
+        void DeleteCategory(string categoryId);
+
+        ReportModel SaveReport(ReportModel model);
+
+        CategoryModel SaveCategory(CategoryModel model);
     }
 }

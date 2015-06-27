@@ -1,0 +1,10 @@
+﻿@model CategoryVM
+
+@{
+    ViewBag.Title = "Edit - " + Model.CategoryName;
+}
+
+<h3>Edit Category - @Model.CategoryName</h3>
+<hr />
+
+@Html.Partial("Category")

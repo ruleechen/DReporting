@@ -9,7 +9,7 @@ namespace DReporting.Models
 {
     public class ViewerVM
     {
-        public string ReportId { get; set; }
+        public string ReportID { get; set; }
 
         public string ReportName { get; set; }
 

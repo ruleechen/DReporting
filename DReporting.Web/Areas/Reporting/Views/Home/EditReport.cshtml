@@ -1,0 +1,59 @@
+﻿@model ReportVM
+
+@{
+    ViewBag.Title = "Edit - " + Model.ReportName;
+    var categories = ViewData["Categories"] as IEnumerable<CategoryVM>;
+}
+
+<h3>Edit Report - @Model.ReportName</h3>
+<hr />
+
+<form method="post" action="@Url.Action("SaveReport", "Home", new { Area = Consts.AreaName })">
+    @{var returnUrl = System.Web.HttpContext.Current.Request.QueryString["ReturnUrl"];}
+    <input type="hidden" name="ReturnUrl" value="@returnUrl" />
+    <input type="hidden" name="ReportID" value="@Model.ReportID" />
+    <div class="row" style="width: 500px;">
+        <div class="col-md-12">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Name</label>
+                        <div class="col-md-8">
+                            <input type="text" name="ReportName" class="form-control input-sm" value="@Model.ReportName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Code</label>
+                        <div class="col-md-8">
+                            <input type="text" name="ReportCode" class="form-control input-sm" value="@Model.ReportCode" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Category</label>
+                        <div class="col-md-8">
+                            <select name="CategoryID" class="form-control input-sm">
+                                <option value="">Choose ...</option>
+                                @foreach (var item in categories)
+                                {
+                                    <option value="@item.CategoryID" @if (item.CategoryID == Model.CategoryID){ @Html.Raw("selected=\"selected\"") }>@item.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4"></label>
+                        <div class="col-md-8">
+                            <input type="submit" value="Save" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

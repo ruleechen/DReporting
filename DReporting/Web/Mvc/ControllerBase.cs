@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using DReporting.Core;
 using DReporting.Services;
 
-namespace DReporting.Web.Area
+namespace DReporting.Web.Mvc
 {
     public abstract class ControllerBase : Controller
     {

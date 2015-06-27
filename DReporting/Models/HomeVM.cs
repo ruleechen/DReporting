@@ -10,8 +10,10 @@ namespace DReporting.Models
 {
     public class HomeVM
     {
-        public IEnumerable<ReportModel> Reports { get; set; }
+        public IEnumerable<ReportVM> Reports { get; set; }
 
-        public IEnumerable<DataSourceModel> DataSources { get; set; }
+        public IEnumerable<CategoryVM> Categories { get; set; }
+
+        public IEnumerable<DataSourceVM> DataSources { get; set; }
     }
 }

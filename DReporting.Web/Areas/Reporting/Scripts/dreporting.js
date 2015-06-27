@@ -13,6 +13,17 @@
             'number': true,
             'string': true
         },
+        getQuery: function (query, name) {
+            if (name === undefined) {
+                name = query;
+                query = location.search;
+            }
+            var result = query.match(new RegExp('[\?\&]' + name + '=([^\&]+)', 'i'));
+            if (!result || result.length < 1) {
+                return '';
+            }
+            return decodeURIComponent(result[1]);
+        },
         getQueryHash: function (loc) {
             var href = ($.type(loc) === 'string') ? loc : (loc || location).href;
             var matches = href.match(/^[^#]*(#.+)$/);
@@ -97,6 +108,7 @@
     // designer extents
     $.extend(ctx.designer, {
         SaveCommandExecute: function (ev, request) {
+            //ev.callbackCustomArgs = {};
             var defaultName = $('#defaultReportName').val();
             var displayName = prompt('Please specify the report name', defaultName);
             if (displayName) {
@@ -108,7 +120,10 @@
             }
         },
         SaveCommandExecuted: function (ev, response) {
-            if (response.Result) {
+            var returnUrl = ctx.getQuery('ReturnUrl');
+            if (returnUrl) {
+                location.href = returnUrl;
+            } else if (response.Result) {
                 location.href = response.Result;
             }
         }

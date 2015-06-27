@@ -72,6 +72,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -191,7 +192,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportDatas\User.cs" />
+    <Compile Include="ReportDatas\UserDataSource.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +222,10 @@
     <Content Include="Areas\Reporting\Views\Shared\Viewer.cshtml" />
     <Content Include="Areas\Reporting\Views\Shared\Designer.cshtml" />
     <Content Include="Areas\Reporting\Views\Design\Create.cshtml" />
+    <Content Include="Areas\Reporting\Views\Home\EditReport.cshtml" />
+    <Content Include="Areas\Reporting\Views\Home\CreateCategory.cshtml" />
+    <Content Include="Areas\Reporting\Views\Home\EditCategory.cshtml" />
+    <Content Include="Areas\Reporting\Views\Shared\Category.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

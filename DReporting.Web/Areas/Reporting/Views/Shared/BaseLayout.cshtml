@@ -9,9 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <script type="text/javascript" src="@Url.Content("~/bundles/js/reporting")"></script>
+    @Scripts.Render("~/reporting/js/bundle")
     @RenderSection("scripts", required: false)
-    <link type="text/css" rel="stylesheet" href="@Url.Content("~/bundles/css/reporting")" />
+    @Styles.Render("~/reporting/css/bundles")
     @RenderSection("styles", required: false)
 </head>
 <body>
