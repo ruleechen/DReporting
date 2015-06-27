@@ -11,8 +11,6 @@ namespace DReporting.Models
     {
         public string DataSourceID { get; set; }
 
-        public string DataSourceName { get; set; }
-
-        public IDataSource DataSource { get; set; }
+        public IDataSource InnerDataSource { get; set; }
     }
 }

@@ -21,8 +21,7 @@ namespace DReporting.Services
             var query = objs.Select(x => new DataSourceModel
             {
                 DataSourceID = metas.First(m => m.ComponentType == x.GetType()).ContractName,
-                DataSourceName = x.DataSourceName,
-                DataSource = x
+                InnerDataSource = x
             });
 
             query = query.OrderBy(x => x.DataSourceID);
@@ -47,8 +46,7 @@ namespace DReporting.Services
             return new DataSourceModel
             {
                 DataSourceID = dataSourceId,
-                DataSourceName = dataSource.DataSourceName,
-                DataSource = dataSource
+                InnerDataSource = dataSource
             };
         }
     }

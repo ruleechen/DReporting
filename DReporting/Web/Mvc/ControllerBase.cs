@@ -11,12 +11,12 @@ namespace DReporting.Web.Mvc
 {
     public abstract class ControllerBase : Controller
     {
-        private IReportDataMgr _reportDatas;
-        public IReportDataMgr ReportDatas
+        private IReportDataMgr _reportDataMgr;
+        public IReportDataMgr ReportDataMgr
         {
             get
             {
-                return _reportDatas ?? (_reportDatas = InjectContainer.Instance.GetExport<IReportDataMgr>());
+                return _reportDataMgr ?? (_reportDataMgr = InjectContainer.Instance.GetExport<IReportDataMgr>());
             }
         }
 

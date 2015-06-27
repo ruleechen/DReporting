@@ -14,7 +14,7 @@ namespace DReporting.Web.Mvc.Controllers
         {
             var reports = this.ReportStorage.QueryReports().Select(x => Convert(x));
             var categories = this.ReportStorage.QueryCategories().Select(x => Convert(x));
-            var dataSources = this.ReportDatas.QueryDataSources().Select(x => Convert(x));
+            var dataSources = this.ReportDataMgr.QueryDataSources().Select(x => Convert(x));
 
             return View(new HomeVM
             {
@@ -51,7 +51,7 @@ namespace DReporting.Web.Mvc.Controllers
             return new DataSourceVM
             {
                 DataSourceID = model.DataSourceID,
-                DataSourceName = model.DataSourceName
+                DataSourceName = model.InnerDataSource.DataSourceName
             };
         }
 

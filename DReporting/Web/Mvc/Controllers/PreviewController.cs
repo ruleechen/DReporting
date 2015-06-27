@@ -18,7 +18,7 @@ namespace DReporting.Web.Mvc.Controllers
             if (!string.IsNullOrEmpty(dataSourceId))
             {
                 var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
-                var dataSource = this.ReportDatas.GetDataSource(dataSourceId).DataSource;
+                var dataSource = this.ReportDataMgr.GetDataSource(dataSourceId).InnerDataSource;
                 report.XtraReport.DataSource = dataSource.GetBindingSource(query, false);
                 report.XtraReport.FillDataSource();
             }
