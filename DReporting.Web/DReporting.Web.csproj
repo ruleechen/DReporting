@@ -204,8 +204,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Categories.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReportDatas\CategoryDataSource.cs" />
-    <Compile Include="ReportDatas\UserDataSource.cs" />
+    <Compile Include="ReportDatas\DataSetDataProvider.cs" />
+    <Compile Include="ReportDatas\SampleDataProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

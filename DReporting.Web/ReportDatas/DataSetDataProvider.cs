@@ -8,12 +8,12 @@ using System.Web;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("dbooking.Categories", typeof(IDataProvider))]
-    public class CategoryDataSource : IDataProvider
+    [Export("Reporting.DataSetDataProvider", typeof(IDataProvider))]
+    public class DataSetDataProvider : IDataProvider
     {
         public string DataProviderName
         {
-            get { return "Categories"; }
+            get { return "DataSet"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)
