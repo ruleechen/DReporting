@@ -9,8 +9,8 @@ using DReporting.Models;
 
 namespace DReporting.Services
 {
-    [Export(typeof(IReportDatas))]
-    public class DefaultReportDatas : IReportDatas
+    [Export(typeof(IReportDataMgr))]
+    public class DefaultReportDataMgr : IReportDataMgr
     {
         public IEnumerable<DataSourceModel> QueryDataSources(int? skip = null, int? take = null)
         {

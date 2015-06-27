@@ -7,7 +7,7 @@ using DReporting.Models;
 
 namespace DReporting.Core
 {
-    public interface IReportDatas
+    public interface IReportDataMgr
     {
         IEnumerable<DataSourceModel> QueryDataSources(int? skip = null, int? take = null);
 

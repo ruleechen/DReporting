@@ -127,8 +127,8 @@
       <DependentUpon>DefaultXtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\InjectContainer.cs" />
-    <Compile Include="Core\IReportDatas.cs" />
-    <Compile Include="Services\DefaultReportDatas.cs" />
+    <Compile Include="Core\IReportDataMgr.cs" />
+    <Compile Include="Services\DefaultReportDataMgr.cs" />
     <Compile Include="Services\DefaultReportStorage.cs">
       <SubType>Code</SubType>
     </Compile>
