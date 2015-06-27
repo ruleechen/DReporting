@@ -210,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ReportService.mdf" />
+    <Content Include="App_Data\ReportService_log.ldf">
+      <DependentUpon>ReportService.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\Reporting\Content\bootstrap.css" />
     <Content Include="Areas\Reporting\Content\dreporting.css" />
     <Content Include="Areas\Reporting\Scripts\dreporting.js" />
