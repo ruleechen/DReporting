@@ -19,7 +19,9 @@
                     <div class="col-md-12">
                         <label class="control-label col-md-4"></label>
                         <div class="col-md-8">
-                            <input type="submit" value="Save" />
+                            <button type="submit" class="btn">Save</button>
+                            @if (!string.IsNullOrEmpty(returnUrl))
+                            { <button type="button" class="btn" data-action="cancel" data-href="@returnUrl">Cancel</button>}
                         </div>
                     </div>
                 </div>

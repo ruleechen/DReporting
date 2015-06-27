@@ -4,25 +4,6 @@
     ViewBag.Title = "Reporting";
 }
 
-@section scripts {
-    <script type="text/javascript">
-        $(function () {
-            $('a[data-action="deletereport"]').click(function () {
-                var name = $(this).data('reportname');
-                if (!confirm('Are you sure to delete report "' + name + '" ?')) {
-                    return false;
-                }
-            });
-            $('a[data-action="deletecategory"]').click(function () {
-                var name = $(this).data('categoryname');
-                if (!confirm('Are you sure to delete category "' + name + '" ?')) {
-                    return false;
-                }
-            });
-        });
-    </script>
-}
-
 <div class="table-responsive">
     <h3>Reports</h3>
     <table class="table table-striped">
@@ -52,7 +33,7 @@
                     <td>@item.CreationTime</td>
                     <td>@item.LastUpdateTime</td>
                     <td><a href="@Url.Action("CopyReport", "Home", new { Area = Contextual.AreaName, ReportID = item.ReportID })" data-action="copyreport">Copy</a></td>
-                    <td><a href="@Url.Action("DeleteReport", "Home", new { Area = Contextual.AreaName, ReportID = item.ReportID })" data-action="deletereport" data-reportname="@item.ReportName">Delete</a></td>
+                    <td><a href="@Url.Action("DeleteReport", "Home", new { Area = Contextual.AreaName, ReportID = item.ReportID })" data-action="deletereport" data-name="@item.ReportName">Delete</a></td>
                     <td><a href="@Url.Action("EditReport", "Home", new { Area = Contextual.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Contextual.AreaName }) })" data-action="editreport">Edit</a></td>
                     <td><a href="@Url.Action("Index", "Design", new { Area = Contextual.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Contextual.AreaName }) })" data-action="design">Design</a></td>
                     <td><a href="@Url.Action("Index", "Preview", new { Area = Contextual.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = Contextual.AreaName }) })" data-action="preview">Preview</a></td>
@@ -86,7 +67,7 @@
                 <tr>
                     <td>@item.CategoryName</td>
                     <td><a href="@Url.Action("EditCategory", "Home", new { Area = Contextual.AreaName, CategoryID = item.CategoryID, ReturnUrl = Url.Action("Index", "Home", new { Area = Contextual.AreaName }) })" data-action="editcategory">Edit</a></td>
-                    <td><a href="@Url.Action("DeleteCategory", "Home", new { Area = Contextual.AreaName, CategoryID = item.CategoryID })" data-action="deletecategory" data-categoryname="@item.CategoryName">Delete</a></td>
+                    <td><a href="@Url.Action("DeleteCategory", "Home", new { Area = Contextual.AreaName, CategoryID = item.CategoryID })" data-action="deletecategory" data-name="@item.CategoryName">Delete</a></td>
                 </tr>
             }
             </tbody>

@@ -129,4 +129,24 @@
         }
     });
 
+    // page actions
+    $(function () {
+        $('[data-action="deletereport"]').click(function () {
+            var name = $(this).data('name');
+            if (!confirm('Are you sure to delete report "' + name + '" ?')) {
+                return false;
+            }
+        });
+        $('[data-action="deletecategory"]').click(function () {
+            var name = $(this).data('name');
+            if (!confirm('Are you sure to delete category "' + name + '" ?')) {
+                return false;
+            }
+        });
+        $('[data-action="cancel"]').click(function () {
+            var href = $(this).data('href');
+            if (href) { location.href = href; }
+        });
+    });
+
 })(jQuery);
