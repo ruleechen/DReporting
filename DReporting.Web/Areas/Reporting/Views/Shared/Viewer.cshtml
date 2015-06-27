@@ -3,7 +3,7 @@
 @Html.DevExpress().DocumentViewer(settings =>
 {
     settings.Name = "documentViewer1";
-    settings.Report = (DevExpress.XtraReports.UI.XtraReport)Model.Report;
+    settings.Report = Model.Report;
     settings.CallbackRouteValues = new { Area = "Reporting", Controller = "Preview", Action = "Callback", ReportId = Model.ReportId };
     settings.ExportRouteValues = new { Area = "Reporting", Controller = "Preview", Action = "Export", ReportId = Model.ReportId };
 }).GetHtml()

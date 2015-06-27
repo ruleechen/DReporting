@@ -125,7 +125,6 @@
     <Compile Include="Web\Area\Controllers\DesignController.cs" />
     <Compile Include="Web\Area\Controllers\HomeController.cs" />
     <Compile Include="Web\Area\Controllers\PreviewController.cs" />
-    <Compile Include="Core\IReport.cs" />
     <Compile Include="Models\DesignerVM.cs" />
     <Compile Include="Models\ViewerVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="15.1.3.0" ControlType="DReporting.Services.DefaultXtraReport, DReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Version="15.1" Name="DefaultXtraReport" PageWidth="850" PageHeight="1100">
+  <Bands>
+    <Item1 ControlType="TopMarginBand" Name="TopMargin1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="0" />
+    <Item2 ControlType="DetailBand" Name="Detail1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="1" />
+    <Item3 ControlType="BottomMarginBand" Name="BottomMargin1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="2" />
+  </Bands>
+</XtraReportsLayoutSerializer>

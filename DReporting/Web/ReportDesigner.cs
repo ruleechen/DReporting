@@ -14,23 +14,19 @@ namespace DReporting.Web
     {
         public abstract ASPxReportDesigner GetDesigner();
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
             var designer = this.GetDesigner();
-
             designer.SaveReportLayout += designer_SaveReportLayout;
+            base.OnInit(e);
+        }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (!this.IsPostBack)
             {
-                if (Model.DataSources != null && Model.DataSources.Count > 0)
-                {
-                    foreach (var item in Model.DataSources)
-                    {
-                        designer.DataSources.Add(item.Key, item.Value);
-                    }
-                }
-
-                designer.OpenReport((XtraReport)Model.Report);
+                var designer = this.GetDesigner();
+                //TODO:
             }
         }
 

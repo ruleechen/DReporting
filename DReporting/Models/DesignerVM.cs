@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DReporting.Core;
+using DevExpress.XtraReports.Web.ReportDesigner;
 
 namespace DReporting.Models
 {
@@ -11,8 +12,8 @@ namespace DReporting.Models
     {
         public string ReportId { get; set; }
 
-        public IReport Report { get; set; }
+        public string ReportName { get; set; }
 
-        public IDictionary<string, IDataSource> DataSources { get; set; }
+        public ReportDesignerModel DesignerModel { get; set; }
     }
 }

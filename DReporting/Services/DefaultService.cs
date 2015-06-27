@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using DReporting.Core;
+using DevExpress.XtraReports.UI;
 
 namespace DReporting.Services
 {
     [Export(typeof(IReportService))]
     public class DefaultService : IReportService
     {
-        public IDictionary<string, IReport> AllReports()
+        static string ReportsDir;
+        static DefaultService()
         {
-            var metas = Container.Instance.ExportMetas();
-            var objs = Container.Instance.ResolveValues<IReport>();
-            return objs.ToDictionary(x => metas.First(m => m.ComponentType == x.GetType()).ContractName, x => x);
+            ReportsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Reporting", "Reports");
+            if (!Directory.Exists(ReportsDir)) { Directory.CreateDirectory(ReportsDir); }
         }
 
         public IDictionary<string, IDataSource> AllDataSources()
@@ -25,24 +27,40 @@ namespace DReporting.Services
             return objs.ToDictionary(x => metas.First(m => m.ComponentType == x.GetType()).ContractName, x => x);
         }
 
-        public IReport DefaultReportTemplate()
-        {
-            return Container.Instance.ResolveValue<IReport>("dreporting.default.template");
-        }
-
-        public IReport GetReport(string reportId)
-        {
-            return Container.Instance.ResolveValue<IReport>(reportId);
-        }
-
         public IDataSource GetDataSource(string dataSourceId)
         {
             return Container.Instance.ResolveValue<IDataSource>(dataSourceId);
         }
 
+
+        public IDictionary<string, XtraReport> AllReports()
+        {
+            var reports = Directory.GetFiles(ReportsDir, "*.xml");
+            return reports.Select(x => new { file = x, report = XtraReport.FromFile(x, true) }).ToDictionary(x => x.file, x => x.report);
+        }
+
+        public XtraReport DefaultReportTemplate()
+        {
+            return new DefaultXtraReport();
+        }
+
+        public XtraReport GetReport(string reportId)
+        {
+            var file = Path.Combine(ReportsDir, reportId + ".xml");
+            return XtraReport.FromFile(file, true);
+        }
+
         public void SaveReport(string reportId, byte[] xmlContext)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(reportId))
+            {
+                throw new ArgumentNullException("reportId");
+            }
+
+            var dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Reporting", "Reports");
+            if (!Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
+            var file = Path.Combine(dir, reportId + ".xml");
+            File.WriteAllBytes(file, xmlContext);
         }
     }
 }

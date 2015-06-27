@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="15.1.3.0" ControlType="DReporting.Services.DefaultXtraReport, DReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Version="15.1" Name="DefaultXtraReport" PageWidth="850" PageHeight="1100">
+  <Bands>
+    <Item1 ControlType="TopMarginBand" Name="TopMargin1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="0" />
+    <Item2 ControlType="DetailBand" HeightF="110.5" Name="Detail1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="4">
+      <Controls>
+        <Item1 ControlType="XRLabel" SizeF="100, 23" LocationFloat="196.35, 26.04" Text="label1" Name="label1" Padding="2,2,0,0,100" Ref="1" />
+        <Item2 ControlType="XRRichText" SizeF="100, 23" LocationFloat="114.06, 49.04" Name="richText1" Ref="2" />
+        <Item3 ControlType="XRCheckBox" Text="checkBox1" SizeF="100, 23" LocationFloat="444.27, 87.5" Name="checkBox1" Ref="3" />
+      </Controls>
+    </Item2>
+    <Item3 ControlType="BottomMarginBand" Name="BottomMargin1" TextAlignment="TopLeft" Padding="0,0,0,0,100" Ref="5" />
+  </Bands>
+</XtraReportsLayoutSerializer>

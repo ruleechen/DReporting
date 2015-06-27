@@ -15,7 +15,8 @@ namespace DReporting.Web.Area
                 string.Format("~/Areas/{0}/Scripts/jquery-1.11.1.min.js", AreaRegistration.ReportingAreaName),
                 string.Format("~/Areas/{0}/Scripts/jquery-ui.min.js", AreaRegistration.ReportingAreaName),
                 string.Format("~/Areas/{0}/Scripts/knockout-3.3.0.js", AreaRegistration.ReportingAreaName),
-                string.Format("~/Areas/{0}/Scripts/globalize.js", AreaRegistration.ReportingAreaName)
+                string.Format("~/Areas/{0}/Scripts/globalize.js", AreaRegistration.ReportingAreaName),
+                string.Format("~/Areas/{0}/Scripts/dreporting.js", AreaRegistration.ReportingAreaName)
             ));
         }
     }

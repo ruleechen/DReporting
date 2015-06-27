@@ -181,20 +181,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Reporting\Datas\XtraReport1DataSource.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reporting\Reports\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reporting\Reports\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Reporting\Datas\User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,11 +196,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ReportService.mdf" />
+    <Content Include="Areas\Reporting\Scripts\dreporting.js" />
     <Content Include="Areas\Reporting\Scripts\globalize.js" />
     <Content Include="Areas\Reporting\Scripts\jquery-1.11.1.min.js" />
     <Content Include="Areas\Reporting\Scripts\jquery-ui.min.js" />
     <Content Include="Areas\Reporting\Scripts\knockout-3.3.0.js" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\imgs\coffee.jpg" />
@@ -221,6 +208,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Reporting\Reports\13ea29dd-2736-4497-84b6-62d77ceb6962.xml" />
+    <Content Include="Reporting\Reports\1dfeb174-05af-4a9b-aecc-5ac8c3ec4389.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Reporting\Views\Web.config" />
@@ -244,7 +233,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -289,9 +280,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reporting\Reports\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>

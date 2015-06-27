@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraReports.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,15 @@ namespace DReporting.Core
 {
     public interface IReportService
     {
-        IDictionary<string, IReport> AllReports();
-
         IDictionary<string, IDataSource> AllDataSources();
 
-        IReport DefaultReportTemplate();
-
-        IReport GetReport(string reportId);
-
         IDataSource GetDataSource(string dataSourceId);
+
+        IDictionary<string, XtraReport> AllReports();
+
+        XtraReport DefaultReportTemplate();
+
+        XtraReport GetReport(string reportId);
 
         void SaveReport(string reportId, byte[] xmlContext);
     }

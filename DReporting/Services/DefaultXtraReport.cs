@@ -7,8 +7,7 @@ using DReporting.Core;
 
 namespace DReporting.Services
 {
-    [Export("dreporting.default.template", typeof(IReport))]
-    public partial class DefaultXtraReport : DevExpress.XtraReports.UI.XtraReport, IReport
+    public partial class DefaultXtraReport : DevExpress.XtraReports.UI.XtraReport
     {
         public DefaultXtraReport()
         {
