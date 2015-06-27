@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using DReporting.Core;
 
-namespace DReporting.Web.Reporting.Datas
+namespace DReporting.Web.ReportDatas
 {
     [Export("dbooking.reporting.data.test", typeof(IDataSource))]
     public class User : IDataSource

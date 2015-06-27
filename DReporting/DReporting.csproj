@@ -106,11 +106,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consts.cs" />
     <Compile Include="Core\IDataSource.cs" />
+    <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\HomeVM.cs" />
-    <Compile Include="Services\Container.cs" />
-    <Compile Include="Core\IReportService.cs" />
-    <Compile Include="Services\DefaultService.cs">
+    <Compile Include="Services\InjectContainer.cs" />
+    <Compile Include="Core\IReportDatas.cs" />
+    <Compile Include="Services\DefaultReportDatas.cs" />
+    <Compile Include="Services\DefaultReportStorage.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\DefaultXtraReport.cs">

@@ -1,11 +1,11 @@
-﻿@model DReporting.Models.DesignerVM
+﻿@model DesignerVM
 
-<input type="text" id="txtReportName" value="@Model.ReportName" />
+<input type="hidden" id="defaultReportName" value="@Model.ReportName" />
 
 @Html.DevExpress().ReportDesigner(settings =>
 {
     settings.Name = "designer";
-    settings.SaveCallbackRouteValues = new { Area = "Reporting", Controller = "Design", Action = "Save", ReportId = Model.ReportId };
+    settings.SaveCallbackRouteValues = new { Area = Consts.AreaName, Controller = "Design", Action = "Save", ReportId = Model.ReportId };
     settings.ClientSideEvents.SaveCommandExecute = "dreporting.designer.SaveCommandExecute";
     settings.ClientSideEvents.SaveCommandExecuted = "dreporting.designer.SaveCommandExecuted";
 }).Bind(Model.DesignerModel).GetHtml()

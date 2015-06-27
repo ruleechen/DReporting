@@ -13,9 +13,15 @@ namespace DReporting.Web.Area.Controllers
         {
             return View(new HomeVM
             {
-                Reports = this.ReportService.AllReports(),
-                DataSources = this.ReportService.AllDataSources()
+                Reports = this.ReportStorage.AllReports(),
+                DataSources = this.ReportDatas.AllDataSources()
             });
+        }
+
+        public ActionResult Delete(string reportId)
+        {
+            this.ReportStorage.RemoveReport(reportId);
+            return RedirectToAction("Index", "Home", new { Area = Consts.AreaName });
         }
     }
 }

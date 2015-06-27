@@ -8,13 +8,13 @@ using EBA.IoC;
 
 namespace DReporting.Services
 {
-    public class Container
+    public class InjectContainer
     {
-        static Container _instance;
         static IContainer _container;
         static IEnumerable<ExportMeta> _exportMetas;
+        static InjectContainer _injectContainer;
 
-        static Container()
+        static InjectContainer()
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.FullName.StartsWith("DReporting", StringComparison.InvariantCultureIgnoreCase));
             _container = new ContainerConfiguration().WithAssemblies(assemblies).CreateContainer();
@@ -25,7 +25,7 @@ namespace DReporting.Services
                 ContractName = x.ContractName
             });
 
-            _instance = new Container();
+            _injectContainer = new InjectContainer();
         }
 
         public class ExportMeta
@@ -34,11 +34,11 @@ namespace DReporting.Services
             public string ContractName { get; set; }
         }
 
-        public static Container Instance
+        public static InjectContainer Instance
         {
             get
             {
-                return _instance;
+                return _injectContainer;
             }
         }
 
@@ -47,12 +47,12 @@ namespace DReporting.Services
             return _exportMetas;
         }
 
-        public IEnumerable<T> ResolveValues<T>()
+        public IEnumerable<T> GetExports<T>()
         {
             return _container.GetExports<T>();
         }
 
-        public T ResolveValue<T>(string contractName = null)
+        public T GetExport<T>(string contractName = null)
         {
             if (string.IsNullOrEmpty(contractName))
             {

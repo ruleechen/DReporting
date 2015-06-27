@@ -10,13 +10,11 @@ namespace DReporting.Web.Area
 {
     public class AreaRegistration : System.Web.Mvc.AreaRegistration
     {
-        public const string ReportingAreaName = "Reporting";
-
         public override string AreaName
         {
             get
             {
-                return ReportingAreaName;
+                return Consts.AreaName;
             }
         }
 
@@ -25,7 +23,7 @@ namespace DReporting.Web.Area
             WebResources.RegisterBundles(BundleTable.Bundles);
 
             context.MapRoute(
-                "Reporting_default",
+                this.AreaName + "_default",
                 this.AreaName + "/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new string[] { "DReporting.Web.Area.Controllers" }

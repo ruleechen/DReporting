@@ -17,7 +17,7 @@ namespace DReporting.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             var viewer = this.GetViewer();
-            viewer.Report = (XtraReport)this.Model.Report;
+            viewer.Report = this.Model.Report;
         }
     }
 }

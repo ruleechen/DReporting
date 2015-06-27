@@ -11,6 +11,7 @@ namespace DReporting.Services
     {
         public DefaultXtraReport()
         {
+            this.DisplayName = "Unnamed Report";
             InitializeComponent();
         }
     }

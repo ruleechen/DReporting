@@ -181,7 +181,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Reporting\Datas\User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -192,10 +191,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDatas\User.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ReportService.mdf" />
+    <Content Include="Areas\Reporting\Content\bootstrap.css" />
+    <Content Include="Areas\Reporting\Content\dreporting.css" />
     <Content Include="Areas\Reporting\Scripts\dreporting.js" />
     <Content Include="Areas\Reporting\Scripts\globalize.js" />
     <Content Include="Areas\Reporting\Scripts\jquery-1.11.1.min.js" />
@@ -208,8 +210,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Reporting\Reports\13ea29dd-2736-4497-84b6-62d77ceb6962.xml" />
-    <Content Include="Reporting\Reports\1dfeb174-05af-4a9b-aecc-5ac8c3ec4389.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Reporting\Views\Web.config" />

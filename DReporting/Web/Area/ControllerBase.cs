@@ -5,17 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using DReporting.Core;
+using DReporting.Services;
 
 namespace DReporting.Web.Area
 {
-    public class ControllerBase : Controller
+    public abstract class ControllerBase : Controller
     {
-        private IReportService _reportService;
-        public IReportService ReportService
+        private IReportDatas _reportDatas;
+        public IReportDatas ReportDatas
         {
             get
             {
-                return _reportService ?? (_reportService = DReporting.Services.Container.Instance.ResolveValue<IReportService>());
+                return _reportDatas ?? (_reportDatas = InjectContainer.Instance.GetExport<IReportDatas>());
+            }
+        }
+
+        private IReportStorage _reportStorage;
+        public IReportStorage ReportStorage
+        {
+            get
+            {
+                return _reportStorage ?? (_reportStorage = InjectContainer.Instance.GetExport<IReportStorage>());
             }
         }
     }
