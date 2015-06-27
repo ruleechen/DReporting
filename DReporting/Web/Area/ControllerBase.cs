@@ -10,12 +10,12 @@ namespace DReporting.Web.Area
 {
     public class ControllerBase : Controller
     {
-        private IReportService _service;
-        public IReportService Service
+        private IReportService _reportService;
+        public IReportService ReportService
         {
             get
             {
-                return _service ?? (_service = DReporting.Services.Container.Instance.ResolveValue<IReportService>());
+                return _reportService ?? (_reportService = DReporting.Services.Container.Instance.ResolveValue<IReportService>());
             }
         }
     }

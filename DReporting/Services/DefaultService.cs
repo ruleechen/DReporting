@@ -11,14 +11,23 @@ namespace DReporting.Services
     [Export(typeof(IReportService))]
     public class DefaultService : IReportService
     {
-        public IEnumerable<IReport> AllReports()
+        public IDictionary<string, IReport> AllReports()
         {
-            return Container.Instance.ResolveValues<IReport>();
+            var metas = Container.Instance.ExportMetas();
+            var objs = Container.Instance.ResolveValues<IReport>();
+            return objs.ToDictionary(x => metas.First(m => m.ComponentType == x.GetType()).ContractName, x => x);
         }
 
-        public IEnumerable<IDataSource> AllDataSources()
+        public IDictionary<string, IDataSource> AllDataSources()
         {
-            return Container.Instance.ResolveValues<IDataSource>();
+            var metas = Container.Instance.ExportMetas();
+            var objs = Container.Instance.ResolveValues<IDataSource>();
+            return objs.ToDictionary(x => metas.First(m => m.ComponentType == x.GetType()).ContractName, x => x);
+        }
+
+        public IReport DefaultReportTemplate()
+        {
+            return Container.Instance.ResolveValue<IReport>("dreporting.default.template");
         }
 
         public IReport GetReport(string reportId)
@@ -29,6 +38,11 @@ namespace DReporting.Services
         public IDataSource GetDataSource(string dataSourceId)
         {
             return Container.Instance.ResolveValue<IDataSource>(dataSourceId);
+        }
+
+        public void SaveReport(string reportId, byte[] xmlContext)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,6 +8,8 @@ namespace DReporting.Core
 {
     public interface IReport
     {
-        ReportInfo ReportInfo { get; }
+        string Name { get; set; }
+
+        string DisplayName { get; set; }
     }
 }

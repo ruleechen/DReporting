@@ -4,7 +4,6 @@
 {
     settings.Name = "documentViewer1";
     settings.Report = (DevExpress.XtraReports.UI.XtraReport)Model.Report;
-    settings.CallbackRouteValues = new { Area = "Reporting", Controller = "Viewer", Action = "Callback", ReportId = Model.ReportId };
-    settings.ExportRouteValues = new { Area = "Reporting", Controller = "Viewer", Action = "Export", ReportId = Model.ReportId };
-
+    settings.CallbackRouteValues = new { Area = "Reporting", Controller = "Preview", Action = "Callback", ReportId = Model.ReportId };
+    settings.ExportRouteValues = new { Area = "Reporting", Controller = "Preview", Action = "Export", ReportId = Model.ReportId };
 }).GetHtml()

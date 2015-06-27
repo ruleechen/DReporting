@@ -1,0 +1,7 @@
+﻿@model DReporting.Models.DesignerVM
+
+@Html.DevExpress().ReportDesigner(settings =>
+{
+    settings.Name = "designer";
+    settings.SaveCallbackRouteValues = new { Area = "Reporting", Controller = "Design", Action = "Save", ReportId = Model.ReportId };
+}).Bind((DevExpress.XtraReports.UI.XtraReport)Model.Report).GetHtml()

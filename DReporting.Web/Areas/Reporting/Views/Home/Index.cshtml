@@ -1,14 +1,33 @@
-﻿
-@model IEnumerable<DReporting.Models.ReportInfo>
+﻿@model DReporting.Models.HomeVM
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Reporting";
 }
 
-<h2>Index</h2>
-<ul>
-    @foreach (var info in Model)
-    {
-        <li>@info.Name</li>
-    }
-</ul>
+<h2>Actions</h2>
+<a target="_blank" href="/Reporting/Design/Create">Create Report</a>
+<hr />
+
+@if (Model.Reports != null)
+{
+    <h2>Reports</h2>
+    <ul>
+        @foreach (var item in Model.Reports)
+        {
+            <li>@item.Key</li>
+        }
+    </ul>
+    <hr />
+}
+
+@if (Model.DataSources != null)
+{
+    <h2>Data Sources</h2>
+    <ul>
+        @foreach (var item in Model.DataSources)
+        {
+            <li>@item.Key</li>
+        }
+    </ul>
+    <hr />
+}

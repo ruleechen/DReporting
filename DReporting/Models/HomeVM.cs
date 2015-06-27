@@ -7,11 +7,9 @@ using DReporting.Core;
 
 namespace DReporting.Models
 {
-    public class DesignerVM
+    public class HomeVM
     {
-        public string ReportId { get; set; }
-
-        public IReport Report { get; set; }
+        public IDictionary<string, IReport> Reports { get; set; }
 
         public IDictionary<string, IDataSource> DataSources { get; set; }
     }

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Create Report";
+}
+
+@section styles {
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.All }
+    )
+}
+
+@section scripts {
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.All }
+    )
+}
+
+@Html.Partial("Designer")

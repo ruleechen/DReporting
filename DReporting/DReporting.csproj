@@ -33,12 +33,23 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Mvc5.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v15.1.Web, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EBA, Version=0.3.0.38425, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EBA.0.3.22\lib\Net40\EBA.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -48,8 +59,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -89,24 +106,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DataSourceInfo.cs" />
     <Compile Include="Core\IDataSource.cs" />
+    <Compile Include="Models\HomeVM.cs" />
     <Compile Include="Services\Container.cs" />
     <Compile Include="Core\IReportService.cs" />
     <Compile Include="Services\DefaultService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\DefaultXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\DefaultXtraReport.Designer.cs">
+      <DependentUpon>DefaultXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Web\Area\ControllerBase.cs" />
     <Compile Include="Web\Area\WebResources.cs" />
     <Compile Include="Web\Area\AreaRegistration.cs" />
-    <Compile Include="Web\Area\Controllers\DesignerController.cs" />
+    <Compile Include="Web\Area\Controllers\DesignController.cs" />
     <Compile Include="Web\Area\Controllers\HomeController.cs" />
-    <Compile Include="Web\Area\Controllers\ViewerController.cs" />
+    <Compile Include="Web\Area\Controllers\PreviewController.cs" />
     <Compile Include="Core\IReport.cs" />
     <Compile Include="Models\DesignerVM.cs" />
     <Compile Include="Models\ViewerVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\ReportInfo.cs" />
     <Compile Include="Web\ReportDesigner.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -114,8 +136,11 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

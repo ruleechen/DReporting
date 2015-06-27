@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DReporting.Models;
 
 namespace DReporting.Web.Area.Controllers
 {
@@ -10,8 +11,11 @@ namespace DReporting.Web.Area.Controllers
     {
         public ActionResult Index()
         {
-            var model = this.Service.AllReports().Select(x => x.ReportInfo);
-            return View(model);
+            return View(new HomeVM
+            {
+                Reports = this.ReportService.AllReports(),
+                DataSources = this.ReportService.AllDataSources()
+            });
         }
     }
 }

@@ -4,20 +4,34 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EBA.IoC;
 
 namespace DReporting.Services
 {
     public class Container
     {
         static Container _instance;
-        static CompositionContainer _container;
+        static IContainer _container;
+        static IEnumerable<ExportMeta> _exportMetas;
 
         static Container()
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.FullName.StartsWith("DReporting"));
-            var catalog = new AggregateCatalog(assemblies.Select(x => new AssemblyCatalog(x)));
-            _container = new CompositionContainer(catalog);
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.FullName.StartsWith("DReporting", StringComparison.InvariantCultureIgnoreCase));
+            _container = new ContainerConfiguration().WithAssemblies(assemblies).CreateContainer();
+
+            _exportMetas = _container.Conventions.Exports.Select(x => new ExportMeta
+            {
+                ComponentType = x.ComponentType,
+                ContractName = x.ContractName
+            });
+
             _instance = new Container();
+        }
+
+        public class ExportMeta
+        {
+            public Type ComponentType { get; set; }
+            public string ContractName { get; set; }
         }
 
         public static Container Instance
@@ -28,32 +42,26 @@ namespace DReporting.Services
             }
         }
 
-        public T ResolveValue<T>(string contractName = null)
+        public IEnumerable<ExportMeta> ExportMetas()
         {
-            if (string.IsNullOrEmpty(contractName))
-            {
-                return _container.GetExportedValue<T>();
-            }
-            else
-            {
-                return _container.GetExportedValue<T>(contractName);
-            }
+            return _exportMetas;
         }
 
         public IEnumerable<T> ResolveValues<T>()
         {
-            return _container.GetExportedValues<T>();
+            return _container.GetExports<T>();
         }
 
-        //http://www.codewrecks.com/blog/index.php/2012/05/08/getting-the-list-of-type-associated-to-a-given-export-in-mef/
-        //public IEnumerable<ReportInfo> AllReportInfos()
-        //{
-        //var fullName = typeof(ReportInfo).FullName;
-        //return _container.Catalog.Parts.Where(p =>
-        //    p.ExportDefinitions.Any(x =>
-        //        x.Metadata.ContainsKey("ExportTypeIdentity") &&
-        //        x.Metadata["ExportTypeIdentity"].Equals(fullName)))
-        //    .Select(part => part.ExportDefinitions.FirstOrDefault().ContractName);
-        //}
+        public T ResolveValue<T>(string contractName = null)
+        {
+            if (string.IsNullOrEmpty(contractName))
+            {
+                return _container.GetExport<T>();
+            }
+            else
+            {
+                return _container.GetExport<T>(contractName);
+            }
+        }
     }
 }

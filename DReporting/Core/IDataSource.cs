@@ -8,6 +8,5 @@ namespace DReporting.Core
 {
     public interface IDataSource
     {
-        DataSourceInfo DataSourceInfo { get; }
     }
 }

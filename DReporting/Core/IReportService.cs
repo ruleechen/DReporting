@@ -8,12 +8,16 @@ namespace DReporting.Core
 {
     public interface IReportService
     {
-        IEnumerable<IReport> AllReports();
+        IDictionary<string, IReport> AllReports();
 
-        IEnumerable<IDataSource> AllDataSources();
+        IDictionary<string, IDataSource> AllDataSources();
+
+        IReport DefaultReportTemplate();
 
         IReport GetReport(string reportId);
 
         IDataSource GetDataSource(string dataSourceId);
+
+        void SaveReport(string reportId, byte[] xmlContext);
     }
 }
