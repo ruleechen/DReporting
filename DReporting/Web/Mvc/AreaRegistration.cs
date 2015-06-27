@@ -14,7 +14,7 @@ namespace DReporting.Web.Mvc
         {
             get
             {
-                return Consts.AreaName;
+                return Contextual.AreaName;
             }
         }
 

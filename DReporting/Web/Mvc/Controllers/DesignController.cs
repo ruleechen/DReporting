@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
 using DReporting.Models;
+using DReporting.Web.Mvc.ViewModels;
 
 namespace DReporting.Web.Mvc.Controllers
 {
@@ -68,7 +69,7 @@ namespace DReporting.Web.Mvc.Controllers
                 XtraReport = xtraReport
             });
 
-            return Content(Url.Action("Index", "Design", new { Area = Consts.AreaName, ReportID = model.ReportID }));
+            return Content(Url.Action("Index", "Design", new { Area = Contextual.AreaName, ReportID = model.ReportID }));
         }
     }
 }

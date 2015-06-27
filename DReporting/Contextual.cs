@@ -10,7 +10,7 @@ using DReporting.Services;
 
 namespace DReporting
 {
-    public static class Consts
+    public static class Contextual
     {
         public const string AreaName = "Reporting";
 

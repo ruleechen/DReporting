@@ -5,7 +5,7 @@
 @Html.DevExpress().ReportDesigner(settings =>
 {
     settings.Name = "designer";
-    settings.SaveCallbackRouteValues = new { Area = Consts.AreaName, Controller = "Design", Action = "Save", ReportID = Model.ReportID };
+    settings.SaveCallbackRouteValues = new { Area = Contextual.AreaName, Controller = "Design", Action = "Save", ReportID = Model.ReportID };
     settings.ClientSideEvents.SaveCommandExecute = "dreporting.designer.SaveCommandExecute";
     settings.ClientSideEvents.SaveCommandExecuted = "dreporting.designer.SaveCommandExecuted";
 }).Bind(Model.DesignerModel).GetHtml()

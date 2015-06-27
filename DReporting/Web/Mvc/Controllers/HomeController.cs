@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DReporting.Models;
+using DReporting.Web.Mvc.ViewModels;
 
 namespace DReporting.Web.Mvc.Controllers
 {
@@ -81,7 +82,7 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditReport", "Home", new { Area = Consts.AreaName, ReportID = model.ReportID });
+                return RedirectToAction("EditReport", "Home", new { Area = Contextual.AreaName, ReportID = model.ReportID });
             }
         }
 
@@ -97,13 +98,13 @@ namespace DReporting.Web.Mvc.Controllers
 
             this.ReportStorage.SaveReport(report);
 
-            return RedirectToAction("Index", "Home", new { Area = Consts.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = Contextual.AreaName });
         }
 
         public ActionResult DeleteReport(string reportId)
         {
             this.ReportStorage.DeleteReport(reportId);
-            return RedirectToAction("Index", "Home", new { Area = Consts.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = Contextual.AreaName });
         }
 
         public ActionResult CreateCategory()
@@ -132,14 +133,14 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditCategory", "Home", new { Area = Consts.AreaName, CategoryID = model.CategoryID });
+                return RedirectToAction("EditCategory", "Home", new { Area = Contextual.AreaName, CategoryID = model.CategoryID });
             }
         }
 
         public ActionResult DeleteCategory(string categoryId)
         {
             this.ReportStorage.DeleteCategory(categoryId);
-            return RedirectToAction("Index", "Home", new { Area = Consts.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = Contextual.AreaName });
         }
     }
 }

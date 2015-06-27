@@ -109,17 +109,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consts.cs" />
+    <Compile Include="Contextual.cs" />
     <Compile Include="Core\IDataConnection.cs" />
     <Compile Include="Core\IDataSource.cs" />
     <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\DataSourceModel.cs" />
-    <Compile Include="Models\DataSourceVM.cs" />
-    <Compile Include="Models\HomeVM.cs" />
-    <Compile Include="Models\CategoryVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\DataSourceVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
-    <Compile Include="Models\ReportVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\ReportVM.cs" />
     <Compile Include="Services\DefaultXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -138,8 +138,8 @@
     <Compile Include="Web\Mvc\Controllers\DesignController.cs" />
     <Compile Include="Web\Mvc\Controllers\HomeController.cs" />
     <Compile Include="Web\Mvc\Controllers\PreviewController.cs" />
-    <Compile Include="Models\DesignerVM.cs" />
-    <Compile Include="Models\ViewerVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\DesignerVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\ViewerVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\ReportDesigner.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -158,6 +158,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

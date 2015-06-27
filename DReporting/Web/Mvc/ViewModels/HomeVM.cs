@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DReporting.Core;
 using DevExpress.XtraReports.UI;
 
-namespace DReporting.Models
+namespace DReporting.Web.Mvc.ViewModels
 {
     public class HomeVM
     {

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using DReporting.Models;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraReports.Web;
+using DReporting.Models;
+using DReporting.Web.Mvc.ViewModels;
 
 namespace DReporting.Web
 {
