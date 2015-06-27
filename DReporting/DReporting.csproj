@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -42,6 +43,7 @@
     <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Mvc5.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v15.1.Core, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -96,6 +98,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
+    <Compile Include="Core\IDataConnection.cs" />
     <Compile Include="Core\IDataSource.cs" />
     <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\DataSourceModel.cs" />
@@ -116,17 +120,17 @@
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ReportVM.cs" />
-    <Compile Include="Services\InjectContainer.cs" />
-    <Compile Include="Core\IReportDatas.cs" />
-    <Compile Include="Services\DefaultReportDatas.cs" />
-    <Compile Include="Services\DefaultReportStorage.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Services\DefaultXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\DefaultXtraReport.Designer.cs">
       <DependentUpon>DefaultXtraReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\InjectContainer.cs" />
+    <Compile Include="Core\IReportDatas.cs" />
+    <Compile Include="Services\DefaultReportDatas.cs" />
+    <Compile Include="Services\DefaultReportStorage.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Web\Mvc\ControllerBase.cs" />
     <Compile Include="Web\Mvc\WebResources.cs" />
@@ -146,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Services\DefaultXtraReport.resx">
+      <DependentUpon>DefaultXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
