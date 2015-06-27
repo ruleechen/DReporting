@@ -8,15 +8,15 @@ using System.Web;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("dbooking.Categories", typeof(IDataSource))]
-    public class CategoryDataSource : IDataSource
+    [Export("dbooking.Categories", typeof(IDataProvider))]
+    public class CategoryDataSource : IDataProvider
     {
-        public string DataSourceName
+        public string DataProviderName
         {
             get { return "Categories"; }
         }
 
-        public object GetBindingSource(NameValueCollection query, bool designTime)
+        public object GetDataSource(NameValueCollection args, bool designTime)
         {
             return new Categories();
         }

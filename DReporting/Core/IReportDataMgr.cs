@@ -9,8 +9,8 @@ namespace DReporting.Core
 {
     public interface IReportDataMgr
     {
-        IEnumerable<DataSourceModel> QueryDataSources(int? skip = null, int? take = null);
+        IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null);
 
-        DataSourceModel GetDataSource(string dataSourceId);
+        DataProviderModel GetDataProvider(string dataProviderId);
     }
 }

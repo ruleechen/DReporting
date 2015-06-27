@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
@@ -37,9 +38,11 @@ namespace DReporting.Web.Mvc.Controllers
                 report = this.ReportStorage.GetReport(reportId);
             }
 
-            var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
+            var query = HttpUtility.ParseQueryString(Request.Url.Query);
 
-            var dataSources = this.ReportDataMgr.QueryDataSources().ToDictionary(x => x.InnerDataSource.DataSourceName, x => x.InnerDataSource.GetBindingSource(query, true));
+            var dataSources = this.ReportDataMgr.QueryDataProviders().ToDictionary(
+                x => x.Entity.DataProviderName,
+                x => x.Entity.GetDataSource(query, true));
 
             return new DesignerVM
             {

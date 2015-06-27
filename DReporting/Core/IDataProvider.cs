@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DReporting.Core
 {
-    public interface IDataSource
+    public interface IDataProvider
     {
-        string DataSourceName { get; }
+        string DataProviderName { get; }
 
-        object GetBindingSource(NameValueCollection query, bool designTime);
+        object GetDataSource(NameValueCollection args, bool designTime);
     }
 }

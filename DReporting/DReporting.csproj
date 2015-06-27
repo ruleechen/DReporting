@@ -111,10 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contextual.cs" />
-    <Compile Include="Core\IDataSource.cs" />
+    <Compile Include="Core\IDataProvider.cs" />
     <Compile Include="Core\IReportStorage.cs" />
-    <Compile Include="Models\DataSourceModel.cs" />
-    <Compile Include="Web\Mvc\ViewModels\DataSourceVM.cs" />
+    <Compile Include="Models\DataProviderModel.cs" />
+    <Compile Include="Web\Mvc\ViewModels\DataProviderVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />
     <Compile Include="Models\ReportModel.cs" />
@@ -152,6 +152,7 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Services\DefaultXtraReport.resx">
       <DependentUpon>DefaultXtraReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

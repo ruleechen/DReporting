@@ -7,10 +7,10 @@ using DReporting.Core;
 
 namespace DReporting.Models
 {
-    public class DataSourceModel
+    public class DataProviderModel
     {
-        public string DataSourceID { get; set; }
+        public string DataProviderID { get; set; }
 
-        public IDataSource InnerDataSource { get; set; }
+        public IDataProvider Entity { get; set; }
     }
 }

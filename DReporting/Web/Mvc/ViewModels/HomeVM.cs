@@ -14,6 +14,6 @@ namespace DReporting.Web.Mvc.ViewModels
 
         public IEnumerable<CategoryVM> Categories { get; set; }
 
-        public IEnumerable<DataSourceVM> DataSources { get; set; }
+        public IEnumerable<DataProviderVM> DataProviders { get; set; }
     }
 }

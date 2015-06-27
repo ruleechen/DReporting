@@ -12,19 +12,19 @@ namespace DReporting.Services
     [Export(typeof(IReportDataMgr))]
     public class DefaultReportDataMgr : IReportDataMgr
     {
-        public IEnumerable<DataSourceModel> QueryDataSources(int? skip = null, int? take = null)
+        public IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null)
         {
             var metas = InjectContainer.Instance.ExportMetas();
 
-            var objs = InjectContainer.Instance.GetExports<IDataSource>();
+            var providers = InjectContainer.Instance.GetExports<IDataProvider>();
 
-            var query = objs.Select(x => new DataSourceModel
+            var query = providers.Select(x => new DataProviderModel
             {
-                DataSourceID = metas.First(m => m.ComponentType == x.GetType()).ContractName,
-                InnerDataSource = x
+                DataProviderID = metas.First(m => m.ComponentType == x.GetType()).ContractName,
+                Entity = x
             });
 
-            query = query.OrderBy(x => x.DataSourceID);
+            query = query.OrderBy(x => x.DataProviderID);
 
             if (skip.HasValue)
             {
@@ -39,14 +39,14 @@ namespace DReporting.Services
             return query;
         }
 
-        public DataSourceModel GetDataSource(string dataSourceId)
+        public DataProviderModel GetDataProvider(string dataProviderId)
         {
-            var dataSource = InjectContainer.Instance.GetExport<IDataSource>(dataSourceId);
+            var provider = InjectContainer.Instance.GetExport<IDataProvider>(dataProviderId);
 
-            return new DataSourceModel
+            return new DataProviderModel
             {
-                DataSourceID = dataSourceId,
-                InnerDataSource = dataSource
+                DataProviderID = dataProviderId,
+                Entity = provider
             };
         }
     }

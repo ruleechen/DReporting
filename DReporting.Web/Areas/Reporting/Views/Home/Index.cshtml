@@ -81,7 +81,7 @@
 </div>
 
 <div class="table-responsive">
-    <h3>Data Sources</h3>
+    <h3>Data Providers</h3>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -89,14 +89,14 @@
                 <td>ID</td>
             </tr>
         </thead>
-        @if (Model.DataSources != null)
+        @if (Model.DataProviders != null)
         {
             <tbody>
-            @foreach (var item in Model.DataSources)
+            @foreach (var item in Model.DataProviders)
             {
                 <tr>
-                    <td>@item.DataSourceName</td>
-                    <td>@item.DataSourceID</td>
+                    <td>@item.DataProviderName</td>
+                    <td>@item.DataProviderID</td>
                 </tr>
             }
             </tbody>

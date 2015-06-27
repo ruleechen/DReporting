@@ -11,15 +11,15 @@ namespace DReporting.Web.Mvc.Controllers
 {
     public class PreviewController : ControllerBase
     {
-        public ActionResult Index(string reportId, string dataSourceId)
+        public ActionResult Index(string reportId, string dataProviderId)
         {
             var report = this.ReportStorage.GetReport(reportId);
 
-            if (!string.IsNullOrEmpty(dataSourceId))
+            if (!string.IsNullOrEmpty(dataProviderId))
             {
-                var query = System.Web.HttpUtility.ParseQueryString(Request.Url.Query);
-                var dataSource = this.ReportDataMgr.GetDataSource(dataSourceId).InnerDataSource;
-                report.XtraReport.DataSource = dataSource.GetBindingSource(query, false);
+                var query = HttpUtility.ParseQueryString(Request.Url.Query);
+                var provider = this.ReportDataMgr.GetDataProvider(dataProviderId);
+                report.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
                 report.XtraReport.FillDataSource();
             }
 

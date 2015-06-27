@@ -10,10 +10,10 @@ using DReporting.Core;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("dbooking.UserDataSource", typeof(IDataSource))]
-    public class UserDataSource : IDataSource
+    [Export("dbooking.UserDataSource", typeof(IDataProvider))]
+    public class UserDataSource : IDataProvider
     {
-        public string DataSourceName
+        public string DataProviderName
         {
             get
             {
@@ -21,7 +21,7 @@ namespace DReporting.Web.ReportDatas
             }
         }
 
-        public object GetBindingSource(NameValueCollection query, bool designTime)
+        public object GetDataSource(NameValueCollection args, bool designTime)
         {
             var users = new UserCollection();
             users.Add(new User

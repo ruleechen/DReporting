@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DReporting.Web.Mvc.ViewModels
 {
-    public class DataSourceVM
+    public class DataProviderVM
     {
-        public string DataSourceID { get; set; }
+        public string DataProviderID { get; set; }
 
-        public string DataSourceName { get; set; }
+        public string DataProviderName { get; set; }
     }
 }

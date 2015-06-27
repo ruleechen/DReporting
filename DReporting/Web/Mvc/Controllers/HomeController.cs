@@ -12,19 +12,19 @@ namespace DReporting.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            var reports = this.ReportStorage.QueryReports().Select(x => Convert(x));
-            var categories = this.ReportStorage.QueryCategories().Select(x => Convert(x));
-            var dataSources = this.ReportDataMgr.QueryDataSources().Select(x => Convert(x));
+            var reports = this.ReportStorage.QueryReports().Select(x => ToVM(x));
+            var categories = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
+            var providers = this.ReportDataMgr.QueryDataProviders().Select(x => ToVM(x));
 
             return View(new HomeVM
             {
                 Reports = reports,
                 Categories = categories,
-                DataSources = dataSources
+                DataProviders = providers
             });
         }
 
-        private ReportVM Convert(ReportModel model)
+        private ReportVM ToVM(ReportModel model)
         {
             return new ReportVM
             {
@@ -37,7 +37,7 @@ namespace DReporting.Web.Mvc.Controllers
             };
         }
 
-        private CategoryVM Convert(CategoryModel model)
+        private CategoryVM ToVM(CategoryModel model)
         {
             return new CategoryVM
             {
@@ -46,22 +46,22 @@ namespace DReporting.Web.Mvc.Controllers
             };
         }
 
-        private DataSourceVM Convert(DataSourceModel model)
+        private DataProviderVM ToVM(DataProviderModel model)
         {
-            return new DataSourceVM
+            return new DataProviderVM
             {
-                DataSourceID = model.DataSourceID,
-                DataSourceName = model.InnerDataSource.DataSourceName
+                DataProviderID = model.DataProviderID,
+                DataProviderName = model.Entity.DataProviderName
             };
         }
 
         public ActionResult EditReport(string reportId)
         {
-            ViewData["Categories"] = this.ReportStorage.QueryCategories().Select(x => Convert(x));
+            ViewData["Categories"] = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
 
             var report = this.ReportStorage.GetReport(reportId);
 
-            return View(Convert(report));
+            return View(ToVM(report));
         }
 
         [HttpPost]
@@ -115,7 +115,7 @@ namespace DReporting.Web.Mvc.Controllers
         public ActionResult EditCategory(string categoryId)
         {
             var category = this.ReportStorage.GetCategory(categoryId);
-            return View(Convert(category));
+            return View(ToVM(category));
         }
 
         [HttpPost]
