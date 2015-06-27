@@ -107,24 +107,44 @@
 
     // designer extents
     $.extend(ctx.designer, {
-        SaveCommandExecute: function (ev, request) {
-            //ev.callbackCustomArgs = {};
-            var defaultName = $('#defaultReportName').val();
-            var displayName = prompt('Please specify the report name', defaultName);
-            if (displayName) {
-                ev.callbackUrl = ctx.setQuery(ev.callbackUrl, {
-                    DisplayName: displayName
+        saveAndClose: null,
+        SaveCommandExecute: function (designer, request) {
+            //designer.callbackCustomArgs = {};
+            var reportName = $('#txtReportName').val();
+            if (!reportName) {
+                reportName = prompt('Please specify the report name', 'Unnamed Report');
+            }
+            if (reportName) {
+                designer.callbackUrl = ctx.setQuery(designer.callbackUrl, {
+                    ReportName: reportName
                 });
             } else {
                 request.handled = true;
             }
         },
-        SaveCommandExecuted: function (ev, response) {
+        SaveCommandExecuted: function (designer, response) {
+            var returnUrl = ctx.getQuery('ReturnUrl');
+            if (returnUrl && ctx.designer.saveAndClose) {
+                location.href = returnUrl;
+            } else {
+                location.href = response.Result;
+            }
+        },
+        CustomizeMenuActions: function (designer, context) {
+            var actions = context.Actions;
             var returnUrl = ctx.getQuery('ReturnUrl');
             if (returnUrl) {
-                location.href = returnUrl;
-            } else if (response.Result) {
-                location.href = response.Result;
+                actions.push({
+                    text: 'Save & Close',
+                    imageClassName: 'dxrd-image-save',
+                    container: 'menu',
+                    disabled: ko.observable(false),
+                    visible: true,
+                    clickAction: function (report, event) {
+                        ctx.designer.saveAndClose = true;
+                        report.save();
+                    }
+                });
             }
         }
     });

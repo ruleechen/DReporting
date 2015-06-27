@@ -9,7 +9,7 @@
 <hr />
 
 <form method="post" action="@Url.Action("SaveReport", "Home", new { Area = Contextual.AreaName })">
-    @{var returnUrl = System.Web.HttpContext.Current.Request.QueryString["ReturnUrl"];}
+    @{var returnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];}
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
     <input type="hidden" name="ReportID" value="@Model.ReportID" />
     <div class="row" style="width: 500px;">
@@ -39,7 +39,7 @@
                                 <option value="">Choose ...</option>
                                 @foreach (var item in categories)
                                 {
-                                    <option value="@item.CategoryID" @if (item.CategoryID == Model.CategoryID) { @Html.Raw("selected=\"selected\"")  }>@item.CategoryName</option>
+                                    <option value="@item.CategoryID" @if (item.CategoryID == Model.CategoryID) { @Html.Raw("selected=\"selected\"") }>@item.CategoryName</option>
                                 }
                             </select>
                         </div>

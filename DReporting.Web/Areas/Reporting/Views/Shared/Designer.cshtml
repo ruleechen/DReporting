@@ -1,11 +1,32 @@
 ﻿@model DesignerVM
 
-<input type="hidden" id="defaultReportName" value="@Model.ReportName" />
+<input type="hidden" id="txtReportName" value="@Model.ReportName" />
 
 @Html.DevExpress().ReportDesigner(settings =>
 {
     settings.Name = "designer";
-    settings.SaveCallbackRouteValues = new { Area = Contextual.AreaName, Controller = "Design", Action = "Save", ReportID = Model.ReportID };
+
+    settings.SaveCallbackRouteValues = new
+    {
+        Area = Contextual.AreaName,
+        Controller = "Design",
+        Action = "Save",
+        ReportID = Model.ReportID,
+        ReturnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"]
+    };
+
     settings.ClientSideEvents.SaveCommandExecute = "dreporting.designer.SaveCommandExecute";
     settings.ClientSideEvents.SaveCommandExecuted = "dreporting.designer.SaveCommandExecuted";
-}).Bind(Model.DesignerModel).GetHtml()
+    settings.ClientSideEvents.CustomizeMenuActions = "dreporting.designer.CustomizeMenuActions";
+
+    if (Model.DataSources != null)
+    {
+        settings.DataSources.Clear();
+
+        foreach (var item in Model.DataSources)
+        {
+            settings.DataSources.Add(item.Key, item.Value);
+        }
+    }
+
+}).Bind(Model.XtraReport).GetHtml()

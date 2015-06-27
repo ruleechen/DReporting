@@ -76,7 +76,7 @@ namespace DReporting.Services
             {
                 ReportID = null,
                 ReportCode = null,
-                ReportName = template.DisplayName,
+                ReportName = null,
                 CategoryID = null,
                 CreationTime = DateTime.UtcNow,
                 LastUpdateTime = null,
@@ -173,6 +173,9 @@ namespace DReporting.Services
 
             if (model.XtraReport != null)
             {
+                model.XtraReport.Name = model.ReportID;
+                model.XtraReport.DisplayName = model.ReportName;
+
                 var reportPath = Path.Combine(dir, xtrareport_xml);
                 File.WriteAllBytes(reportPath, model.XtraReport.GetBuffer());
             }

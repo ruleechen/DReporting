@@ -45,23 +45,23 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 ReportID = report.ReportID,
                 ReportName = report.ReportName,
-                DesignerModel = ReportDesignerExtension.GetModel(report.XtraReport, dataSources)
+                DataSources = dataSources,
+                XtraReport = report.XtraReport
             };
         }
 
         [HttpPost]
-        public ActionResult Save(string reportId, string displayName)
+        public ActionResult Save(string reportId, string reportName, string returnUrl)
         {
             var xmlContent = ReportDesignerExtension.GetReportXml("designer");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
-            xtraReport.DisplayName = displayName;
 
             var oldReport = this.ReportStorage.GetReport(reportId);
 
             var model = this.ReportStorage.SaveReport(new ReportModel
             {
                 ReportID = reportId,
-                ReportName = displayName,
+                ReportName = reportName,
                 ReportCode = oldReport != null ? oldReport.ReportCode : null,
                 CategoryID = oldReport != null ? oldReport.CategoryID : null,
                 CreationTime = oldReport != null ? oldReport.CreationTime : DateTime.UtcNow,
@@ -69,7 +69,7 @@ namespace DReporting.Web.Mvc.Controllers
                 XtraReport = xtraReport
             });
 
-            return Content(Url.Action("Index", "Design", new { Area = Contextual.AreaName, ReportID = model.ReportID }));
+            return Content(Url.Action("Index", "Design", new { Area = Contextual.AreaName, ReportID = model.ReportID, ReturnUrl = returnUrl }));
         }
     }
 }
