@@ -207,6 +207,8 @@
     <Compile Include="ReportDatas\DataSetDataProvider.cs" />
     <Compile Include="ReportDatas\ObjectDataProvider.cs" />
     <Compile Include="ReportDatas\SampleDataProvider.cs" />
+    <Compile Include="ReportDatas\TypeListDataProvider.cs" />
+    <Compile Include="ReportDatas\XmlDataProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
