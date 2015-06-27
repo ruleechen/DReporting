@@ -1,10 +1,9 @@
-﻿using DReporting.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Web;
+using DReporting.Core;
 
 namespace DReporting.Web.ReportDatas
 {
@@ -13,7 +12,7 @@ namespace DReporting.Web.ReportDatas
     {
         public string DataProviderName
         {
-            get { return "DataSet"; }
+            get { return "DataSetProvider"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)

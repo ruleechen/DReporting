@@ -19,8 +19,11 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 var query = HttpUtility.ParseQueryString(Request.Url.Query);
                 var provider = this.ReportDataMgr.GetDataProvider(dataProviderId);
-                report.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
-                report.XtraReport.FillDataSource();
+
+                report.XtraReport.DataSourceDemanded += (object sender, EventArgs e) =>
+                {
+                    ((XtraReport)sender).DataSource = provider.Entity.GetDataSource(query, false);
+                };
             }
 
             return View("Index", new ViewerVM

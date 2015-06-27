@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Web;
 using DReporting.Core;
 using DevExpress.DataAccess.ConnectionParameters;
 
@@ -15,7 +13,7 @@ namespace DReporting.Web.ReportDatas
     {
         public string DataProviderName
         {
-            get { return "Sample"; }
+            get { return "SampleProvider"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)
