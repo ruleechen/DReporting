@@ -50,7 +50,7 @@ namespace DReporting.Web.Mvc.Controllers
         {
             return new DataSourceVM
             {
-                DataSourceId = model.DataSourceId,
+                DataSourceID = model.DataSourceID,
                 DataSourceName = model.DataSourceName
             };
         }

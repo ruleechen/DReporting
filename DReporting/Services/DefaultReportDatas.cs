@@ -20,12 +20,12 @@ namespace DReporting.Services
 
             var query = objs.Select(x => new DataSourceModel
             {
-                DataSourceId = metas.First(m => m.ComponentType == x.GetType()).ContractName,
+                DataSourceID = metas.First(m => m.ComponentType == x.GetType()).ContractName,
                 DataSourceName = x.DataSourceName,
                 DataSource = x
             });
 
-            query = query.OrderBy(x => x.DataSourceId);
+            query = query.OrderBy(x => x.DataSourceID);
 
             if (skip.HasValue)
             {
@@ -46,7 +46,7 @@ namespace DReporting.Services
 
             return new DataSourceModel
             {
-                DataSourceId = dataSourceId,
+                DataSourceID = dataSourceId,
                 DataSourceName = dataSource.DataSourceName,
                 DataSource = dataSource
             };

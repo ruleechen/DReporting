@@ -9,7 +9,7 @@ namespace DReporting.Models
 {
     public class DataSourceModel
     {
-        public string DataSourceId { get; set; }
+        public string DataSourceID { get; set; }
 
         public string DataSourceName { get; set; }
 

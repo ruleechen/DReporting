@@ -8,7 +8,7 @@ namespace DReporting.Web.Mvc.ViewModels
 {
     public class DataSourceVM
     {
-        public string DataSourceId { get; set; }
+        public string DataSourceID { get; set; }
 
         public string DataSourceName { get; set; }
     }
