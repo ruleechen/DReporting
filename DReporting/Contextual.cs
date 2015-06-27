@@ -22,6 +22,12 @@ namespace DReporting
                 return reportStream.GetBuffer();
             }
         }
+        internal static void App_Start()
+        {
+            // Use Project's Web.config Connection Strings
+            DevExpress.XtraReports.Web.ReportDesigner.DefaultReportDesignerContainer
+                .RegisterDataSourceWizardConfigFileConnectionStringsProvider();
+        }
 
         public static IReportDatas ReportDatas
         {
