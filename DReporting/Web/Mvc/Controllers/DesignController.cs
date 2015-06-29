@@ -72,7 +72,7 @@ namespace DReporting.Web.Mvc.Controllers
                 XtraReport = xtraReport
             });
 
-            return Content(Url.Action("Index", "Design", new { Area = Contextual.AreaName, ReportID = model.ReportID, ReturnUrl = returnUrl }));
+            return Content(Url.Action("Index", "Design", new { Area = ReportContext.AreaName, ReportID = model.ReportID, ReturnUrl = returnUrl }));
         }
     }
 }

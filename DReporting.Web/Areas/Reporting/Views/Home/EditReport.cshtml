@@ -8,7 +8,7 @@
 <h3>Edit Report - @Model.ReportName</h3>
 <hr />
 
-<form method="post" action="@Url.Action("SaveReport", "Home", new { Area = Contextual.AreaName })">
+<form method="post" action="@Url.Action("SaveReport", "Home", new { Area = ReportContext.AreaName })">
     @{var returnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];}
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
     <input type="hidden" name="ReportID" value="@Model.ReportID" />

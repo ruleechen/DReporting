@@ -110,7 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contextual.cs" />
+    <Compile Include="ReportContext.cs" />
     <Compile Include="Core\IDataProvider.cs" />
     <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\DataProviderModel.cs" />
