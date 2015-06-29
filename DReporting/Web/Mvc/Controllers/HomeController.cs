@@ -24,7 +24,7 @@ namespace DReporting.Web.Mvc.Controllers
             });
         }
 
-        private ReportVM ToVM(ReportModel model)
+        private ReportVM ToVM(TemplateModel model)
         {
             return new ReportVM
             {

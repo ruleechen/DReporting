@@ -54,7 +54,7 @@ namespace DReporting.Services
 
         #region ITemplateMgr Members
 
-        public IQueryable<ReportModel> QueryReports()
+        public IQueryable<TemplateModel> QueryReports()
         {
             var dirs = Directory.GetDirectories(TemplatesDir, "*", SearchOption.TopDirectoryOnly);
 
@@ -63,11 +63,11 @@ namespace DReporting.Services
             return query.AsQueryable();
         }
 
-        public ReportModel GetDefaultReport()
+        public TemplateModel GetDefaultReport()
         {
             var template = new DefaultXtraReport();
 
-            return new ReportModel
+            return new TemplateModel
             {
                 ReportID = null,
                 ReportCode = null,
@@ -79,7 +79,7 @@ namespace DReporting.Services
             };
         }
 
-        public ReportModel GetReport(string reportId)
+        public TemplateModel GetReport(string reportId)
         {
             if (string.IsNullOrEmpty(reportId))
             {
@@ -104,7 +104,7 @@ namespace DReporting.Services
                 settings = JsonConvert.DeserializeObject<ReportSetting>(File.ReadAllText(x.settingsFile)),
                 xtrareport = XtraReport.FromFile(x.xtrareportFile, true)
             })
-            .Select(x => new ReportModel
+            .Select(x => new TemplateModel
             {
                 ReportID = x.settings.ReportID,
                 ReportName = x.settings.ReportName,
@@ -118,7 +118,7 @@ namespace DReporting.Services
             return query.FirstOrDefault();
         }
 
-        public ReportModel SaveReport(ReportModel model)
+        public TemplateModel SaveReport(TemplateModel model)
         {
             var oldModel = this.GetReport(model.ReportID);
 

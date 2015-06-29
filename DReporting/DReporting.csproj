@@ -119,7 +119,7 @@
     <Compile Include="Web\Mvc\ViewModels\DataProviderVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />
-    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Web\Mvc\ViewModels\ReportVM.cs" />
     <Compile Include="Services\DefaultXtraReport.cs">

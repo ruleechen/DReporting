@@ -27,7 +27,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         private DesignerVM Designer(string reportId)
         {
-            ReportModel report = null;
+            TemplateModel report = null;
 
             if (string.IsNullOrEmpty(reportId))
             {
@@ -61,7 +61,7 @@ namespace DReporting.Web.Mvc.Controllers
 
             var oldReport = this.ReportStorage.GetReport(reportId);
 
-            var model = this.ReportStorage.SaveReport(new ReportModel
+            var model = this.ReportStorage.SaveReport(new TemplateModel
             {
                 ReportID = reportId,
                 ReportName = reportName,
