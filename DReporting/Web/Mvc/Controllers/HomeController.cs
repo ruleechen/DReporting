@@ -14,7 +14,7 @@ namespace DReporting.Web.Mvc.Controllers
         {
             var reports = this.ReportStorage.QueryReports().Select(x => ToVM(x));
             var categories = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
-            var providers = this.ReportDataMgr.QueryDataProviders().Select(x => ToVM(x));
+            var providers = this.ReportStorage.QueryDataProviders().Select(x => ToVM(x));
 
             return View(new HomeVM
             {

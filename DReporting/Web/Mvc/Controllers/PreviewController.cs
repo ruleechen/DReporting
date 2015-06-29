@@ -18,7 +18,7 @@ namespace DReporting.Web.Mvc.Controllers
             if (!string.IsNullOrEmpty(dataProviderId))
             {
                 var query = HttpUtility.ParseQueryString(Request.Url.Query);
-                var provider = this.ReportDataMgr.GetDataProvider(dataProviderId);
+                var provider = this.ReportStorage.GetDataProvider(dataProviderId);
 
                 report.XtraReport.DataSourceDemanded += (object sender, EventArgs e) =>
                 {

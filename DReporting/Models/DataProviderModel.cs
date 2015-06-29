@@ -11,6 +11,8 @@ namespace DReporting.Models
     {
         public string DataProviderID { get; set; }
 
+        public string CategoryID { get; set; }
+
         public IDataProvider Entity { get; set; }
     }
 }

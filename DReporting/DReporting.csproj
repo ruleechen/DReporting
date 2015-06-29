@@ -110,9 +110,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ICategoryMgr.cs" />
+    <Compile Include="Core\IReportStorage.cs" />
+    <Compile Include="Core\ITemplateMgr.cs" />
     <Compile Include="ReportContext.cs" />
     <Compile Include="Core\IDataProvider.cs" />
-    <Compile Include="Core\IReportStorage.cs" />
     <Compile Include="Models\DataProviderModel.cs" />
     <Compile Include="Web\Mvc\ViewModels\DataProviderVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
@@ -127,8 +129,7 @@
       <DependentUpon>DefaultXtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\InjectContainer.cs" />
-    <Compile Include="Core\IReportDataMgr.cs" />
-    <Compile Include="Services\DefaultReportDataMgr.cs" />
+    <Compile Include="Core\IDataProviderMgr.cs" />
     <Compile Include="Services\DefaultReportStorage.cs">
       <SubType>Code</SubType>
     </Compile>

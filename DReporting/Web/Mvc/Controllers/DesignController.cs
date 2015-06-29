@@ -40,7 +40,7 @@ namespace DReporting.Web.Mvc.Controllers
 
             var query = HttpUtility.ParseQueryString(Request.Url.Query);
 
-            var dataSources = this.ReportDataMgr.QueryDataProviders().ToDictionary(
+            var dataSources = this.ReportStorage.QueryDataProviders().ToDictionary(
                 x => x.Entity.DataProviderName,
                 x => x.Entity.GetDataSource(query, true));
 
