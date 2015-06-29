@@ -15,6 +15,7 @@ namespace DReporting.Services
     [Export(typeof(IReportStorage))]
     public class DefaultReportStorage : IReportStorage
     {
+        public static readonly string BaseDir;
         public static readonly string ReportsDir;
         public static readonly string CategoriesFile;
 
@@ -24,8 +25,9 @@ namespace DReporting.Services
 
         static DefaultReportStorage()
         {
-            ReportsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Reports");
-            CategoriesFile = Path.Combine(ReportsDir, categories_json);
+            BaseDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "DReporting");
+            ReportsDir = Path.Combine(BaseDir, "Reports");
+            CategoriesFile = Path.Combine(BaseDir, categories_json);
             if (!Directory.Exists(ReportsDir)) { Directory.CreateDirectory(ReportsDir); }
         }
 

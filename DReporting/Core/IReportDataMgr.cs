@@ -12,5 +12,7 @@ namespace DReporting.Core
         IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null);
 
         DataProviderModel GetDataProvider(string dataProviderId);
+
+        DataProviderModel SaveProvider(DataProviderModel model);
     }
 }
