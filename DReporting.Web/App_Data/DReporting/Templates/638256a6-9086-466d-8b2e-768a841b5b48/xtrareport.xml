@@ -1,0 +1,529 @@
+/// <XRTypeInfo>
+///   <AssemblyFullName>DevExpress.XtraReports.v15.1, Version=15.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</AssemblyFullName>
+///   <AssemblyLocation>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\DevExpress.XtraReports.v15.1\v4.0_15.1.3.0__b88d1754d700e49a\DevExpress.XtraReports.v15.1.dll</AssemblyLocation>
+///   <TypeName>DevExpress.XtraReports.UI.XtraReport</TypeName>
+///   <Localization>en-US</Localization>
+///   <Version>15.1</Version>
+///   <Resources>
+///     <Resource Name="XtraReportSerialization.xtraReport1">
+/// zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA</Resource>
+///   </Resources>
+/// </XRTypeInfo>
+namespace XtraReportSerialization {
+    
+    public class xtraReport1 : DevExpress.XtraReports.UI.XtraReport {
+        private DevExpress.XtraReports.UI.TopMarginBand TopMargin1;
+        private DevExpress.XtraReports.UI.ReportHeaderBand reportHeaderBand1;
+        private DevExpress.XtraReports.UI.XRLabel label29;
+        private DevExpress.XtraReports.UI.DetailBand detailBand1;
+        private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.UI.XRLabel label2;
+        private DevExpress.XtraReports.UI.XRLabel label3;
+        private DevExpress.XtraReports.UI.XRLabel label4;
+        private DevExpress.XtraReports.UI.XRLabel label5;
+        private DevExpress.XtraReports.UI.XRLabel label6;
+        private DevExpress.XtraReports.UI.XRLabel label7;
+        private DevExpress.XtraReports.UI.XRLabel label8;
+        private DevExpress.XtraReports.UI.XRLabel label9;
+        private DevExpress.XtraReports.UI.XRLabel label10;
+        private DevExpress.XtraReports.UI.XRLabel label11;
+        private DevExpress.XtraReports.UI.XRLabel label12;
+        private DevExpress.XtraReports.UI.XRLabel label13;
+        private DevExpress.XtraReports.UI.XRLabel label14;
+        private DevExpress.XtraReports.UI.XRLabel label15;
+        private DevExpress.XtraReports.UI.XRLabel label16;
+        private DevExpress.XtraReports.UI.XRLabel label17;
+        private DevExpress.XtraReports.UI.XRLabel label18;
+        private DevExpress.XtraReports.UI.XRCheckBox checkBox1;
+        private DevExpress.XtraReports.UI.XRLabel label19;
+        private DevExpress.XtraReports.UI.XRCheckBox checkBox2;
+        private DevExpress.XtraReports.UI.XRLabel label20;
+        private DevExpress.XtraReports.UI.XRLabel label21;
+        private DevExpress.XtraReports.UI.XRLabel label22;
+        private DevExpress.XtraReports.UI.XRLabel label23;
+        private DevExpress.XtraReports.UI.XRLabel label24;
+        private DevExpress.XtraReports.UI.XRLabel label25;
+        private DevExpress.XtraReports.UI.XRLabel label26;
+        private DevExpress.XtraReports.UI.XRLabel label27;
+        private DevExpress.XtraReports.UI.XRLabel label28;
+        private DevExpress.XtraReports.UI.XRLine line1;
+        private DevExpress.XtraReports.UI.PageFooterBand pageFooterBand1;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo1;
+        private DevExpress.XtraReports.UI.XRPageInfo pageInfo2;
+        private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin1;
+        private DevExpress.XtraReports.UI.XRControlStyle Title;
+        private DevExpress.XtraReports.UI.XRControlStyle FieldCaption;
+        private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
+        private DevExpress.XtraReports.UI.XRControlStyle DataField;
+        private System.Resources.ResourceManager _resources;
+        private string _resourceString;
+        public xtraReport1() {
+            this._resourceString = DevExpress.XtraReports.Serialization.XRResourceManager.GetResourceFor("XtraReportSerialization.xtraReport1");
+            this.InitializeComponent();
+        }
+        private System.Resources.ResourceManager resources {
+            get {
+                if (_resources == null) {
+                    this._resources = new DevExpress.XtraReports.Serialization.XRResourceManager(this._resourceString);
+                }
+                return this._resources;
+            }
+        }
+        private void InitializeComponent() {
+            this.TopMargin1 = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.reportHeaderBand1 = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.detailBand1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.BottomMargin1 = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.label29 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label9 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label11 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label17 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label18 = new DevExpress.XtraReports.UI.XRLabel();
+            this.checkBox1 = new DevExpress.XtraReports.UI.XRCheckBox();
+            this.label19 = new DevExpress.XtraReports.UI.XRLabel();
+            this.checkBox2 = new DevExpress.XtraReports.UI.XRCheckBox();
+            this.label20 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label22 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label24 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label25 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label26 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label27 = new DevExpress.XtraReports.UI.XRLabel();
+            this.label28 = new DevExpress.XtraReports.UI.XRLabel();
+            this.line1 = new DevExpress.XtraReports.UI.XRLine();
+            this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // TopMargin1
+            // 
+            this.TopMargin1.HeightF = 100F;
+            this.TopMargin1.Name = "TopMargin1";
+            // 
+            // reportHeaderBand1
+            // 
+            this.reportHeaderBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label29});
+            this.reportHeaderBand1.HeightF = 39F;
+            this.reportHeaderBand1.Name = "reportHeaderBand1";
+            // 
+            // detailBand1
+            // 
+            this.detailBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.label1,
+                        this.label2,
+                        this.label3,
+                        this.label4,
+                        this.label5,
+                        this.label6,
+                        this.label7,
+                        this.label8,
+                        this.label9,
+                        this.label10,
+                        this.label11,
+                        this.label12,
+                        this.label13,
+                        this.label14,
+                        this.label15,
+                        this.label16,
+                        this.label17,
+                        this.label18,
+                        this.checkBox1,
+                        this.label19,
+                        this.checkBox2,
+                        this.label20,
+                        this.label21,
+                        this.label22,
+                        this.label23,
+                        this.label24,
+                        this.label25,
+                        this.label26,
+                        this.label27,
+                        this.label28,
+                        this.line1});
+            this.detailBand1.HeightF = 373F;
+            this.detailBand1.Name = "detailBand1";
+            // 
+            // pageFooterBand1
+            // 
+            this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+                        this.pageInfo1,
+                        this.pageInfo2});
+            this.pageFooterBand1.HeightF = 29F;
+            this.pageFooterBand1.Name = "pageFooterBand1";
+            // 
+            // BottomMargin1
+            // 
+            this.BottomMargin1.HeightF = 100F;
+            this.BottomMargin1.Name = "BottomMargin1";
+            // 
+            // label29
+            // 
+            this.label29.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.label29.Name = "label29";
+            this.label29.SizeF = new System.Drawing.SizeF(638F, 33F);
+            this.label29.StyleName = "Title";
+            // 
+            // label1
+            // 
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 9F);
+            this.label1.Name = "label1";
+            this.label1.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label1.StyleName = "FieldCaption";
+            this.label1.Text = "Calculation Type ID";
+            // 
+            // label2
+            // 
+            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(6F, 33F);
+            this.label2.Name = "label2";
+            this.label2.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label2.StyleName = "FieldCaption";
+            this.label2.Text = "Contact ID";
+            // 
+            // label3
+            // 
+            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(6F, 57F);
+            this.label3.Name = "label3";
+            this.label3.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label3.StyleName = "FieldCaption";
+            this.label3.Text = "Creation Time";
+            // 
+            // label4
+            // 
+            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(6F, 81F);
+            this.label4.Name = "label4";
+            this.label4.SizeF = new System.Drawing.SizeF(162F, 23F);
+            this.label4.StyleName = "FieldCaption";
+            this.label4.Text = "Disable Add Up";
+            // 
+            // label5
+            // 
+            this.label5.LocationFloat = new DevExpress.Utils.PointFloat(6F, 110F);
+            this.label5.Name = "label5";
+            this.label5.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label5.StyleName = "FieldCaption";
+            this.label5.Text = "Discount Type ID";
+            // 
+            // label6
+            // 
+            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(6F, 134F);
+            this.label6.Name = "label6";
+            this.label6.SizeF = new System.Drawing.SizeF(162F, 23F);
+            this.label6.StyleName = "FieldCaption";
+            this.label6.Text = "Expire On Booked";
+            // 
+            // label7
+            // 
+            this.label7.LocationFloat = new DevExpress.Utils.PointFloat(6F, 163F);
+            this.label7.Name = "label7";
+            this.label7.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label7.StyleName = "FieldCaption";
+            this.label7.Text = "Last Update Time";
+            // 
+            // label8
+            // 
+            this.label8.LocationFloat = new DevExpress.Utils.PointFloat(6F, 187F);
+            this.label8.Name = "label8";
+            this.label8.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label8.StyleName = "FieldCaption";
+            this.label8.Text = "Minimum Nights";
+            // 
+            // label9
+            // 
+            this.label9.LocationFloat = new DevExpress.Utils.PointFloat(6F, 211F);
+            this.label9.Name = "label9";
+            this.label9.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label9.StyleName = "FieldCaption";
+            this.label9.Text = "Notes";
+            // 
+            // label10
+            // 
+            this.label10.LocationFloat = new DevExpress.Utils.PointFloat(6F, 235F);
+            this.label10.Name = "label10";
+            this.label10.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label10.StyleName = "FieldCaption";
+            this.label10.Text = "Property Ids";
+            // 
+            // label11
+            // 
+            this.label11.LocationFloat = new DevExpress.Utils.PointFloat(6F, 259F);
+            this.label11.Name = "label11";
+            this.label11.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label11.StyleName = "FieldCaption";
+            this.label11.Text = "Valid From";
+            // 
+            // label12
+            // 
+            this.label12.LocationFloat = new DevExpress.Utils.PointFloat(6F, 283F);
+            this.label12.Name = "label12";
+            this.label12.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label12.StyleName = "FieldCaption";
+            this.label12.Text = "Valid To";
+            // 
+            // label13
+            // 
+            this.label13.LocationFloat = new DevExpress.Utils.PointFloat(6F, 307F);
+            this.label13.Name = "label13";
+            this.label13.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label13.StyleName = "FieldCaption";
+            this.label13.Text = "Valid Type ID";
+            // 
+            // label14
+            // 
+            this.label14.LocationFloat = new DevExpress.Utils.PointFloat(6F, 331F);
+            this.label14.Name = "label14";
+            this.label14.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label14.StyleName = "FieldCaption";
+            this.label14.Text = "Voucher Code";
+            // 
+            // label15
+            // 
+            this.label15.LocationFloat = new DevExpress.Utils.PointFloat(6F, 355F);
+            this.label15.Name = "label15";
+            this.label15.SizeF = new System.Drawing.SizeF(162F, 18F);
+            this.label15.StyleName = "FieldCaption";
+            this.label15.Text = "Voucher Value";
+            // 
+            // label16
+            // 
+            this.label16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.CalculationTypeID")});
+            this.label16.LocationFloat = new DevExpress.Utils.PointFloat(174F, 9F);
+            this.label16.Name = "label16";
+            this.label16.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label16.StyleName = "DataField";
+            // 
+            // label17
+            // 
+            this.label17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.ContactID")});
+            this.label17.LocationFloat = new DevExpress.Utils.PointFloat(174F, 33F);
+            this.label17.Name = "label17";
+            this.label17.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label17.StyleName = "DataField";
+            // 
+            // label18
+            // 
+            this.label18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.CreationTime")});
+            this.label18.LocationFloat = new DevExpress.Utils.PointFloat(174F, 57F);
+            this.label18.Name = "label18";
+            this.label18.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label18.StyleName = "DataField";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Users.DisableAddUp")});
+            this.checkBox1.LocationFloat = new DevExpress.Utils.PointFloat(174F, 81F);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.SizeF = new System.Drawing.SizeF(470F, 23F);
+            this.checkBox1.StyleName = "DataField";
+            // 
+            // label19
+            // 
+            this.label19.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.DiscountTypeID")});
+            this.label19.LocationFloat = new DevExpress.Utils.PointFloat(174F, 110F);
+            this.label19.Name = "label19";
+            this.label19.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label19.StyleName = "DataField";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("CheckState", null, "Users.ExpireOnBooked")});
+            this.checkBox2.LocationFloat = new DevExpress.Utils.PointFloat(174F, 134F);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.SizeF = new System.Drawing.SizeF(470F, 23F);
+            this.checkBox2.StyleName = "DataField";
+            // 
+            // label20
+            // 
+            this.label20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.LastUpdateTime")});
+            this.label20.LocationFloat = new DevExpress.Utils.PointFloat(174F, 163F);
+            this.label20.Name = "label20";
+            this.label20.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label20.StyleName = "DataField";
+            // 
+            // label21
+            // 
+            this.label21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.MinimumNights")});
+            this.label21.LocationFloat = new DevExpress.Utils.PointFloat(174F, 187F);
+            this.label21.Name = "label21";
+            this.label21.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label21.StyleName = "DataField";
+            // 
+            // label22
+            // 
+            this.label22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.Notes")});
+            this.label22.LocationFloat = new DevExpress.Utils.PointFloat(174F, 211F);
+            this.label22.Name = "label22";
+            this.label22.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label22.StyleName = "DataField";
+            // 
+            // label23
+            // 
+            this.label23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.PropertyIds")});
+            this.label23.LocationFloat = new DevExpress.Utils.PointFloat(174F, 235F);
+            this.label23.Name = "label23";
+            this.label23.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label23.StyleName = "DataField";
+            // 
+            // label24
+            // 
+            this.label24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.ValidFrom")});
+            this.label24.LocationFloat = new DevExpress.Utils.PointFloat(174F, 259F);
+            this.label24.Name = "label24";
+            this.label24.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label24.StyleName = "DataField";
+            // 
+            // label25
+            // 
+            this.label25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.ValidTo")});
+            this.label25.LocationFloat = new DevExpress.Utils.PointFloat(174F, 283F);
+            this.label25.Name = "label25";
+            this.label25.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label25.StyleName = "DataField";
+            // 
+            // label26
+            // 
+            this.label26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.ValidTypeID")});
+            this.label26.LocationFloat = new DevExpress.Utils.PointFloat(174F, 307F);
+            this.label26.Name = "label26";
+            this.label26.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label26.StyleName = "DataField";
+            // 
+            // label27
+            // 
+            this.label27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.VoucherCode")});
+            this.label27.LocationFloat = new DevExpress.Utils.PointFloat(174F, 331F);
+            this.label27.Name = "label27";
+            this.label27.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label27.StyleName = "DataField";
+            // 
+            // label28
+            // 
+            this.label28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Users.VoucherValue", "{0:C2}")});
+            this.label28.LocationFloat = new DevExpress.Utils.PointFloat(174F, 355F);
+            this.label28.Name = "label28";
+            this.label28.SizeF = new System.Drawing.SizeF(470F, 18F);
+            this.label28.StyleName = "DataField";
+            // 
+            // line1
+            // 
+            this.line1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 3F);
+            this.line1.Name = "line1";
+            this.line1.SizeF = new System.Drawing.SizeF(638F, 2F);
+            // 
+            // pageInfo1
+            // 
+            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.pageInfo1.Name = "pageInfo1";
+            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.pageInfo1.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.pageInfo1.StyleName = "PageInfo";
+            // 
+            // pageInfo2
+            // 
+            this.pageInfo2.Format = "Page {0} of {1}";
+            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 6F);
+            this.pageInfo2.Name = "pageInfo2";
+            this.pageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
+            this.pageInfo2.StyleName = "PageInfo";
+            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.Transparent;
+            this.Title.BorderColor = System.Drawing.Color.Black;
+            this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.Title.BorderWidth = 1F;
+            this.Title.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.Title.ForeColor = System.Drawing.Color.Maroon;
+            this.Title.Name = "Title";
+            // 
+            // FieldCaption
+            // 
+            this.FieldCaption.BackColor = System.Drawing.Color.Transparent;
+            this.FieldCaption.BorderColor = System.Drawing.Color.Black;
+            this.FieldCaption.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.FieldCaption.BorderWidth = 1F;
+            this.FieldCaption.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.FieldCaption.ForeColor = System.Drawing.Color.Maroon;
+            this.FieldCaption.Name = "FieldCaption";
+            // 
+            // PageInfo
+            // 
+            this.PageInfo.BackColor = System.Drawing.Color.Transparent;
+            this.PageInfo.BorderColor = System.Drawing.Color.Black;
+            this.PageInfo.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.PageInfo.BorderWidth = 1F;
+            this.PageInfo.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.PageInfo.ForeColor = System.Drawing.Color.Black;
+            this.PageInfo.Name = "PageInfo";
+            // 
+            // DataField
+            // 
+            this.DataField.BackColor = System.Drawing.Color.Transparent;
+            this.DataField.BorderColor = System.Drawing.Color.Black;
+            this.DataField.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.DataField.BorderWidth = 1F;
+            this.DataField.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.DataField.ForeColor = System.Drawing.Color.Black;
+            this.DataField.Name = "DataField";
+            this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            // 
+            // xtraReport1
+            // 
+            this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+                        this.TopMargin1,
+                        this.reportHeaderBand1,
+                        this.detailBand1,
+                        this.pageFooterBand1,
+                        this.BottomMargin1});
+            this.DataMember = "Users";
+            this.DisplayName = "Users";
+            this.Extensions.Add("DataSerializationExtension", "DevExpress.XtraReports.Web.ReportDesigner.DefaultDataSerializer");
+            this.Name = "xtraReport1";
+            this.PageHeight = 1100;
+            this.PageWidth = 850;
+            this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
+                        this.Title,
+                        this.FieldCaption,
+                        this.PageInfo,
+                        this.DataField});
+            this.Version = "15.1";
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+        }
+    }
+}

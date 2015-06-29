@@ -40,11 +40,11 @@ namespace DReporting.Services
             CategoriesFile = Path.Combine(BaseDir, categories_json);
         }
 
-        public class ReportSetting
+        public class TemplateSetting
         {
-            public string ReportID { get; set; }
-            public string ReportName { get; set; }
-            public string ReportCode { get; set; }
+            public string ID { get; set; }
+            public string Name { get; set; }
+            public string Code { get; set; }
             public string CategoryID { get; set; }
             public DateTime CreationTimeUtc { get; set; }
             public DateTime? LastUpdateTime { get; set; }
@@ -101,14 +101,14 @@ namespace DReporting.Services
             )
             .Select(x => new
             {
-                settings = JsonConvert.DeserializeObject<ReportSetting>(File.ReadAllText(x.settingsFile)),
+                settings = JsonConvert.DeserializeObject<TemplateSetting>(File.ReadAllText(x.settingsFile)),
                 xtrareport = XtraReport.FromFile(x.xtrareportFile, true)
             })
             .Select(x => new TemplateModel
             {
-                TemplateID = x.settings.ReportID,
-                TemplateName = x.settings.ReportName,
-                TemplateCode = x.settings.ReportCode,
+                TemplateID = x.settings.ID,
+                TemplateName = x.settings.Name,
+                TemplateCode = x.settings.Code,
                 CategoryID = x.settings.CategoryID,
                 CreationTime = x.settings.CreationTimeUtc,
                 LastUpdateTime = x.settings.LastUpdateTime,
@@ -128,11 +128,11 @@ namespace DReporting.Services
 
             if (!Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
 
-            var settings = new ReportSetting
+            var settings = new TemplateSetting
             {
-                ReportID = old != null ? old.TemplateID : model.TemplateID,
-                ReportCode = model.TemplateCode,
-                ReportName = model.TemplateName,
+                ID = old != null ? old.TemplateID : model.TemplateID,
+                Code = model.TemplateCode,
+                Name = model.TemplateName,
                 CategoryID = model.CategoryID,
                 CreationTimeUtc = old != null ? old.CreationTime : DateTime.UtcNow,
                 LastUpdateTime = old != null ? DateTime.UtcNow : new Nullable<DateTime>()

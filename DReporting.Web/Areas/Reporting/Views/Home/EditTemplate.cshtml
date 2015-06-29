@@ -1,0 +1,61 @@
+﻿@model TemplateVM
+
+@{
+    ViewBag.Title = "Edit - " + Model.TemplateName;
+    var categories = ViewData["Categories"] as IEnumerable<CategoryVM>;
+}
+
+<h3>Edit Template - @Model.TemplateName</h3>
+<hr />
+
+<form method="post" action="@Url.Action("SaveTemplate", "Home", new { Area = ReportContext.AreaName })">
+    @{var returnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];}
+    <input type="hidden" name="ReturnUrl" value="@returnUrl" />
+    <input type="hidden" name="TemplateID" value="@Model.TemplateID" />
+    <div class="row" style="width: 500px;">
+        <div class="col-md-12">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Name</label>
+                        <div class="col-md-8">
+                            <input type="text" name="TemplateName" class="form-control input-sm" value="@Model.TemplateName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Code</label>
+                        <div class="col-md-8">
+                            <input type="text" name="TemplateCode" class="form-control input-sm" value="@Model.TemplateCode" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Category</label>
+                        <div class="col-md-8">
+                            <select name="CategoryID" class="form-control input-sm">
+                                <option value="">Choose ...</option>
+                                @foreach (var item in categories)
+                                {
+                                    <option value="@item.CategoryID" @if (item.CategoryID == Model.CategoryID) { @Html.Raw("selected=\"selected\"") }>@item.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4"></label>
+                        <div class="col-md-8">
+                            <button type="submit" class="btn">Save</button>
+                            @if (!string.IsNullOrEmpty(returnUrl))
+                            { <button type="button" class="btn" data-action="cancel" data-href="@returnUrl">Cancel</button>}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
