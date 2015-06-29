@@ -151,13 +151,13 @@
 
     // page actions
     $(function () {
-        $('[data-action="deletereport"]').click(function () {
+        $('[data-action="delete-template"]').click(function () {
             var name = $(this).data('name');
             if (!confirm('Are you sure to delete report "' + name + '" ?')) {
                 return false;
             }
         });
-        $('[data-action="deletecategory"]').click(function () {
+        $('[data-action="delete-category"]').click(function () {
             var name = $(this).data('name');
             if (!confirm('Are you sure to delete category "' + name + '" ?')) {
                 return false;
