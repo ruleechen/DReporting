@@ -20,7 +20,6 @@ namespace DReporting.Services
         public static readonly string BaseDir;
         public static readonly string ProvidersDir;
         public static readonly string TemplatesDir;
-        public static readonly string CategoriesFile;
 
         const string categories_json = "categories.json";
         const string settings_json = "settings.json";
@@ -36,8 +35,6 @@ namespace DReporting.Services
 
             TemplatesDir = Path.Combine(BaseDir, "Templates");
             if (!Directory.Exists(TemplatesDir)) { Directory.CreateDirectory(TemplatesDir); }
-
-            CategoriesFile = Path.Combine(BaseDir, categories_json);
         }
 
         public class TemplateSetting
@@ -165,12 +162,13 @@ namespace DReporting.Services
 
         public IQueryable<CategoryModel> QueryCategories()
         {
-            if (!File.Exists(CategoriesFile))
+            var categoriesFile = Path.Combine(BaseDir, categories_json);
+            if (!File.Exists(categoriesFile))
             {
                 return Enumerable.Empty<CategoryModel>().AsQueryable();
             }
 
-            var json = File.ReadAllText(CategoriesFile);
+            var json = File.ReadAllText(categoriesFile);
 
             var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 
@@ -195,9 +193,9 @@ namespace DReporting.Services
 
             var dict = categories.ToDictionary(x => x.CategoryID, x => x.CategoryName);
 
-            var category = categories.FirstOrDefault(x => x.CategoryID.Equals(model.CategoryID, StringComparison.InvariantCultureIgnoreCase));
+            var item = categories.FirstOrDefault(x => x.CategoryID.Equals(model.CategoryID, StringComparison.InvariantCultureIgnoreCase));
 
-            if (category == null)
+            if (item == null)
             {
                 if (string.IsNullOrEmpty(model.CategoryID))
                 {
@@ -208,12 +206,13 @@ namespace DReporting.Services
             }
             else
             {
-                dict[category.CategoryID] = model.CategoryName;
+                dict[item.CategoryID] = model.CategoryName;
             }
 
             var json = JsonConvert.SerializeObject(dict, Newtonsoft.Json.Formatting.Indented);
 
-            File.WriteAllText(CategoriesFile, json);
+            var categoriesFile = Path.Combine(BaseDir, categories_json);
+            File.WriteAllText(categoriesFile, json);
 
             return model;
         }
@@ -228,7 +227,8 @@ namespace DReporting.Services
 
             var json = JsonConvert.SerializeObject(dict, Newtonsoft.Json.Formatting.Indented);
 
-            File.WriteAllText(CategoriesFile, json);
+            var categoriesFile = Path.Combine(BaseDir, categories_json);
+            File.WriteAllText(categoriesFile, json);
         }
 
         #endregion
@@ -238,13 +238,19 @@ namespace DReporting.Services
         public IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null)
         {
             var metas = InjectContainer.Instance.ExportMetas();
-
+            var settings = this.QueryDataProviders().ToList();
             var providers = InjectContainer.Instance.GetExports<IDataProvider>();
 
             var query = providers.Select(x => new DataProviderModel
             {
                 DataProviderID = metas.First(m => m.ComponentType == x.GetType()).ContractName,
                 Entity = x
+            });
+
+            query = query.Select(item =>
+            {
+                item.CategoryID = settings.Where(x => x.DataProviderID.Equals(item.DataProviderID, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.CategoryID).FirstOrDefault();
+                return item;
             });
 
             query = query.OrderBy(x => x.DataProviderID);
@@ -264,18 +270,62 @@ namespace DReporting.Services
 
         public DataProviderModel GetDataProvider(string dataProviderId)
         {
+            var settings = this.QueryDataProviders().ToList();
             var provider = InjectContainer.Instance.GetExport<IDataProvider>(dataProviderId);
 
             return new DataProviderModel
             {
                 DataProviderID = dataProviderId,
+                CategoryID = settings.Where(x => x.DataProviderID.Equals(dataProviderId, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.CategoryID).FirstOrDefault(),
                 Entity = provider
             };
         }
 
         public DataProviderModel SaveDataProvider(DataProviderModel model)
         {
-            throw new NotImplementedException();
+            var providers = this.QueryDataProviders().ToList();
+
+            var dict = providers.ToDictionary(x => x.DataProviderID, x => x.CategoryID);
+
+            var item = providers.FirstOrDefault(x => x.DataProviderID.Equals(model.DataProviderID, StringComparison.InvariantCultureIgnoreCase));
+
+            if (item == null)
+            {
+                dict.Add(model.DataProviderID, model.CategoryID);
+            }
+            else
+            {
+                dict[item.DataProviderID] = model.CategoryID;
+            }
+
+            var json = JsonConvert.SerializeObject(dict, Newtonsoft.Json.Formatting.Indented);
+
+            var providersSettingFile = Path.Combine(ProvidersDir, settings_json);
+            File.WriteAllText(providersSettingFile, json);
+
+            return model;
+
+        }
+
+        private IQueryable<DataProviderModel> QueryDataProviders()
+        {
+            var providersSettingFile = Path.Combine(ProvidersDir, settings_json);
+            if (!File.Exists(providersSettingFile))
+            {
+                return Enumerable.Empty<DataProviderModel>().AsQueryable();
+            }
+
+            var json = File.ReadAllText(providersSettingFile);
+
+            var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+
+            var query = dict.Select(x => new DataProviderModel
+            {
+                DataProviderID = x.Key,
+                CategoryID = x.Value
+            });
+
+            return query.AsQueryable();
         }
 
         #endregion

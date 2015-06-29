@@ -51,7 +51,8 @@ namespace DReporting.Web.Mvc.Controllers
             return new DataProviderVM
             {
                 DataProviderID = model.DataProviderID,
-                DataProviderName = model.Entity.DataProviderName
+                DataProviderName = model.Entity.DataProviderName,
+                CategoryID = model.CategoryID
             };
         }
 
@@ -141,6 +142,34 @@ namespace DReporting.Web.Mvc.Controllers
         {
             this.ReportStorage.DeleteCategory(categoryId);
             return RedirectToAction("Index", "Home", new { Area = ReportContext.AreaName });
+        }
+
+        public ActionResult EditDataProvider(string dataProviderId)
+        {
+            ViewData["Categories"] = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
+
+            var provider = this.ReportStorage.GetDataProvider(dataProviderId);
+            
+            return View(ToVM(provider));
+        }
+
+        [HttpPost]
+        public ActionResult SaveDataProvider(DataProviderVM model, string returnUrl)
+        {
+            this.ReportStorage.SaveDataProvider(new DataProviderModel
+            {
+                DataProviderID = model.DataProviderID,
+                CategoryID = model.CategoryID
+            });
+
+            if (!string.IsNullOrEmpty(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("EditDataProvider", "Home", new { Area = ReportContext.AreaName, DataProviderID = model.DataProviderID });
+            }
         }
     }
 }

@@ -87,6 +87,7 @@
             <tr>
                 <td>Name</td>
                 <td>ID</td>
+                <td>Category</td>
             </tr>
         </thead>
         @if (Model.DataProviders != null)
@@ -97,13 +98,15 @@
                 <tr>
                     <td>@item.DataProviderName</td>
                     <td>@item.DataProviderID</td>
+                    <td>@(Model.Categories.Where(x => x.CategoryID.Equals(item.CategoryID, StringComparison.InvariantCultureIgnoreCase)).Select(x=>x.CategoryName).FirstOrDefault())</td>
+                    <td><a href="@Url.Action("EditDataProvider", "Home", new { Area = ReportContext.AreaName, DataProviderID = item.DataProviderID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="edit-dataprovider">Edit</a></td>
                 </tr>
             }
             </tbody>
         }
         <tfoot>
             <tr>
-                <td colspan="2"></td>
+                <td colspan="4"></td>
             </tr>
         </tfoot>
     </table>

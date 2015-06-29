@@ -11,5 +11,7 @@ namespace DReporting.Web.Mvc.ViewModels
         public string DataProviderID { get; set; }
 
         public string DataProviderName { get; set; }
+
+        public string CategoryID { get; set; }
     }
 }

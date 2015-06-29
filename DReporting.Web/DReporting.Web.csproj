@@ -248,6 +248,7 @@
     <Content Include="ReportDatas\Categories.xsc">
       <DependentUpon>Categories.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\Reporting\Views\Home\EditDataProvider.cshtml" />
     <None Include="ReportDatas\Categories.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Categories1.Designer.cs</LastGenOutput>
