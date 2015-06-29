@@ -9,9 +9,9 @@ namespace DReporting.Web.Mvc.ViewModels
 {
     public class ViewerVM
     {
-        public string ReportID { get; set; }
+        public string TemplateID { get; set; }
 
-        public string ReportName { get; set; }
+        public string TemplateName { get; set; }
 
         public XtraReport XtraReport { get; set; }
     }

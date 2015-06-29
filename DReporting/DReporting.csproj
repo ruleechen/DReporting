@@ -121,7 +121,7 @@
     <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />
     <Compile Include="Models\TemplateModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
-    <Compile Include="Web\Mvc\ViewModels\ReportVM.cs" />
+    <Compile Include="Web\Mvc\ViewModels\TemplateVM.cs" />
     <Compile Include="Services\DefaultXtraReport.cs">
       <SubType>Component</SubType>
     </Compile>

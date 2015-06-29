@@ -15,9 +15,9 @@ namespace DReporting.Web.Mvc.Controllers
 {
     public class DesignController : ControllerBase
     {
-        public ActionResult Index(string reportId)
+        public ActionResult Index(string templateId)
         {
-            return View(Designer(reportId));
+            return View(Designer(templateId));
         }
 
         public ActionResult Create()
@@ -25,17 +25,17 @@ namespace DReporting.Web.Mvc.Controllers
             return View(Designer(null));
         }
 
-        private DesignerVM Designer(string reportId)
+        private DesignerVM Designer(string templateId)
         {
-            TemplateModel report = null;
+            TemplateModel template = null;
 
-            if (string.IsNullOrEmpty(reportId))
+            if (string.IsNullOrEmpty(templateId))
             {
-                report = this.ReportStorage.GetDefaultReport();
+                template = this.ReportStorage.GetDefaultTemplate();
             }
             else
             {
-                report = this.ReportStorage.GetReport(reportId);
+                template = this.ReportStorage.GetTemplate(templateId);
             }
 
             var query = HttpUtility.ParseQueryString(Request.Url.Query);
@@ -46,33 +46,33 @@ namespace DReporting.Web.Mvc.Controllers
 
             return new DesignerVM
             {
-                ReportID = report.ReportID,
-                ReportName = report.ReportName,
+                TemplateID = template.TemplateID,
+                TemplateName = template.TemplateName,
                 DataSources = dataSources,
-                XtraReport = report.XtraReport
+                XtraReport = template.XtraReport
             };
         }
 
         [HttpPost]
-        public ActionResult Save(string reportId, string reportName, string returnUrl)
+        public ActionResult Save(string templateId, string templateName, string returnUrl)
         {
             var xmlContent = ReportDesignerExtension.GetReportXml("designer");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
 
-            var oldReport = this.ReportStorage.GetReport(reportId);
+            var old = this.ReportStorage.GetTemplate(templateId);
 
-            var model = this.ReportStorage.SaveReport(new TemplateModel
+            var model = this.ReportStorage.SaveTemplate(new TemplateModel
             {
-                ReportID = reportId,
-                ReportName = reportName,
-                ReportCode = oldReport != null ? oldReport.ReportCode : null,
-                CategoryID = oldReport != null ? oldReport.CategoryID : null,
-                CreationTime = oldReport != null ? oldReport.CreationTime : DateTime.UtcNow,
-                LastUpdateTime = oldReport != null ? DateTime.UtcNow : new Nullable<DateTime>(),
+                TemplateID = templateId,
+                TemplateName = templateName,
+                TemplateCode = old != null ? old.TemplateCode : null,
+                CategoryID = old != null ? old.CategoryID : null,
+                CreationTime = old != null ? old.CreationTime : DateTime.UtcNow,
+                LastUpdateTime = old != null ? DateTime.UtcNow : new Nullable<DateTime>(),
                 XtraReport = xtraReport
             });
 
-            return Content(Url.Action("Index", "Design", new { Area = ReportContext.AreaName, ReportID = model.ReportID, ReturnUrl = returnUrl }));
+            return Content(Url.Action("Index", "Design", new { Area = ReportContext.AreaName, TemplateID = model.TemplateID, ReturnUrl = returnUrl }));
         }
     }
 }

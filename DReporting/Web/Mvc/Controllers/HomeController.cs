@@ -12,25 +12,25 @@ namespace DReporting.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            var reports = this.ReportStorage.QueryReports().Select(x => ToVM(x));
-            var categories = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
-            var providers = this.ReportStorage.QueryDataProviders().Select(x => ToVM(x));
+            var templates = this.ReportStorage.QueryTemplates();
+            var categories = this.ReportStorage.QueryCategories();
+            var providers = this.ReportStorage.QueryDataProviders();
 
             return View(new HomeVM
             {
-                Reports = reports,
-                Categories = categories,
-                DataProviders = providers
+                Templates = templates.Select(x => ToVM(x)),
+                Categories = categories.Select(x => ToVM(x)),
+                DataProviders = providers.Select(x => ToVM(x))
             });
         }
 
-        private ReportVM ToVM(TemplateModel model)
+        private TemplateVM ToVM(TemplateModel model)
         {
-            return new ReportVM
+            return new TemplateVM
             {
-                ReportID = model.ReportID,
-                ReportCode = model.ReportCode,
-                ReportName = model.ReportName,
+                TemplateID = model.TemplateID,
+                TemplateCode = model.TemplateCode,
+                TemplateName = model.TemplateName,
                 CategoryID = model.CategoryID,
                 CreationTime = model.CreationTime.ToLocalTime().ToString("yyyy-MM-dd hh:ss"),
                 LastUpdateTime = model.LastUpdateTime.HasValue ? model.LastUpdateTime.Value.ToLocalTime().ToString("yyyy-MM-dd hh:ss") : string.Empty
@@ -55,26 +55,26 @@ namespace DReporting.Web.Mvc.Controllers
             };
         }
 
-        public ActionResult EditReport(string reportId)
+        public ActionResult EditTemplate(string templateId)
         {
             ViewData["Categories"] = this.ReportStorage.QueryCategories().Select(x => ToVM(x));
 
-            var report = this.ReportStorage.GetReport(reportId);
+            var template = this.ReportStorage.GetTemplate(templateId);
 
-            return View(ToVM(report));
+            return View(ToVM(template));
         }
 
         [HttpPost]
-        public ActionResult SaveReport(ReportVM model, string returnUrl)
+        public ActionResult SaveTemplate(TemplateVM model, string returnUrl)
         {
-            var report = this.ReportStorage.GetReport(model.ReportID);
+            var template = this.ReportStorage.GetTemplate(model.TemplateID);
 
-            report.ReportCode = model.ReportCode;
-            report.ReportName = model.ReportName;
-            report.CategoryID = model.CategoryID;
-            report.LastUpdateTime = DateTime.UtcNow;
+            template.TemplateCode = model.TemplateCode;
+            template.TemplateName = model.TemplateName;
+            template.CategoryID = model.CategoryID;
+            template.LastUpdateTime = DateTime.UtcNow;
 
-            this.ReportStorage.SaveReport(report);
+            this.ReportStorage.SaveTemplate(template);
 
             if (!string.IsNullOrEmpty(returnUrl))
             {
@@ -82,28 +82,28 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditReport", "Home", new { Area = ReportContext.AreaName, ReportID = model.ReportID });
+                return RedirectToAction("EditTemplate", "Home", new { Area = ReportContext.AreaName, TemplateID = model.TemplateID });
             }
         }
 
-        public ActionResult CopyReport(string reportId)
+        public ActionResult CopyTemplate(string templateId)
         {
-            var report = this.ReportStorage.GetReport(reportId);
+            var template = this.ReportStorage.GetTemplate(templateId);
 
-            report.ReportID = Guid.NewGuid().ToString().ToLower();
-            report.ReportName = "Copy of " + report.ReportName;
-            report.ReportCode = "Copy of " + report.ReportCode;
-            report.CreationTime = DateTime.UtcNow;
-            report.LastUpdateTime = null;
+            template.TemplateID = Guid.NewGuid().ToString().ToLower();
+            template.TemplateName = "Copy of " + template.TemplateName;
+            template.TemplateCode = "Copy of " + template.TemplateCode;
+            template.CreationTime = DateTime.UtcNow;
+            template.LastUpdateTime = null;
 
-            this.ReportStorage.SaveReport(report);
+            this.ReportStorage.SaveTemplate(template);
 
             return RedirectToAction("Index", "Home", new { Area = ReportContext.AreaName });
         }
 
-        public ActionResult DeleteReport(string reportId)
+        public ActionResult DeleteTemplate(string templateId)
         {
-            this.ReportStorage.DeleteReport(reportId);
+            this.ReportStorage.DeleteTemplate(templateId);
             return RedirectToAction("Index", "Home", new { Area = ReportContext.AreaName });
         }
 

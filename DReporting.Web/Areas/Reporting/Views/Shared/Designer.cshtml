@@ -1,6 +1,6 @@
 ﻿@model DesignerVM
 
-<input type="hidden" id="txtReportName" value="@Model.ReportName" />
+<input type="hidden" id="txtTemplateName" value="@Model.TemplateName" />
 
 @Html.DevExpress().ReportDesigner(settings =>
 {
@@ -11,7 +11,7 @@
         Area = ReportContext.AreaName,
         Controller = "Design",
         Action = "Save",
-        ReportID = Model.ReportID,
+        TemplateID = Model.TemplateID,
         ReturnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"]
     };
 

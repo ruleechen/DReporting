@@ -241,7 +241,7 @@
     <Content Include="Areas\Reporting\Views\Shared\Viewer.cshtml" />
     <Content Include="Areas\Reporting\Views\Shared\Designer.cshtml" />
     <Content Include="Areas\Reporting\Views\Design\Create.cshtml" />
-    <Content Include="Areas\Reporting\Views\Home\EditReport.cshtml" />
+    <Content Include="Areas\Reporting\Views\Home\EditTemplate.cshtml" />
     <Content Include="Areas\Reporting\Views\Home\CreateCategory.cshtml" />
     <Content Include="Areas\Reporting\Views\Home\EditCategory.cshtml" />
     <Content Include="Areas\Reporting\Views\Shared\Category.cshtml" />

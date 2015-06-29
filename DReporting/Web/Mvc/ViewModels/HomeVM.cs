@@ -10,7 +10,7 @@ namespace DReporting.Web.Mvc.ViewModels
 {
     public class HomeVM
     {
-        public IEnumerable<ReportVM> Reports { get; set; }
+        public IEnumerable<TemplateVM> Templates { get; set; }
 
         public IEnumerable<CategoryVM> Categories { get; set; }
 

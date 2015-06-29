@@ -110,13 +110,13 @@
         saveAndClose: null,
         SaveCommandExecute: function (designer, request) {
             //designer.callbackCustomArgs = {};
-            var reportName = $('#txtReportName').val();
-            if (!reportName) {
-                reportName = prompt('Please specify the report name', 'Unnamed Report');
+            var templateName = $('#txtTemplateName').val();
+            if (!templateName) {
+                templateName = prompt('Please specify the report name', 'Unnamed Report');
             }
-            if (reportName) {
+            if (templateName) {
                 designer.callbackUrl = ctx.setQuery(designer.callbackUrl, {
-                    ReportName: reportName
+                    TemplateName: templateName
                 });
             } else {
                 request.handled = true;

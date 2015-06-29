@@ -21,22 +21,22 @@
                 <td></td>
             </tr>
         </thead>
-        @if (Model.Reports != null)
+        @if (Model.Templates != null)
         {
             <tbody>
-            @foreach (var item in Model.Reports)
+            @foreach (var item in Model.Templates)
             {
                 <tr>
-                    <td>@item.ReportName</td>
-                    <td>@item.ReportCode</td>
+                    <td>@item.TemplateName</td>
+                    <td>@item.TemplateCode</td>
                     <td>@(Model.Categories.Where(x => x.CategoryID.Equals(item.CategoryID, StringComparison.InvariantCultureIgnoreCase)).Select(x=>x.CategoryName).FirstOrDefault())</td>
                     <td>@item.CreationTime</td>
                     <td>@item.LastUpdateTime</td>
-                    <td><a href="@Url.Action("CopyReport", "Home", new { Area = ReportContext.AreaName, ReportID = item.ReportID })" data-action="copyreport">Copy</a></td>
-                    <td><a href="@Url.Action("DeleteReport", "Home", new { Area = ReportContext.AreaName, ReportID = item.ReportID })" data-action="deletereport" data-name="@item.ReportName">Delete</a></td>
-                    <td><a href="@Url.Action("EditReport", "Home", new { Area = ReportContext.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="editreport">Edit</a></td>
-                    <td><a href="@Url.Action("Index", "Design", new { Area = ReportContext.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="design">Design</a></td>
-                    <td><a href="@Url.Action("Index", "Preview", new { Area = ReportContext.AreaName, ReportID = item.ReportID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="preview">Preview</a></td>
+                    <td><a href="@Url.Action("CopyTemplate", "Home", new { Area = ReportContext.AreaName, TemplateID = item.TemplateID })" data-action="copyreport">Copy</a></td>
+                    <td><a href="@Url.Action("DeleteTemplate", "Home", new { Area = ReportContext.AreaName, TemplateID = item.TemplateID })" data-action="deletereport" data-name="@item.TemplateName">Delete</a></td>
+                    <td><a href="@Url.Action("EditTemplate", "Home", new { Area = ReportContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="editreport">Edit</a></td>
+                    <td><a href="@Url.Action("Index", "Design", new { Area = ReportContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="design">Design</a></td>
+                    <td><a href="@Url.Action("Index", "Preview", new { Area = ReportContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportContext.AreaName }) })" data-action="preview">Preview</a></td>
                 </tr>
             }
             </tbody>

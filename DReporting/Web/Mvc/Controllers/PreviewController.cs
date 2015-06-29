@@ -11,16 +11,16 @@ namespace DReporting.Web.Mvc.Controllers
 {
     public class PreviewController : ControllerBase
     {
-        public ActionResult Index(string reportId, string dataProviderId)
+        public ActionResult Index(string templateId, string dataProviderId)
         {
-            var report = this.ReportStorage.GetReport(reportId);
+            var template = this.ReportStorage.GetTemplate(templateId);
 
             if (!string.IsNullOrEmpty(dataProviderId))
             {
                 var query = HttpUtility.ParseQueryString(Request.Url.Query);
                 var provider = this.ReportStorage.GetDataProvider(dataProviderId);
 
-                report.XtraReport.DataSourceDemanded += (object sender, EventArgs e) =>
+                template.XtraReport.DataSourceDemanded += (object sender, EventArgs e) =>
                 {
                     ((XtraReport)sender).DataSource = provider.Entity.GetDataSource(query, false);
                 };
@@ -28,28 +28,28 @@ namespace DReporting.Web.Mvc.Controllers
 
             return View("Index", new ViewerVM
             {
-                ReportID = reportId,
-                ReportName = report.ReportName,
-                XtraReport = report.XtraReport
+                TemplateID = templateId,
+                TemplateName = template.TemplateName,
+                XtraReport = template.XtraReport
             });
         }
 
-        public ActionResult Callback(string reportId)
+        public ActionResult Callback(string templateId)
         {
-            var report = this.ReportStorage.GetReport(reportId);
+            var template = this.ReportStorage.GetTemplate(templateId);
 
             return PartialView("Viewer", new ViewerVM
             {
-                ReportID = reportId,
-                ReportName = report.ReportName,
-                XtraReport = report.XtraReport
+                TemplateID = templateId,
+                TemplateName = template.TemplateName,
+                XtraReport = template.XtraReport
             });
         }
 
-        public ActionResult Export(string reportId)
+        public ActionResult Export(string templateId)
         {
-            var report = this.ReportStorage.GetReport(reportId);
-            return DocumentViewerExtension.ExportTo(report.XtraReport);
+            var template = this.ReportStorage.GetTemplate(templateId);
+            return DocumentViewerExtension.ExportTo(template.XtraReport);
         }
     }
 }

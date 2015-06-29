@@ -54,24 +54,24 @@ namespace DReporting.Services
 
         #region ITemplateMgr Members
 
-        public IQueryable<TemplateModel> QueryReports()
+        public IQueryable<TemplateModel> QueryTemplates()
         {
             var dirs = Directory.GetDirectories(TemplatesDir, "*", SearchOption.TopDirectoryOnly);
 
-            var query = dirs.Select(x => this.GetReport(Path.GetFileName(x)));
+            var query = dirs.Select(x => this.GetTemplate(Path.GetFileName(x)));
 
             return query.AsQueryable();
         }
 
-        public TemplateModel GetDefaultReport()
+        public TemplateModel GetDefaultTemplate()
         {
             var template = new DefaultXtraReport();
 
             return new TemplateModel
             {
-                ReportID = null,
-                ReportCode = null,
-                ReportName = null,
+                TemplateID = null,
+                TemplateCode = null,
+                TemplateName = null,
                 CategoryID = null,
                 CreationTime = DateTime.UtcNow,
                 LastUpdateTime = null,
@@ -79,14 +79,14 @@ namespace DReporting.Services
             };
         }
 
-        public TemplateModel GetReport(string reportId)
+        public TemplateModel GetTemplate(string templateId)
         {
-            if (string.IsNullOrEmpty(reportId))
+            if (string.IsNullOrEmpty(templateId))
             {
                 return null;
             }
 
-            var dir = new List<string> { Path.Combine(TemplatesDir, reportId) };
+            var dir = new List<string> { Path.Combine(TemplatesDir, templateId) };
 
             var query = dir.Select(x => new
             {
@@ -106,9 +106,9 @@ namespace DReporting.Services
             })
             .Select(x => new TemplateModel
             {
-                ReportID = x.settings.ReportID,
-                ReportName = x.settings.ReportName,
-                ReportCode = x.settings.ReportCode,
+                TemplateID = x.settings.ReportID,
+                TemplateName = x.settings.ReportName,
+                TemplateCode = x.settings.ReportCode,
                 CategoryID = x.settings.CategoryID,
                 CreationTime = x.settings.CreationTimeUtc,
                 LastUpdateTime = x.settings.LastUpdateTime,
@@ -118,24 +118,24 @@ namespace DReporting.Services
             return query.FirstOrDefault();
         }
 
-        public TemplateModel SaveReport(TemplateModel model)
+        public TemplateModel SaveTemplate(TemplateModel model)
         {
-            var oldModel = this.GetReport(model.ReportID);
+            var old = this.GetTemplate(model.TemplateID);
 
-            if (string.IsNullOrEmpty(model.ReportID)) { model.ReportID = Guid.NewGuid().ToString().ToLower(); }
+            if (string.IsNullOrEmpty(model.TemplateID)) { model.TemplateID = Guid.NewGuid().ToString().ToLower(); }
 
-            var dir = Path.Combine(TemplatesDir, oldModel != null ? oldModel.ReportID : model.ReportID);
+            var dir = Path.Combine(TemplatesDir, old != null ? old.TemplateID : model.TemplateID);
 
             if (!Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
 
             var settings = new ReportSetting
             {
-                ReportID = oldModel != null ? oldModel.ReportID : model.ReportID,
-                ReportCode = model.ReportCode,
-                ReportName = model.ReportName,
+                ReportID = old != null ? old.TemplateID : model.TemplateID,
+                ReportCode = model.TemplateCode,
+                ReportName = model.TemplateName,
                 CategoryID = model.CategoryID,
-                CreationTimeUtc = oldModel != null ? oldModel.CreationTime : DateTime.UtcNow,
-                LastUpdateTime = oldModel != null ? DateTime.UtcNow : new Nullable<DateTime>()
+                CreationTimeUtc = old != null ? old.CreationTime : DateTime.UtcNow,
+                LastUpdateTime = old != null ? DateTime.UtcNow : new Nullable<DateTime>()
             };
 
             var settingsPath = Path.Combine(dir, settings_json);
@@ -143,8 +143,8 @@ namespace DReporting.Services
 
             if (model.XtraReport != null)
             {
-                model.XtraReport.Name = model.ReportID;
-                model.XtraReport.DisplayName = model.ReportName;
+                model.XtraReport.Name = model.TemplateID;
+                model.XtraReport.DisplayName = model.TemplateName;
 
                 var reportPath = Path.Combine(dir, xtrareport_xml);
                 File.WriteAllBytes(reportPath, model.XtraReport.GetBuffer());
@@ -153,9 +153,9 @@ namespace DReporting.Services
             return model;
         }
 
-        public void DeleteReport(string reportId)
+        public void DeleteTemplate(string templateId)
         {
-            var dir = Path.Combine(TemplatesDir, reportId);
+            var dir = Path.Combine(TemplatesDir, templateId);
             if (Directory.Exists(dir)) { Directory.Delete(dir, true); }
         }
 
