@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using System.Threading.Tasks;
 using EBA.IoC;
 
@@ -10,28 +11,52 @@ namespace DReporting.Services
 {
     public class InjectContainer
     {
+        static object _registerLocker;
+        static HashSet<Assembly> _assembilies;
+        static InjectContainer _injectContainer;
+
         static IContainer _container;
         static IEnumerable<ExportMeta> _exportMetas;
-        static InjectContainer _injectContainer;
 
         static InjectContainer()
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.FullName.StartsWith("DReporting", StringComparison.InvariantCultureIgnoreCase));
-            _container = new ContainerConfiguration().WithAssemblies(assemblies).CreateContainer();
+            _registerLocker = new object();
+            _assembilies = new HashSet<Assembly>();
+            _injectContainer = new InjectContainer();
+        }
 
+        static void Initialize()
+        {
+            _container = new ContainerConfiguration().WithAssemblies(_assembilies).CreateContainer();
             _exportMetas = _container.Conventions.Exports.Select(x => new ExportMeta
             {
                 ComponentType = x.ComponentType,
                 ContractName = x.ContractName
             });
-
-            _injectContainer = new InjectContainer();
         }
 
-        public class ExportMeta
+        public static void RegisterAssembiles(IEnumerable<Assembly> assembiles)
         {
-            public Type ComponentType { get; set; }
-            public string ContractName { get; set; }
+            var count = _assembilies.Count;
+
+            foreach (var item in assembiles)
+            {
+                if (!_assembilies.Contains(item))
+                {
+                    lock (_registerLocker)
+                    {
+                        if (!_assembilies.Contains(item))
+                        {
+                            _assembilies.Add(item);
+                        }
+                    }
+                }
+            }
+
+            if (count != _assembilies.Count)
+            {
+                Initialize();
+            }
         }
 
         public static InjectContainer Instance
@@ -40,6 +65,14 @@ namespace DReporting.Services
             {
                 return _injectContainer;
             }
+        }
+
+        #region Members
+
+        public class ExportMeta
+        {
+            public Type ComponentType { get; set; }
+            public string ContractName { get; set; }
         }
 
         public IEnumerable<ExportMeta> ExportMetas()
@@ -63,5 +96,7 @@ namespace DReporting.Services
                 return _container.GetExport<T>(contractName);
             }
         }
+
+        #endregion
     }
 }

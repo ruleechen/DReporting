@@ -20,7 +20,7 @@ namespace DReporting.Web.Mvc
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            ReportingContext.App_Start();
+            ReportingContext.ApplicationStart();
             WebResources.RegisterBundles(BundleTable.Bundles);
 
             context.MapRoute(
