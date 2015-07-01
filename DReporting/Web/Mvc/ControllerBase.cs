@@ -16,7 +16,7 @@ namespace DReporting.Web.Mvc
         {
             get
             {
-                return _reportStorage ?? (_reportStorage = ReportContext.ReportStorage);
+                return _reportStorage ?? (_reportStorage = ReportingContext.ReportStorage);
             }
         }
     }

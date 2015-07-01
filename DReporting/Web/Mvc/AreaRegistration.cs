@@ -14,13 +14,13 @@ namespace DReporting.Web.Mvc
         {
             get
             {
-                return ReportContext.AreaName;
+                return ReportingContext.AreaName;
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            ReportContext.App_Start();
+            ReportingContext.App_Start();
             WebResources.RegisterBundles(BundleTable.Bundles);
 
             context.MapRoute(

@@ -1,6 +1,6 @@
 ﻿@model CategoryVM
 
-<form method="post" action="@Url.Action("SaveCategory", "Home", new { Area = ReportContext.AreaName })">
+<form method="post" action="@Url.Action("SaveCategory", "Home", new { Area = ReportingContext.AreaName })">
     @{var returnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];}
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
     <input type="hidden" name="CategoryID" value="@Model.CategoryID" />
