@@ -83,7 +83,7 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditTemplate", "Home", new { Area = ReportingContext.AreaName, TemplateID = model.TemplateID });
+                return RedirectToAction("EditTemplate", "Home", new { Area = ReportingGlobal.AreaName, TemplateID = model.TemplateID });
             }
         }
 
@@ -99,13 +99,13 @@ namespace DReporting.Web.Mvc.Controllers
 
             this.ReportStorage.SaveTemplate(template);
 
-            return RedirectToAction("Index", "Home", new { Area = ReportingContext.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
         public ActionResult DeleteTemplate(string templateId)
         {
             this.ReportStorage.DeleteTemplate(templateId);
-            return RedirectToAction("Index", "Home", new { Area = ReportingContext.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
         public ActionResult CreateCategory()
@@ -134,14 +134,14 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditCategory", "Home", new { Area = ReportingContext.AreaName, CategoryID = model.CategoryID });
+                return RedirectToAction("EditCategory", "Home", new { Area = ReportingGlobal.AreaName, CategoryID = model.CategoryID });
             }
         }
 
         public ActionResult DeleteCategory(string categoryId)
         {
             this.ReportStorage.DeleteCategory(categoryId);
-            return RedirectToAction("Index", "Home", new { Area = ReportingContext.AreaName });
+            return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
         public ActionResult EditDataProvider(string dataProviderId)
@@ -168,7 +168,7 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("EditDataProvider", "Home", new { Area = ReportingContext.AreaName, DataProviderID = model.DataProviderID });
+                return RedirectToAction("EditDataProvider", "Home", new { Area = ReportingGlobal.AreaName, DataProviderID = model.DataProviderID });
             }
         }
     }

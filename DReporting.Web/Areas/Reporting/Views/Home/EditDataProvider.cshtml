@@ -8,7 +8,7 @@
 <h3>Edit Data Provider - @Model.DataProviderName</h3>
 <hr />
 
-<form method="post" action="@Url.Action("SaveDataProvider", "Home", new { Area = ReportingContext.AreaName })">
+<form method="post" action="@Url.Action("SaveDataProvider", "Home", new { Area = ReportingGlobal.AreaName })">
     @{var returnUrl = ViewContext.RequestContext.HttpContext.Request.QueryString["ReturnUrl"];}
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
     <input type="hidden" name="DataProviderID" value="@Model.DataProviderID" />

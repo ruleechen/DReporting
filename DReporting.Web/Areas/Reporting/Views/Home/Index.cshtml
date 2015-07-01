@@ -1,7 +1,7 @@
 ﻿@model HomeVM
 
 @{
-    ViewBag.Title = "Reporting";
+    ViewBag.Title = "Reporting - Home";
 }
 
 <div class="table-responsive">
@@ -32,18 +32,18 @@
                     <td>@(Model.Categories.Where(x => x.CategoryID.Equals(item.CategoryID, StringComparison.InvariantCultureIgnoreCase)).Select(x=>x.CategoryName).FirstOrDefault())</td>
                     <td>@item.CreationTime</td>
                     <td>@item.LastUpdateTime</td>
-                    <td><a href="@Url.Action("CopyTemplate", "Home", new { Area = ReportingContext.AreaName, TemplateID = item.TemplateID })" data-action="copy-template">Copy</a></td>
-                    <td><a href="@Url.Action("DeleteTemplate", "Home", new { Area = ReportingContext.AreaName, TemplateID = item.TemplateID })" data-action="delete-template" data-name="@item.TemplateName">Delete</a></td>
-                    <td><a href="@Url.Action("EditTemplate", "Home", new { Area = ReportingContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="edit-template">Edit</a></td>
-                    <td><a href="@Url.Action("Index", "Design", new { Area = ReportingContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="design-template">Design</a></td>
-                    <td><a href="@Url.Action("Index", "Preview", new { Area = ReportingContext.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="preview-template">Preview</a></td>
+                    <td><a href="@Url.Action("CopyTemplate", "Home", new { Area = ReportingGlobal.AreaName, TemplateID = item.TemplateID })" data-action="copy-template">Copy</a></td>
+                    <td><a href="@Url.Action("DeleteTemplate", "Home", new { Area = ReportingGlobal.AreaName, TemplateID = item.TemplateID })" data-action="delete-template" data-name="@item.TemplateName">Delete</a></td>
+                    <td><a href="@Url.Action("EditTemplate", "Home", new { Area = ReportingGlobal.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="edit-template">Edit</a></td>
+                    <td><a href="@Url.Action("Index", "Design", new { Area = ReportingGlobal.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="design-template">Design</a></td>
+                    <td><a href="@Url.Action("Index", "Preview", new { Area = ReportingGlobal.AreaName, TemplateID = item.TemplateID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="preview-template">Preview</a></td>
                 </tr>
             }
             </tbody>
         }
         <tfoot>
             <tr>
-                <td colspan="10"><a href="@Url.Action("Create", "Design", new { Area = ReportingContext.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="create-template">Create Template</a></td>
+                <td colspan="10"><a href="@Url.Action("Create", "Design", new { Area = ReportingGlobal.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="create-template">Create Template</a></td>
             </tr>
         </tfoot>
     </table>
@@ -66,15 +66,15 @@
             {
                 <tr>
                     <td>@item.CategoryName</td>
-                    <td><a href="@Url.Action("EditCategory", "Home", new { Area = ReportingContext.AreaName, CategoryID = item.CategoryID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="edit-category">Edit</a></td>
-                    <td><a href="@Url.Action("DeleteCategory", "Home", new { Area = ReportingContext.AreaName, CategoryID = item.CategoryID })" data-action="delete-category" data-name="@item.CategoryName">Delete</a></td>
+                    <td><a href="@Url.Action("EditCategory", "Home", new { Area = ReportingGlobal.AreaName, CategoryID = item.CategoryID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="edit-category">Edit</a></td>
+                    <td><a href="@Url.Action("DeleteCategory", "Home", new { Area = ReportingGlobal.AreaName, CategoryID = item.CategoryID })" data-action="delete-category" data-name="@item.CategoryName">Delete</a></td>
                 </tr>
             }
             </tbody>
         }
         <tfoot>
             <tr>
-                <td colspan="3"><a href="@Url.Action("CreateCategory", "Home", new { Area = ReportingContext.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="create-category">Create Category</a></td>
+                <td colspan="3"><a href="@Url.Action("CreateCategory", "Home", new { Area = ReportingGlobal.AreaName, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="create-category">Create Category</a></td>
             </tr>
         </tfoot>
     </table>
@@ -99,7 +99,7 @@
                     <td>@item.DataProviderName</td>
                     <td>@item.DataProviderID</td>
                     <td>@(Model.Categories.Where(x => x.CategoryID.Equals(item.CategoryID, StringComparison.InvariantCultureIgnoreCase)).Select(x=>x.CategoryName).FirstOrDefault())</td>
-                    <td><a href="@Url.Action("EditDataProvider", "Home", new { Area = ReportingContext.AreaName, DataProviderID = item.DataProviderID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingContext.AreaName }) })" data-action="edit-dataprovider">Edit</a></td>
+                    <td><a href="@Url.Action("EditDataProvider", "Home", new { Area = ReportingGlobal.AreaName, DataProviderID = item.DataProviderID, ReturnUrl = Url.Action("Index", "Home", new { Area = ReportingGlobal.AreaName }) })" data-action="edit-dataprovider">Edit</a></td>
                 </tr>
             }
             </tbody>
