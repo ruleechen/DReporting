@@ -13,6 +13,8 @@ namespace DReporting.Web.Mvc.ViewModels
 
         public string TemplateName { get; set; }
 
+        public string DataProviderId { get; set; }
+
         public XtraReport XtraReport { get; set; }
     }
 }

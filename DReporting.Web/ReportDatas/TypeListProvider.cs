@@ -9,12 +9,12 @@ using DReporting.Core;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("Reporting.TypeListDataProvider", typeof(IDataProvider))]
-    public class TypeListDataProvider : IDataProvider
+    [Export("Reporting.TypeListProvider", typeof(IDataProvider))]
+    public class TypeListProvider : IDataProvider
     {
         public string DataProviderName
         {
-            get { return "TypeListDataProvider"; }
+            get { return "TypeListProvider"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)

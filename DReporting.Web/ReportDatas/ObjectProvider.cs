@@ -8,8 +8,8 @@ using DevExpress.DataAccess.ObjectBinding;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("Reporting.ObjectDataProvider", typeof(IDataProvider))]
-    public class ObjectDataProvider : IDataProvider
+    [Export("Reporting.ObjectProvider", typeof(IDataProvider))]
+    public class ObjectProvider : IDataProvider
     {
         public string DataProviderName
         {

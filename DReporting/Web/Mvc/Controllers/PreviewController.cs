@@ -13,37 +13,25 @@ namespace DReporting.Web.Mvc.Controllers
     {
         public ActionResult Index(string templateId, string dataProviderId)
         {
-            var template = this.ReportStorage.GetTemplate(templateId);
-
-            if (!string.IsNullOrEmpty(dataProviderId))
-            {
-                var query = HttpUtility.ParseQueryString(Request.Url.Query);
-                var provider = this.ReportStorage.GetDataProvider(dataProviderId);
-
-                template.XtraReport.DataSourceDemanded += (object sender, EventArgs e) =>
-                {
-                    ((XtraReport)sender).DataSource = provider.Entity.GetDataSource(query, false);
-                };
-            }
-
-            return View("Index", new ViewerVM
-            {
-                TemplateID = templateId,
-                TemplateName = template.TemplateName,
-                XtraReport = template.XtraReport
-            });
+            return View("Index", VM(templateId, dataProviderId));
         }
 
-        public ActionResult Callback(string templateId)
+        public ActionResult Callback(string templateId, string dataProviderId)
+        {
+            return PartialView("Viewer", VM(templateId, dataProviderId));
+        }
+
+        private ViewerVM VM(string templateId, string dataProviderId)
         {
             var template = this.ReportStorage.GetTemplate(templateId);
 
-            return PartialView("Viewer", new ViewerVM
+            return new ViewerVM
             {
                 TemplateID = templateId,
                 TemplateName = template.TemplateName,
+                DataProviderId = dataProviderId,
                 XtraReport = template.XtraReport
-            });
+            };
         }
 
         public ActionResult Export(string templateId)

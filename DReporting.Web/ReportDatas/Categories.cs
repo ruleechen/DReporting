@@ -1,3 +1,0 @@
-﻿namespace DReporting.Web.ReportDatas
-{
-}

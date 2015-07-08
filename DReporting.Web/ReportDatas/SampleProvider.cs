@@ -8,8 +8,8 @@ using DevExpress.DataAccess.ConnectionParameters;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("Reporting.SampleDataProvider", typeof(IDataProvider))]
-    public class SampleDataProvider : IDataProvider
+    [Export("Reporting.SampleProvider", typeof(IDataProvider))]
+    public class SampleProvider : IDataProvider
     {
         public string DataProviderName
         {
