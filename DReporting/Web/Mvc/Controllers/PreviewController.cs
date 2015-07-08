@@ -37,7 +37,7 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 TemplateID = templateId,
                 TemplateName = template.TemplateName,
-                DataProviderId = dataProviderId,
+                DataProviderID = dataProviderId,
                 XtraReport = template.XtraReport
             };
         }
