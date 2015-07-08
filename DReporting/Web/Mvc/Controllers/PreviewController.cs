@@ -25,6 +25,14 @@ namespace DReporting.Web.Mvc.Controllers
         {
             var template = this.ReportStorage.GetTemplate(templateId);
 
+            if (!string.IsNullOrEmpty(dataProviderId))
+            {
+                var query = HttpUtility.ParseQueryString(Request.Url.Query);
+                var provider = this.ReportStorage.GetDataProvider(dataProviderId);
+
+                template.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
+            }
+
             return new ViewerVM
             {
                 TemplateID = templateId,
