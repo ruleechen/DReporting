@@ -235,8 +235,12 @@ namespace DReporting.Services
 
         #region IDataProviderMgr Members
 
+        private static IEnumerable<DataProviderModel> dataProviders;
+
         public IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null)
         {
+            if (dataProviders != null) { return dataProviders; }
+
             var metas = InjectContainer.Instance.ExportMetas();
             var settings = this.QueryDataProviders().ToList();
             var providers = InjectContainer.Instance.GetExports<IDataProvider>();
@@ -264,6 +268,8 @@ namespace DReporting.Services
             {
                 query = query.Take(take.Value);
             }
+
+            dataProviders = query;
 
             return query;
         }
@@ -297,7 +303,6 @@ namespace DReporting.Services
             File.WriteAllText(providersSettingFile, json);
 
             return model;
-
         }
 
         private IQueryable<DataProviderModel> QueryDataProviders()

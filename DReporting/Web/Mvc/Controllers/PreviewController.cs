@@ -29,8 +29,19 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 var query = HttpUtility.ParseQueryString(Request.Url.Query);
                 var provider = this.ReportStorage.GetDataProvider(dataProviderId);
+                var dataSource = provider.Entity.GetDataSource(query, false);
 
-                template.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
+                var sqlDataSource = dataSource as DevExpress.DataAccess.Sql.SqlDataSource;
+                if (sqlDataSource != null)
+                {
+                    var sqlQuery = sqlDataSource.Queries.OfType<DevExpress.DataAccess.Sql.CustomSqlQuery>().FirstOrDefault();
+                    template.XtraReport.DataMember = sqlQuery != null ? sqlQuery.Name : sqlDataSource.Name;
+                    template.XtraReport.DataSource = sqlDataSource;
+                }
+                else
+                {
+                    template.XtraReport.DataSource = dataSource;
+                }
             }
 
             return new ViewerVM
