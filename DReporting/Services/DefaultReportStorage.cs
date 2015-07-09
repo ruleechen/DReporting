@@ -270,15 +270,8 @@ namespace DReporting.Services
 
         public DataProviderModel GetDataProvider(string dataProviderId)
         {
-            var settings = this.QueryDataProviders().ToList();
-            var provider = InjectContainer.Instance.GetExport<IDataProvider>(dataProviderId);
-
-            return new DataProviderModel
-            {
-                DataProviderID = dataProviderId,
-                CategoryID = settings.Where(x => x.DataProviderID.Equals(dataProviderId, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.CategoryID).FirstOrDefault(),
-                Entity = provider
-            };
+            var query = this.QueryDataProviders();
+            return query.Where(x => x.DataProviderID.Equals(dataProviderId, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
         }
 
         public DataProviderModel SaveDataProvider(DataProviderModel model)
