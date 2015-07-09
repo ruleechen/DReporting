@@ -20,7 +20,7 @@ namespace DReporting.Web.ReportDatas
 
         public object GetDataSource(NameValueCollection args, bool designTime)
         {
-            var query = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            var query = new CustomSqlQuery();
             query.Name = "Vouchers";
             query.Sql = "SELECT * FROM Voucher";
 
