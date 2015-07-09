@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Core\ICategoryMgr.cs" />
     <Compile Include="Core\IReportStorage.cs" />
+    <Compile Include="Core\IReportTemplate.cs" />
     <Compile Include="Core\ITemplateMgr.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="ReportingGlobal.cs" />
