@@ -55,7 +55,7 @@ namespace DReporting.Services
         {
             var dirs = Directory.GetDirectories(TemplatesDir, "*", SearchOption.TopDirectoryOnly);
 
-            var query = dirs.Select(x => this.GetTemplate(Path.GetFileName(x)));
+            var query = dirs.Select(x => this.GetTemplate(Path.GetFileName(x))).Where(x => x != null);
 
             return query.AsQueryable();
         }
