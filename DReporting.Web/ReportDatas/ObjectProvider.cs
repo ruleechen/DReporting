@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Linq;
-using DReporting.Core;
 using DevExpress.DataAccess.ObjectBinding;
+using DReporting.Core;
 
 namespace DReporting.Web.ReportDatas
 {
@@ -18,13 +19,13 @@ namespace DReporting.Web.ReportDatas
 
         public object GetDataSource(NameValueCollection args, bool designTime)
         {
-            var users = new UserCollection();
+            var users = new Users();
             users.Add(new User
             {
                 FirstName = "Ronglin",
                 LastName = "Chen",
                 Role = new Role { Group = "Yaitoo" },
-                Roles = new RoleCollection { new Role { Group = "Yaitoo" } },
+                Roles = new Roles { new Role { Group = "Yaitoo" } },
             });
 
 
@@ -38,27 +39,40 @@ namespace DReporting.Web.ReportDatas
         }
     }
 
-    public class UserCollection : List<User>
+    [DisplayName("Users")]
+    [HighlightedClass]
+    public class Users : List<User>
     {
     }
 
+    [DisplayName("User")]
+    [HighlightedClass]
     public class User
     {
+        [HighlightedMember]
         public string FirstName { get; set; }
 
+        [HighlightedMember]
         public string LastName { get; set; }
 
+        [HighlightedMember]
         public Role Role { get; set; }
 
-        public RoleCollection Roles { get; set; }
+        [HighlightedMember]
+        public Roles Roles { get; set; }
     }
 
-    public class RoleCollection : List<Role>
+    [DisplayName("Roles")]
+    [HighlightedClass]
+    public class Roles : List<Role>
     {
     }
 
+    [DisplayName("Role")]
+    [HighlightedClass]
     public class Role
     {
+        [HighlightedMember]
         public string Group { get; set; }
     }
 }
