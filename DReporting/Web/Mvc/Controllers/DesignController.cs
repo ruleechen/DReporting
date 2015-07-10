@@ -56,7 +56,7 @@ namespace DReporting.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult Save(string templateId, string templateName, string returnUrl)
         {
-            var xmlContent = ReportDesignerExtension.GetReportXml("designer");
+            var xmlContent = ReportDesignerExtension.GetReportXml("reportDesigner");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
 
             var old = this.ReportStorage.GetTemplate(templateId);

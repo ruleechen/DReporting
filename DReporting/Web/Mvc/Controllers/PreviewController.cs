@@ -29,7 +29,6 @@ namespace DReporting.Web.Mvc.Controllers
             {
                 var query = HttpUtility.ParseQueryString(Request.Url.Query);
                 var provider = this.ReportStorage.GetDataProvider(dataProviderId);
-
                 template.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
             }
 

@@ -4,7 +4,7 @@
 
 @Html.DevExpress().ReportDesigner(settings =>
 {
-    settings.Name = "designer";
+    settings.Name = "reportDesigner";
 
     settings.SaveCallbackRouteValues = new
     {
@@ -18,6 +18,9 @@
     settings.ClientSideEvents.SaveCommandExecute = "dreporting.designer.SaveCommandExecute";
     settings.ClientSideEvents.SaveCommandExecuted = "dreporting.designer.SaveCommandExecuted";
     settings.ClientSideEvents.CustomizeMenuActions = "dreporting.designer.CustomizeMenuActions";
+
+    settings.ControlStyle.CssClass = "fullscreen";
+    settings.Height = System.Web.UI.WebControls.Unit.Empty;
 
     if (Model.DataSources != null)
     {

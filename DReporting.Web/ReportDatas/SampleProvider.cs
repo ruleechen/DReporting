@@ -22,7 +22,15 @@ namespace DReporting.Web.ReportDatas
         {
             var query = new CustomSqlQuery();
             query.Name = "Vouchers";
-            query.Sql = "SELECT * FROM Voucher";
+
+            if (designTime)
+            {
+                query.Sql = "SELECT top(5) * FROM Voucher";
+            }
+            else
+            {
+                query.Sql = "SELECT * FROM Voucher";
+            }
 
             //var mssqlConn = new MsSqlConnectionParameters("localhost", "nwind.mdf", "username", "password", MsSqlAuthorizationType.SqlServer);
             //var mysqlConn = new MySqlConnectionParameters("localhost", "db name", "username", "password", "port");
@@ -30,14 +38,7 @@ namespace DReporting.Web.ReportDatas
             var ds = new SqlDataSource("iPro");
             ds.Queries.Add(query);
 
-            if (designTime)
-            {
-                ds.RebuildResultSchema();
-            }
-            else
-            {
-                ds.Fill();
-            }
+            ds.RebuildResultSchema();
 
             return ds;
         }
