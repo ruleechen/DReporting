@@ -108,6 +108,7 @@
     // designer extents
     $.extend(ctx.designer, {
         saveAndClose: null,
+        stopConfirmation: false,
         SaveCommandExecute: function (designer, request) {
             //designer.callbackCustomArgs = {};
             var templateName = $('#txtTemplateName').val();
@@ -123,6 +124,7 @@
             }
         },
         SaveCommandExecuted: function (designer, response) {
+            ctx.designer.stopConfirmation = true;
             var returnUrl = ctx.getQuery('ReturnUrl');
             if (returnUrl && ctx.designer.saveAndClose) {
                 location.href = returnUrl;
@@ -151,22 +153,34 @@
 
     // page actions
     $(function () {
+
         $('[data-action="delete-template"]').click(function () {
             var name = $(this).data('name');
             if (!confirm('Are you sure to delete report "' + name + '" ?')) {
                 return false;
             }
         });
+
         $('[data-action="delete-category"]').click(function () {
             var name = $(this).data('name');
             if (!confirm('Are you sure to delete category "' + name + '" ?')) {
                 return false;
             }
         });
+
         $('[data-action="cancel"]').click(function () {
             var href = $(this).data('href');
             if (href) { location.href = href; }
         });
+
+        if (window.reportDesigner) {
+            $(window).on('beforeunload', function (e) {
+                if (!ctx.designer.stopConfirmation && reportDesigner.GetDesignerModel().isDirty()) {
+                    return 'You have unsaved changes on the page';
+                }
+            });
+        }
+
     });
 
 })(jQuery);

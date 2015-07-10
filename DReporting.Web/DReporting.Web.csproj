@@ -211,7 +211,10 @@
     </Content>
     <Content Include="Areas\Reporting\Content\bootstrap.css" />
     <Content Include="Areas\Reporting\Content\dreporting.css" />
+    <Content Include="Areas\Reporting\Content\jquery-ui.min.css" />
+    <Content Include="Areas\Reporting\Scripts\ace.js" />
     <Content Include="Areas\Reporting\Scripts\dreporting.js" />
+    <Content Include="Areas\Reporting\Scripts\ext-language_tools.js" />
     <Content Include="Areas\Reporting\Scripts\globalize.js" />
     <Content Include="Areas\Reporting\Scripts\jquery-1.11.1.min.js" />
     <Content Include="Areas\Reporting\Scripts\jquery-ui.min.js" />
