@@ -30,14 +30,7 @@ namespace DReporting.Web.ReportDatas
             var ds = new SqlDataSource("iPro");
             ds.Queries.Add(query);
 
-            if (designTime)
-            {
-                ds.RebuildResultSchema();
-            }
-            else
-            {
-                ds.Fill();
-            }
+            ds.RebuildResultSchema();
 
             return ds;
         }

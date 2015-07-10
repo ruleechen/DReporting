@@ -235,14 +235,10 @@ namespace DReporting.Services
 
         #region IDataProviderMgr Members
 
-        private static IEnumerable<DataProviderModel> dataProviders;
-
         public IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null)
         {
-            if (dataProviders != null) { return dataProviders; }
-
             var metas = InjectContainer.Instance.ExportMetas();
-            var settings = this.QueryDataProviders().ToList();
+            var settings = this.QueryDataProviderSettings().ToList();
             var providers = InjectContainer.Instance.GetExports<IDataProvider>();
 
             var query = providers.Select(x => new DataProviderModel
@@ -269,24 +265,29 @@ namespace DReporting.Services
                 query = query.Take(take.Value);
             }
 
-            dataProviders = query;
-
             return query;
         }
 
         public DataProviderModel GetDataProvider(string dataProviderId)
         {
-            var query = this.QueryDataProviders();
-            return query.Where(x => x.DataProviderID.Equals(dataProviderId, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+            var settings = this.QueryDataProviderSettings().ToList();
+            var provider = InjectContainer.Instance.GetExport<IDataProvider>(dataProviderId);
+
+            return new DataProviderModel
+            {
+                DataProviderID = dataProviderId,
+                CategoryID = settings.Where(x => x.DataProviderID.Equals(dataProviderId, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.CategoryID).FirstOrDefault(),
+                Entity = provider
+            };
         }
 
         public DataProviderModel SaveDataProvider(DataProviderModel model)
         {
-            var providers = this.QueryDataProviders().ToList();
+            var settings = this.QueryDataProviderSettings().ToList();
 
-            var dict = providers.ToDictionary(x => x.DataProviderID, x => x.CategoryID);
+            var dict = settings.ToDictionary(x => x.DataProviderID, x => x.CategoryID);
 
-            var item = providers.FirstOrDefault(x => x.DataProviderID.Equals(model.DataProviderID, StringComparison.InvariantCultureIgnoreCase));
+            var item = settings.FirstOrDefault(x => x.DataProviderID.Equals(model.DataProviderID, StringComparison.InvariantCultureIgnoreCase));
 
             if (item == null)
             {
@@ -305,7 +306,7 @@ namespace DReporting.Services
             return model;
         }
 
-        private IQueryable<DataProviderModel> QueryDataProviders()
+        private IQueryable<DataProviderModel> QueryDataProviderSettings()
         {
             var providersSettingFile = Path.Combine(ProvidersDir, settings_json);
             if (!File.Exists(providersSettingFile))
