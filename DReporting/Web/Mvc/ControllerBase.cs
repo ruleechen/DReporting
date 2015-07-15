@@ -11,12 +11,30 @@ namespace DReporting.Web.Mvc
 {
     public abstract class ControllerBase : Controller
     {
-        private IReportStorage _reportStorage;
-        public IReportStorage ReportStorage
+        private ITemplateMgr _templateMgr;
+        public ITemplateMgr TemplateMgr
         {
             get
             {
-                return _reportStorage ?? (_reportStorage = ReportingGlobal.ReportStorage);
+                return _templateMgr ?? (_templateMgr = ReportingGlobal.ReportStorage);
+            }
+        }
+
+        private IDataProviderMgr _dataProviderMgr;
+        public IDataProviderMgr DataProviderMgr
+        {
+            get
+            {
+                return _dataProviderMgr ?? (_dataProviderMgr = ReportingGlobal.ReportStorage);
+            }
+        }
+
+        private ICategoryMgr _categoryMgr;
+        public ICategoryMgr CategoryMgr
+        {
+            get
+            {
+                return _categoryMgr ?? (_categoryMgr = ReportingGlobal.ReportStorage);
             }
         }
     }

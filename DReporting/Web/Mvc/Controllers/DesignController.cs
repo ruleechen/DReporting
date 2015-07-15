@@ -31,16 +31,16 @@ namespace DReporting.Web.Mvc.Controllers
 
             if (string.IsNullOrEmpty(templateId))
             {
-                template = this.ReportStorage.GetDefaultTemplate();
+                template = this.TemplateMgr.GetDefaultTemplate();
             }
             else
             {
-                template = this.ReportStorage.GetTemplate(templateId);
+                template = this.TemplateMgr.GetTemplate(templateId);
             }
 
             var query = HttpUtility.ParseQueryString(Request.Url.Query);
 
-            var dataSources = this.ReportStorage.QueryDataProviders().ToDictionary(
+            var dataSources = this.DataProviderMgr.QueryDataProviders().ToDictionary(
                 x => x.Entity.DataProviderName,
                 x => x.Entity.GetDataSource(query, true));
 
@@ -59,9 +59,9 @@ namespace DReporting.Web.Mvc.Controllers
             var xmlContent = ReportDesignerExtension.GetReportXml("reportDesigner");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
 
-            var old = this.ReportStorage.GetTemplate(templateId);
+            var old = this.TemplateMgr.GetTemplate(templateId);
 
-            var model = this.ReportStorage.SaveTemplate(new TemplateModel
+            var model = this.TemplateMgr.SaveTemplate(new TemplateModel
             {
                 TemplateID = templateId,
                 TemplateName = templateName,
