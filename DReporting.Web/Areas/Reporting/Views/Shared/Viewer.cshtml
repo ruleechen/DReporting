@@ -12,7 +12,8 @@
         Controller = "Preview",
         Action = "Callback",
         TemplateID = Model.TemplateID,
-        DataProviderID = Model.DataProviderID
+        DataProviderID = Model.DataProviderID,
+        DataProviderArgs = Model.DataProviderArgs
     };
 
     settings.ExportRouteValues = new
@@ -20,7 +21,9 @@
         Area = ReportingGlobal.AreaName,
         Controller = "Preview",
         Action = "Export",
-        TemplateID = Model.TemplateID
+        TemplateID = Model.TemplateID,
+        DataProviderID = Model.DataProviderID,
+        DataProviderArgs = Model.DataProviderArgs
     };
 
     //settings.CacheReportDocument

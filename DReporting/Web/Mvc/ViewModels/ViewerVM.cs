@@ -15,6 +15,8 @@ namespace DReporting.Web.Mvc.ViewModels
 
         public string DataProviderID { get; set; }
 
+        public string DataProviderArgs { get; set; }
+
         public XtraReport XtraReport { get; set; }
     }
 }

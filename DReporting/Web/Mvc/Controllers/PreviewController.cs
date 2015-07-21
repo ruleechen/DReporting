@@ -13,38 +13,59 @@ namespace DReporting.Web.Mvc.Controllers
     {
         public ActionResult Index(string templateId, string dataProviderId)
         {
-            return View("Index", VM(templateId, dataProviderId));
+            var args = HttpUtility.ParseQueryString(Request.Url.Query);
+            args.Remove("TemplateID");
+            args.Remove("DataProviderID");
+            args.Remove("ReturnUrl");
+
+            var vm = this.VM(templateId, dataProviderId, args.ToString());
+
+            return View("Index", vm);
         }
 
-        public ActionResult Callback(string templateId, string dataProviderId)
+        public ActionResult Callback(string templateId, string dataProviderId, string dataProviderArgs)
         {
-            return PartialView("Viewer", VM(templateId, dataProviderId));
+            var vm = this.VM(templateId, dataProviderId, dataProviderArgs);
+
+            if (!string.IsNullOrEmpty(dataProviderId))
+            {
+                this.FillDataSource(vm.XtraReport, dataProviderId, dataProviderArgs);
+            }
+
+            return PartialView("Viewer", vm);
         }
 
-        private ViewerVM VM(string templateId, string dataProviderId)
+        public ActionResult Export(string templateId, string dataProviderId, string dataProviderArgs)
         {
             var template = this.TemplateMgr.GetTemplate(templateId);
 
             if (!string.IsNullOrEmpty(dataProviderId))
             {
-                var query = HttpUtility.ParseQueryString(Request.Url.Query);
-                var provider = this.DataProviderMgr.GetDataProvider(dataProviderId);
-                template.XtraReport.DataSource = provider.Entity.GetDataSource(query, false);
+                this.FillDataSource(template.XtraReport, dataProviderId, dataProviderArgs);
             }
+
+            return DocumentViewerExtension.ExportTo(template.XtraReport);
+        }
+
+        private ViewerVM VM(string templateId, string dataProviderId, string dataProviderArgs)
+        {
+            var template = this.TemplateMgr.GetTemplate(templateId);
 
             return new ViewerVM
             {
                 TemplateID = templateId,
                 TemplateName = template.TemplateName,
                 DataProviderID = dataProviderId,
+                DataProviderArgs = dataProviderArgs,
                 XtraReport = template.XtraReport
             };
         }
 
-        public ActionResult Export(string templateId)
+        private void FillDataSource(XtraReport xtraReport, string dataProviderId, string dataProviderArgs)
         {
-            var template = this.TemplateMgr.GetTemplate(templateId);
-            return DocumentViewerExtension.ExportTo(template.XtraReport);
+            var query = HttpUtility.ParseQueryString(dataProviderArgs);
+            var provider = this.DataProviderMgr.GetDataProvider(dataProviderId);
+            xtraReport.DataSource = provider.Entity.GetDataSource(query, false);
         }
     }
 }
