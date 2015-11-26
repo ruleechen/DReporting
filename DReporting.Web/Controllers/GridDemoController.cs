@@ -12,9 +12,9 @@ using DevExpress.Web;
 using DevExpress.Web.Mvc;
 using DevExpress.Web.Mvc.UI;
 
-namespace DReporting.Web.Mvc.Controllers
+namespace DReporting.Web.Controllers
 {
-    public class GridDemoController : ControllerBase
+    public class GridDemoController : Controller
     {
         public ActionResult Index()
         {

@@ -126,9 +126,7 @@
     <Compile Include="ReportingGlobal.cs" />
     <Compile Include="Core\IDataProvider.cs" />
     <Compile Include="Models\DataProviderModel.cs" />
-    <Compile Include="Web\Mvc\Controllers\GridDemoController.cs" />
     <Compile Include="Web\Mvc\ViewModels\DataProviderVM.cs" />
-    <Compile Include="Web\Mvc\ViewModels\GridVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />
     <Compile Include="Models\TemplateModel.cs" />

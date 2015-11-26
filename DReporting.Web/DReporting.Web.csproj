@@ -185,6 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GridDemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,8 +249,8 @@
     <Content Include="ReportDatas\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
-    <Content Include="Areas\Reporting\Views\GridDemo\Index.cshtml" />
-    <Content Include="Areas\Reporting\Views\Shared\Grid.cshtml" />
+    <Content Include="Views\GridDemo\Index.cshtml" />
+    <Content Include="Views\Shared\Grid.cshtml" />
     <None Include="ReportDatas\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
