@@ -1,0 +1,36 @@
+﻿<script type="text/javascript">
+    var timeout;
+    function scheduleGridUpdate(grid) {
+        window.clearTimeout(timeout);
+        timeout = window.setTimeout(
+            function () { grid.Refresh(); },
+            10000
+        );
+    }
+    function grid_Init(s, e) {
+        scheduleGridUpdate(s);
+    }
+    function grid_BeginCallback(s, e) {
+        window.clearTimeout(timeout);
+    }
+    function grid_EndCallback(s, e) {
+        scheduleGridUpdate(s);
+    }
+</script>
+
+@section styles {
+    @Html.DevExpress().GetStyleSheets(
+        ASPxWebClientUIControl.ColorSchemeLight,
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }
+    )
+}
+
+@section scripts {
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.GridView }
+    )
+}
+
+<div style="width: 800px; margin:10px;">
+    @Html.Partial("Grid")
+</div>

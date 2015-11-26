@@ -222,6 +222,8 @@
     <Content Include="Areas\Reporting\Scripts\knockout-3.3.0.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\gridview\Down.gif" />
+    <Content Include="Content\gridview\Up.gif" />
     <Content Include="Content\imgs\coffee.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -246,6 +248,8 @@
     <Content Include="ReportDatas\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\Reporting\Views\GridDemo\Index.cshtml" />
+    <Content Include="Areas\Reporting\Views\Shared\Grid.cshtml" />
     <None Include="ReportDatas\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
