@@ -63,7 +63,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         private void FillDataSource(XtraReport xtraReport, string dataProviderId, string dataProviderArgs)
         {
-            var query = HttpUtility.ParseQueryString(dataProviderArgs);
+            var query = HttpUtility.ParseQueryString(dataProviderArgs ?? string.Empty);
             var provider = this.DataProviderMgr.GetDataProvider(dataProviderId);
             xtraReport.DataSource = provider.Entity.GetDataSource(query, false);
         }
