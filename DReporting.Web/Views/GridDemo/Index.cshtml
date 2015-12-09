@@ -31,6 +31,18 @@
     )
 }
 
-<div style="width: 800px; margin:10px;">
+<div style="width: 800px; margin: 10px;">
+
+    <form action="/GridDemo/ExportTo" method="post" novalidate="novalidate">
+        <select name="format">
+            <option>Pdf</option>
+            <option>Xls</option>
+            <option>Xlsx</option>
+            <option>Rtf</option>
+            <option>Csv</option>
+        </select>
+        <input type="submit" name="submit" value="Export" />
+    </form>
+
     @Html.Partial("Grid")
 </div>
