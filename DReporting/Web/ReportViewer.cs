@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraReports.Web;
-using DReporting.Models;
+﻿using DevExpress.XtraReports.Web;
 using DReporting.Web.Mvc.ViewModels;
+using System;
+using System.Web.Mvc;
 
 namespace DReporting.Web
 {
@@ -17,8 +11,8 @@ namespace DReporting.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var viewer = this.GetViewer();
-            viewer.Report = this.Model.XtraReport;
+            var viewer = GetViewer();
+            viewer.Report = Model.XtraReport;
         }
     }
 }

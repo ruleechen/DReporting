@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using DReporting.Models;
+﻿using DReporting.Models;
 using DReporting.Web.Mvc.ViewModels;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace DReporting.Web.Mvc.Controllers
 {
@@ -12,9 +10,9 @@ namespace DReporting.Web.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            var templates = this.TemplateMgr.QueryTemplates();
-            var categories = this.CategoryMgr.QueryCategories();
-            var providers = this.DataProviderMgr.QueryDataProviders();
+            var templates = TemplateMgr.QueryTemplates();
+            var categories = CategoryMgr.QueryCategories();
+            var providers = DataProviderMgr.QueryDataProviders();
 
             return View(new HomeVM
             {
@@ -58,9 +56,9 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult EditTemplate(string templateId)
         {
-            ViewData["Categories"] = this.CategoryMgr.QueryCategories().Select(x => ToVM(x));
+            ViewData["Categories"] = CategoryMgr.QueryCategories().Select(x => ToVM(x));
 
-            var template = this.TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId);
 
             return View(ToVM(template));
         }
@@ -68,14 +66,14 @@ namespace DReporting.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult SaveTemplate(TemplateVM model, string returnUrl)
         {
-            var template = this.TemplateMgr.GetTemplate(model.TemplateID);
+            var template = TemplateMgr.GetTemplate(model.TemplateID);
 
             template.TemplateCode = model.TemplateCode;
             template.TemplateName = model.TemplateName;
             template.CategoryID = model.CategoryID;
             template.LastUpdateTime = DateTime.UtcNow;
 
-            this.TemplateMgr.SaveTemplate(template);
+            TemplateMgr.SaveTemplate(template);
 
             if (!string.IsNullOrEmpty(returnUrl))
             {
@@ -89,7 +87,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult CopyTemplate(string templateId)
         {
-            var template = this.TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId);
 
             template.TemplateID = Guid.NewGuid().ToString().ToLower();
             template.TemplateName = "Copy of " + template.TemplateName;
@@ -97,14 +95,14 @@ namespace DReporting.Web.Mvc.Controllers
             template.CreationTime = DateTime.UtcNow;
             template.LastUpdateTime = null;
 
-            this.TemplateMgr.SaveTemplate(template);
+            TemplateMgr.SaveTemplate(template);
 
             return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
         public ActionResult DeleteTemplate(string templateId)
         {
-            this.TemplateMgr.DeleteTemplate(templateId);
+            TemplateMgr.DeleteTemplate(templateId);
             return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
@@ -115,14 +113,14 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult EditCategory(string categoryId)
         {
-            var category = this.CategoryMgr.GetCategory(categoryId);
+            var category = CategoryMgr.GetCategory(categoryId);
             return View(ToVM(category));
         }
 
         [HttpPost]
         public ActionResult SaveCategory(CategoryVM model, string returnUrl)
         {
-            this.CategoryMgr.SaveCategory(new CategoryModel
+            CategoryMgr.SaveCategory(new CategoryModel
             {
                 CategoryID = model.CategoryID,
                 CategoryName = model.CategoryName
@@ -140,15 +138,15 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult DeleteCategory(string categoryId)
         {
-            this.CategoryMgr.DeleteCategory(categoryId);
+            CategoryMgr.DeleteCategory(categoryId);
             return RedirectToAction("Index", "Home", new { Area = ReportingGlobal.AreaName });
         }
 
         public ActionResult EditDataProvider(string dataProviderId)
         {
-            ViewData["Categories"] = this.CategoryMgr.QueryCategories().Select(x => ToVM(x));
+            ViewData["Categories"] = CategoryMgr.QueryCategories().Select(x => ToVM(x));
 
-            var provider = this.DataProviderMgr.GetDataProvider(dataProviderId);
+            var provider = DataProviderMgr.GetDataProvider(dataProviderId);
 
             return View(ToVM(provider));
         }
@@ -156,7 +154,7 @@ namespace DReporting.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult SaveDataProvider(DataProviderVM model, string returnUrl)
         {
-            this.DataProviderMgr.SaveDataProvider(new DataProviderModel
+            DataProviderMgr.SaveDataProvider(new DataProviderModel
             {
                 DataProviderID = model.DataProviderID,
                 CategoryID = model.CategoryID

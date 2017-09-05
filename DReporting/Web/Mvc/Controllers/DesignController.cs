@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using DevExpress.Web.Mvc;
+﻿using DevExpress.Web.Mvc;
 using DevExpress.XtraReports.UI;
 using DReporting.Models;
 using DReporting.Web.Mvc.ViewModels;
+using System;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace DReporting.Web.Mvc.Controllers
 {
@@ -31,16 +28,16 @@ namespace DReporting.Web.Mvc.Controllers
 
             if (string.IsNullOrEmpty(templateId))
             {
-                template = this.TemplateMgr.GetDefaultTemplate();
+                template = TemplateMgr.GetDefaultTemplate();
             }
             else
             {
-                template = this.TemplateMgr.GetTemplate(templateId);
+                template = TemplateMgr.GetTemplate(templateId);
             }
 
             var query = HttpUtility.ParseQueryString(Request.Url.Query);
 
-            var dataSources = this.DataProviderMgr.QueryDataProviders().ToDictionary(
+            var dataSources = DataProviderMgr.QueryDataProviders().ToDictionary(
                 x => x.Entity.DataProviderName,
                 x => x.Entity.GetDataSource(query, true));
 
@@ -59,9 +56,9 @@ namespace DReporting.Web.Mvc.Controllers
             var xmlContent = ReportDesignerExtension.GetReportXml("reportDesigner");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
 
-            var old = this.TemplateMgr.GetTemplate(templateId);
+            var old = TemplateMgr.GetTemplate(templateId);
 
-            var model = this.TemplateMgr.SaveTemplate(new TemplateModel
+            var model = TemplateMgr.SaveTemplate(new TemplateModel
             {
                 TemplateID = templateId,
                 TemplateName = templateName,

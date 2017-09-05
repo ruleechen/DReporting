@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DReporting.Core;
-using DevExpress.XtraReports.UI;
+﻿using System.Collections.Generic;
 
 namespace DReporting.Web.Mvc.ViewModels
 {

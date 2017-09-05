@@ -1,9 +1,5 @@
-﻿using System;
+﻿using DReporting.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DReporting.Models;
 
 namespace DReporting.Core
 {

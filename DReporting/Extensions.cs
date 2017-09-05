@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DevExpress.XtraReports.UI;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DevExpress.XtraReports.UI;
 
 namespace DReporting
 {

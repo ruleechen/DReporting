@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.UI;
 using DReporting.Core;
 using DReporting.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.IO;
+using System.Linq;
 
 namespace DReporting.Services
 {
@@ -55,7 +53,7 @@ namespace DReporting.Services
         {
             var dirs = Directory.GetDirectories(TemplatesDir, "*", SearchOption.TopDirectoryOnly);
 
-            var query = dirs.Select(x => this.GetTemplate(Path.GetFileName(x))).Where(x => x != null);
+            var query = dirs.Select(x => GetTemplate(Path.GetFileName(x))).Where(x => x != null);
 
             return query.AsQueryable();
         }
@@ -117,7 +115,7 @@ namespace DReporting.Services
 
         public TemplateModel SaveTemplate(TemplateModel model)
         {
-            var old = this.GetTemplate(model.TemplateID);
+            var old = GetTemplate(model.TemplateID);
 
             if (string.IsNullOrEmpty(model.TemplateID)) { model.TemplateID = Guid.NewGuid().ToString().ToLower(); }
 
@@ -183,13 +181,13 @@ namespace DReporting.Services
 
         public CategoryModel GetCategory(string categoryId)
         {
-            return this.QueryCategories().FirstOrDefault(x =>
+            return QueryCategories().FirstOrDefault(x =>
                 x.CategoryID.Equals(categoryId, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public CategoryModel SaveCategory(CategoryModel model)
         {
-            var categories = this.QueryCategories();
+            var categories = QueryCategories();
 
             var dict = categories.ToDictionary(x => x.CategoryID, x => x.CategoryName);
 
@@ -219,7 +217,7 @@ namespace DReporting.Services
 
         public void DeleteCategory(string categoryId)
         {
-            var categories = this.QueryCategories();
+            var categories = QueryCategories();
 
             categories = categories.Where(x => x.CategoryID != categoryId);
 
@@ -238,7 +236,7 @@ namespace DReporting.Services
         public IEnumerable<DataProviderModel> QueryDataProviders(int? skip = null, int? take = null)
         {
             var metas = InjectContainer.Instance.ExportMetas();
-            var settings = this.QueryDataProviderSettings().ToList();
+            var settings = QueryDataProviderSettings().ToList();
             var providers = InjectContainer.Instance.GetExports<IDataProvider>();
 
             var query = providers.Select(x => new DataProviderModel
@@ -270,7 +268,7 @@ namespace DReporting.Services
 
         public DataProviderModel GetDataProvider(string dataProviderId)
         {
-            var settings = this.QueryDataProviderSettings().ToList();
+            var settings = QueryDataProviderSettings().ToList();
             var provider = InjectContainer.Instance.GetExport<IDataProvider>(dataProviderId);
 
             return new DataProviderModel
@@ -283,7 +281,7 @@ namespace DReporting.Services
 
         public DataProviderModel SaveDataProvider(DataProviderModel model)
         {
-            var settings = this.QueryDataProviderSettings().ToList();
+            var settings = QueryDataProviderSettings().ToList();
 
             var dict = settings.ToDictionary(x => x.DataProviderID, x => x.CategoryID);
 

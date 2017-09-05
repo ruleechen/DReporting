@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DReporting.Core;
 using System.Web.Mvc;
-using DReporting.Core;
-using DReporting.Services;
 
 namespace DReporting.Web.Mvc
 {

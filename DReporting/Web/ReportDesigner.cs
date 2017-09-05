@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraReports.Web;
-using DReporting.Models;
+﻿using DevExpress.XtraReports.Web;
 using DReporting.Web.Mvc.ViewModels;
+using System;
+using System.Web.Mvc;
 
 namespace DReporting.Web
 {
@@ -17,16 +11,16 @@ namespace DReporting.Web
 
         protected override void OnInit(EventArgs e)
         {
-            var designer = this.GetDesigner();
+            var designer = GetDesigner();
             designer.SaveReportLayout += designer_SaveReportLayout;
             base.OnInit(e);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            if (!IsPostBack)
             {
-                var designer = this.GetDesigner();
+                var designer = GetDesigner();
                 //TODO:
             }
         }
