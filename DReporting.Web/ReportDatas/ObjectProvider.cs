@@ -1,11 +1,8 @@
-﻿using System;
+﻿using DevExpress.DataAccess.ObjectBinding;
+using DReporting.Core;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
-using System.Linq;
-using DevExpress.DataAccess.ObjectBinding;
-using DReporting.Core;
 
 namespace DReporting.Web.ReportDatas
 {
@@ -19,15 +16,16 @@ namespace DReporting.Web.ReportDatas
 
         public object GetDataSource(NameValueCollection args, bool designTime)
         {
-            var users = new Users();
-            users.Add(new User
+            var users = new List<User>
             {
-                FirstName = "Ronglin",
-                LastName = "Chen",
-                Role = new Role { Group = "Yaitoo" },
-                Roles = new Roles { new Role { Group = "Yaitoo" } },
-            });
-
+                new User
+                {
+                    FirstName = "Rulee",
+                    LastName = "Chen",
+                    Role = new Role { Group = "R&D" },
+                    Roles = new List<Role> { new Role { Group = "Yundang" } },
+                }
+            };
 
             var ds = new ObjectDataSource();
 
@@ -39,40 +37,16 @@ namespace DReporting.Web.ReportDatas
         }
     }
 
-    [DisplayName("Users")]
-    [HighlightedClass]
-    public class Users : List<User>
-    {
-    }
-
-    [DisplayName("User")]
-    [HighlightedClass]
     public class User
     {
-        [HighlightedMember]
         public string FirstName { get; set; }
-
-        [HighlightedMember]
         public string LastName { get; set; }
-
-        [HighlightedMember]
         public Role Role { get; set; }
-
-        [HighlightedMember]
-        public Roles Roles { get; set; }
+        public List<Role> Roles { get; set; }
     }
 
-    [DisplayName("Roles")]
-    [HighlightedClass]
-    public class Roles : List<Role>
-    {
-    }
-
-    [DisplayName("Role")]
-    [HighlightedClass]
     public class Role
     {
-        [HighlightedMember]
         public string Group { get; set; }
     }
 }
