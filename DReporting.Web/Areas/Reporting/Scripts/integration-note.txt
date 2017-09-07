@@ -1,0 +1,18 @@
+﻿
+Embedding Third-Party Libraries
+https://documentation.devexpress.com/AspNet/17153/Common-Concepts/Web-Config-Modifications/Web-Config-Options/Embedding-Third-Party-Libraries
+
+download jquery
+http://jquery.com/download/
+
+download jquery-ui
+http://jqueryui.com/download/
+
+download cldr
+https://cdnjs.com/libraries/cldrjs
+
+download ace
+https://github.com/ajaxorg/ace-builds
+
+download ko
+http://knockoutjs.com/downloads/index.html
