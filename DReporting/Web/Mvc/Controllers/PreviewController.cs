@@ -24,11 +24,6 @@ namespace DReporting.Web.Mvc.Controllers
         {
             var vm = VM(templateId, dataProviderId, dataProviderArgs);
 
-            if (!string.IsNullOrEmpty(dataProviderId))
-            {
-                FillDataSource(vm.XtraReport, dataProviderId, dataProviderArgs);
-            }
-
             return PartialView("Viewer", vm);
         }
 
@@ -47,6 +42,11 @@ namespace DReporting.Web.Mvc.Controllers
         private ViewerVM VM(string templateId, string dataProviderId, string dataProviderArgs)
         {
             var template = TemplateMgr.GetTemplate(templateId);
+
+            if (!string.IsNullOrEmpty(dataProviderId))
+            {
+                FillDataSource(template.XtraReport, dataProviderId, dataProviderArgs);
+            }
 
             return new ViewerVM
             {
