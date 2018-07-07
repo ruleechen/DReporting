@@ -1,11 +1,41 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DReporting.Web", "DReporting.Web\DReporting.Web.csproj", "{1FADEE98-6389-4690-BA2C-26EABB25604C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DReporting", "DReporting\DReporting.csproj", "{217B9E80-C8AD-46E3-A958-47F702691EC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{281F89AD-A97A-46CB-AEF8-5ACDF65F1FFC}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\DevExpress.Charts.v17.1.Core.dll = Lib\DevExpress.Charts.v17.1.Core.dll
+		Lib\DevExpress.CodeParser.v17.1.dll = Lib\DevExpress.CodeParser.v17.1.dll
+		Lib\DevExpress.Data.v17.1.dll = Lib\DevExpress.Data.v17.1.dll
+		Lib\DevExpress.DataAccess.v17.1.dll = Lib\DevExpress.DataAccess.v17.1.dll
+		Lib\DevExpress.Office.v17.1.Core.dll = Lib\DevExpress.Office.v17.1.Core.dll
+		Lib\DevExpress.Pdf.v17.1.Core.dll = Lib\DevExpress.Pdf.v17.1.Core.dll
+		Lib\DevExpress.PivotGrid.v17.1.Core.dll = Lib\DevExpress.PivotGrid.v17.1.Core.dll
+		Lib\DevExpress.Printing.v17.1.Core.dll = Lib\DevExpress.Printing.v17.1.Core.dll
+		Lib\DevExpress.RichEdit.v17.1.Core.dll = Lib\DevExpress.RichEdit.v17.1.Core.dll
+		Lib\DevExpress.RichEdit.v17.1.Export.dll = Lib\DevExpress.RichEdit.v17.1.Export.dll
+		Lib\DevExpress.Sparkline.v17.1.Core.dll = Lib\DevExpress.Sparkline.v17.1.Core.dll
+		Lib\DevExpress.Utils.v17.1.dll = Lib\DevExpress.Utils.v17.1.dll
+		Lib\DevExpress.Utils.v17.1.UI.dll = Lib\DevExpress.Utils.v17.1.UI.dll
+		Lib\DevExpress.Web.Mvc5.v17.1.dll = Lib\DevExpress.Web.Mvc5.v17.1.dll
+		Lib\DevExpress.Web.Resources.v17.1.dll = Lib\DevExpress.Web.Resources.v17.1.dll
+		Lib\DevExpress.Web.v17.1.dll = Lib\DevExpress.Web.v17.1.dll
+		Lib\DevExpress.Xpo.v17.1.dll = Lib\DevExpress.Xpo.v17.1.dll
+		Lib\DevExpress.Xpo.v17.1.Extensions.dll = Lib\DevExpress.Xpo.v17.1.Extensions.dll
+		Lib\DevExpress.XtraCharts.v17.1.dll = Lib\DevExpress.XtraCharts.v17.1.dll
+		Lib\DevExpress.XtraCharts.v17.1.Wizard.dll = Lib\DevExpress.XtraCharts.v17.1.Wizard.dll
+		Lib\DevExpress.XtraGauges.v17.1.Core.dll = Lib\DevExpress.XtraGauges.v17.1.Core.dll
+		Lib\DevExpress.XtraPrinting.v17.1.dll = Lib\DevExpress.XtraPrinting.v17.1.dll
+		Lib\DevExpress.XtraReports.v17.1.dll = Lib\DevExpress.XtraReports.v17.1.dll
+		Lib\DevExpress.XtraReports.v17.1.Extensions.dll = Lib\DevExpress.XtraReports.v17.1.Extensions.dll
+		Lib\DevExpress.XtraReports.v17.1.Service.dll = Lib\DevExpress.XtraReports.v17.1.Service.dll
+		Lib\DevExpress.XtraReports.v17.1.Web.dll = Lib\DevExpress.XtraReports.v17.1.Web.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
