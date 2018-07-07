@@ -30,7 +30,7 @@ namespace DReporting.Web.ReportDatas
 
             ds.DataSource = users;
 
-            ds.Fill();
+            // ds.Fill();
 
             return ds;
         }

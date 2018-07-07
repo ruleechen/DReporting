@@ -25,7 +25,7 @@ namespace DReporting.Web.ReportDatas
 
             if (designTime)
             {
-                query.Sql = "SELECT top(5) * FROM Voucher";
+                query.Sql = "SELECT TOP 5 * FROM Voucher";
             }
             else
             {
