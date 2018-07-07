@@ -69,7 +69,12 @@ namespace DReporting.Web.Mvc.Controllers
                 XtraReport = xtraReport
             });
 
-            return Content(Url.Action("Index", "Design", new { Area = ReportingGlobal.AreaName, TemplateID = model.TemplateID, ReturnUrl = returnUrl }));
+            return Content(Url.Action("Index", "Design", new
+            {
+                Area = ReportingGlobal.AreaName,
+                TemplateID = model.TemplateID,
+                ReturnUrl = returnUrl
+            }));
         }
     }
 }
