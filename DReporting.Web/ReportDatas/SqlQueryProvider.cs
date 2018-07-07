@@ -10,12 +10,12 @@ using DevExpress.DataAccess.ConnectionParameters;
 
 namespace DReporting.Web.ReportDatas
 {
-    [Export("Reporting.SampleProvider", typeof(IDataProvider))]
-    public class SampleProvider : IDataProvider
+    [Export("Reporting.SqlQueryProvider", typeof(IDataProvider))]
+    public class SqlQueryProvider : IDataProvider
     {
         public string DataProviderName
         {
-            get { return "SampleProvider"; }
+            get { return "SqlQueryProvider"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)
