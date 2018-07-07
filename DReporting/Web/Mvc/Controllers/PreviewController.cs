@@ -11,9 +11,9 @@ namespace DReporting.Web.Mvc.Controllers
         public ActionResult Index(string templateId, string dataProviderId)
         {
             var args = HttpUtility.ParseQueryString(Request.Url.Query);
-            args.Remove("TemplateID");
-            args.Remove("DataProviderID");
-            args.Remove("ReturnUrl");
+            // args.Remove("TemplateID");
+            // args.Remove("DataProviderID");
+            // args.Remove("ReturnUrl");
 
             var vm = VM(templateId, dataProviderId, args.ToString());
 
