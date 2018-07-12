@@ -282,7 +282,6 @@
     </Compile>
     <Compile Include="ReportDatas\DataSetProvider.cs" />
     <Compile Include="ReportDatas\ObjectProvider.cs" />
-    <Compile Include="ReportDatas\ObjectProviderPlus.cs" />
     <Compile Include="ReportDatas\SqlQueryProvider.cs" />
     <Compile Include="ReportDatas\TypeListProvider.cs" />
     <Compile Include="Startup.cs" />

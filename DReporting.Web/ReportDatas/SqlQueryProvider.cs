@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DevExpress.DataAccess.ConnectionParameters;
+using DevExpress.DataAccess.Sql;
+using DReporting.Core;
 using System.Collections.Specialized;
 using System.ComponentModel.Composition;
-using System.Linq;
-using DReporting.Core;
-using DevExpress.DataAccess.Sql;
-using DevExpress.DataAccess.UI.Sql;
-using DevExpress.DataAccess.ConnectionParameters;
 
 namespace DReporting.Web.ReportDatas
 {
@@ -46,8 +42,8 @@ namespace DReporting.Web.ReportDatas
             }
 
 
-            //var mssqlConn = new MsSqlConnectionParameters("localhost", "nwind.mdf", "username", "password", MsSqlAuthorizationType.SqlServer);
-            //var mysqlConn = new MySqlConnectionParameters("localhost", "db name", "username", "password", "port");
+            // var mssqlConn = new MsSqlConnectionParameters("localhost", "nwind.mdf", "username", "password", MsSqlAuthorizationType.SqlServer);
+            // var mysqlConn = new MySqlConnectionParameters("localhost", "db name", "username", "password", "port");
 
             var ds = new SqlDataSource("iPro");
             ds.Queries.Add(query);

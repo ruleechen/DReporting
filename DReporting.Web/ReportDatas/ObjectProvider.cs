@@ -2,6 +2,7 @@
 using DReporting.Core;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 
@@ -34,6 +35,8 @@ namespace DReporting.Web.ReportDatas
 
             var ds = new ObjectDataSource();
             ds.Constructor = new ObjectConstructorInfo(userNameParameter, userNameParameter1);
+            // ds.Parameters.Add(userNameParameter);
+            // ds.Parameters.Add(userNameParameter1);
             ds.DataSource = typeof(UserData);
             ds.DataMember = "GetUserList";
 
@@ -74,9 +77,15 @@ namespace DReporting.Web.ReportDatas
         }
     }
 
+    [DisplayName("User")]
+    [HighlightedClass]
     public class User
     {
+        [DisplayName("名")]
+        [HighlightedMember]
         public string FirstName { get; set; }
+        [DisplayName("姓")]
+        [HighlightedMember]
         public string LastName { get; set; }
     }
 }
