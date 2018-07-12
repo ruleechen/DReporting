@@ -26,7 +26,7 @@ namespace DReporting.Web.ReportDatas
             var code = new QueryParameter();
             code.Name = "code";
             code.Type = typeof(DevExpress.DataAccess.Expression);
-            code.Value = new DevExpress.DataAccess.Expression("[Parameters.code]");
+            code.Value = new DevExpress.DataAccess.Expression("[Parameters.code]", typeof(string));
             query.Parameters.Add(code);
 
             // parameter from runtime

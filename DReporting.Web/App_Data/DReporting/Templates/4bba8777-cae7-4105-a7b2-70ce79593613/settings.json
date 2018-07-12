@@ -1,8 +1,8 @@
 {
   "ID": "4bba8777-cae7-4105-a7b2-70ce79593613",
-  "Name": "Vouchers",
+  "Name": "SqlQueryProvider (Vouchers)",
   "Code": null,
   "CategoryID": null,
   "CreationTimeUtc": "2015-07-08T05:29:00.5334139Z",
-  "LastUpdateTime": "2018-07-07T17:13:28.8726262Z"
+  "LastUpdateTime": "2018-07-12T15:47:34.235344Z"
 }

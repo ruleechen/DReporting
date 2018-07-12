@@ -3,9 +3,13 @@ using DReporting.Core;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel.Composition;
+using System.Linq;
 
 namespace DReporting.Web.ReportDatas
 {
+    /// <summary>
+    /// https://www.devexpress.com/Support/Center/Question/Details/T565074/end-user-reports-passing-parameters-to-objectdatasource
+    /// </summary>
     [Export("Reporting.ObjectProvider", typeof(IDataProvider))]
     public class ObjectProvider : IDataProvider
     {
@@ -16,20 +20,22 @@ namespace DReporting.Web.ReportDatas
 
         public object GetDataSource(NameValueCollection args, bool designTime)
         {
-            var users = new List<User>
-            {
-                new User
-                {
-                    FirstName = "Rulee",
-                    LastName = "Chen",
-                    Role = new Role { Group = "R&D" },
-                    Roles = new List<Role> { new Role { Group = "Yundang" } },
-                }
-            };
+            // parameter from desiginer
+            var userNameParameter = new Parameter();
+            userNameParameter.Name = "userName";
+            userNameParameter.Type = typeof(DevExpress.DataAccess.Expression);
+            userNameParameter.Value = new DevExpress.DataAccess.Expression("[Parameters.UserName]", typeof(string));
+
+            // parameter from runtime
+            var userNameParameter1 = new Parameter();
+            userNameParameter1.Name = "userName1";
+            userNameParameter1.Type = typeof(string);
+            userNameParameter1.Value = args["userName"];
 
             var ds = new ObjectDataSource();
-
-            ds.DataSource = users;
+            ds.Constructor = new ObjectConstructorInfo(userNameParameter, userNameParameter1);
+            ds.DataSource = typeof(UserData);
+            ds.DataMember = "GetUserList";
 
             // ds.Fill();
 
@@ -37,16 +43,40 @@ namespace DReporting.Web.ReportDatas
         }
     }
 
+    public class UserData
+    {
+        private string _userName;
+        private string _userName1;
+
+        public UserData(string userName, string userName1)
+        {
+            _userName = userName;
+            _userName1 = userName1;
+        }
+
+        public IReadOnlyList<User> GetUserList()
+        {
+            var users = new List<User>
+            {
+                new User
+                {
+                    FirstName = "Rulee",
+                    LastName = "Chen",
+                },
+                new User
+                {
+                    FirstName = "Winston",
+                    LastName = "Xie",
+                },
+            };
+
+            return users.Where(x => x.FirstName == _userName || x.FirstName == _userName1).ToList();
+        }
+    }
+
     public class User
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Role Role { get; set; }
-        public List<Role> Roles { get; set; }
-    }
-
-    public class Role
-    {
-        public string Group { get; set; }
     }
 }
