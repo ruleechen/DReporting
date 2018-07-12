@@ -11,30 +11,30 @@ namespace DReporting.Web.ReportDatas
     /// <summary>
     /// https://www.devexpress.com/Support/Center/Question/Details/T565074/end-user-reports-passing-parameters-to-objectdatasource
     /// </summary>
-    [Export("Reporting.ObjectProvider", typeof(IDataProvider))]
-    public class ObjectProvider : IDataProvider
+    [Export("Reporting.ObjectDataProvider", typeof(IDataProvider))]
+    public class ObjectDataProvider : IDataProvider
     {
         public string DataProviderName
         {
-            get { return "ObjectProvider"; }
+            get { return "Object Data Provider"; }
         }
 
         public object GetDataSource(NameValueCollection args, bool designTime)
         {
             // parameter from desiginer
-            var userNameParameter = new Parameter();
-            userNameParameter.Name = "userName";
-            userNameParameter.Type = typeof(DevExpress.DataAccess.Expression);
-            userNameParameter.Value = new DevExpress.DataAccess.Expression("[Parameters.UserName]", typeof(string));
+            var search = new Parameter();
+            search.Name = "search";
+            search.Type = typeof(DevExpress.DataAccess.Expression);
+            search.Value = new DevExpress.DataAccess.Expression("[Parameters.search]", typeof(string));
 
             // parameter from runtime
-            var userNameParameter1 = new Parameter();
-            userNameParameter1.Name = "userName1";
-            userNameParameter1.Type = typeof(string);
-            userNameParameter1.Value = args["userName"];
+            var userName = new Parameter();
+            userName.Name = "userName";
+            userName.Type = typeof(string);
+            userName.Value = args["userName"];
 
             var ds = new ObjectDataSource();
-            ds.Constructor = new ObjectConstructorInfo(userNameParameter, userNameParameter1);
+            ds.Constructor = new ObjectConstructorInfo(search, userName);
             // ds.Parameters.Add(userNameParameter);
             // ds.Parameters.Add(userNameParameter1);
             ds.DataSource = typeof(UserData);
@@ -48,16 +48,16 @@ namespace DReporting.Web.ReportDatas
 
     public class UserData
     {
+        private string _search;
         private string _userName;
-        private string _userName1;
 
-        public UserData(string userName, string userName1)
+        public UserData(string search, string userName)
         {
+            _search = search;
             _userName = userName;
-            _userName1 = userName1;
         }
 
-        public IReadOnlyList<User> GetUserList()
+        public List<User> GetUserList()
         {
             var users = new List<User>
             {
@@ -68,12 +68,12 @@ namespace DReporting.Web.ReportDatas
                 },
                 new User
                 {
-                    FirstName = "Winston",
-                    LastName = "Xie",
+                    FirstName = "Cerrie",
+                    LastName = "Shen",
                 },
             };
 
-            return users.Where(x => x.FirstName == _userName || x.FirstName == _userName1).ToList();
+            return users.Where(x => x.FirstName.Contains(_search) || x.FirstName == _userName).ToList();
         }
     }
 

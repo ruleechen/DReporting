@@ -1,11 +1,11 @@
 /// <XRTypeInfo>
 ///   <AssemblyFullName>DReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyFullName>
-///   <AssemblyLocation>C:\Users\rulee.chen\AppData\Local\Temp\Temporary ASP.NET Files\vs\a3159259\cef84781\assembly\dl3\e5749327\db251ef3_f619d401\DReporting.dll</AssemblyLocation>
+///   <AssemblyLocation>C:\Users\rulee.chen\AppData\Local\Temp\Temporary ASP.NET Files\vs\a3159259\cef84781\assembly\dl3\e5749327\0f4b56aa_fc19d401\DReporting.dll</AssemblyLocation>
 ///   <TypeName>DReporting.Services.DefaultXtraReport</TypeName>
 ///   <Localization>en-US</Localization>
 ///   <Version>17.1</Version>
 ///   <References>
-///     <Reference Path="C:\Users\rulee.chen\AppData\Local\Temp\Temporary ASP.NET Files\vs\a3159259\cef84781\assembly\dl3\e5749327\db251ef3_f619d401\DReporting.dll" />
+///     <Reference Path="C:\Users\rulee.chen\AppData\Local\Temp\Temporary ASP.NET Files\vs\a3159259\cef84781\assembly\dl3\e5749327\0f4b56aa_fc19d401\DReporting.dll" />
 ///     <Reference Path="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll" />
 ///     <Reference Path="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" />
 ///     <Reference Path="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll" />
@@ -86,10 +86,10 @@
 ///   </References>
 ///   <Resources>
 ///     <Resource Name="XtraReportSerialization.defaultXtraReport1">
-/// zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAABAAAAAAAAAFBBRFBBRFA+PmGPAAAAABUBAABUUwBxAGwAUQB1AGUAcgB5AFAAcgBvAHYAaQBkAGUAcgAxAC4AUgBlAHMAdQBsAHQAUwBjAGgAZQBtAGEAUwBlAHIAaQBhAGwAaQB6AGEAYgBsAGUAAAAAAAG8B1BFUmhkR0ZUWlhRZ1RtRnRaVDBpVTNGc1VYVmxjbmxRY205MmFXUmxjakVpUGp4V2FXVjNJRTVoYldVOUlsWnZkV05vWlhKeklqNDhSbWxsYkdRZ1RtRnRaVDBpVm05
-/// MVkyaGxja052WkdVaUlGUjVjR1U5SWxOMGNtbHVaeUlnTHo0OFJtbGxiR1FnVG1GdFpUMGlWbTkxWTJobGNsWmhiSFZsSWlCVWVYQmxQU0pFWldOcGJXRnNJaUF2UGp4R2FXVnNaQ0JPWVcxbFBTSkRZV3hqZFd4aGRHbHZibFI1Y0dWSlJDSWdWSGx3WlQwaVNXNTBNeklpSUM4K1BFWnBaV3hrSUU1aGJXVTlJbFpoYkdsa1ZIbHdaVWxFSWlCVWVYQmxQU0pKYm5Rek1pSWdMejQ4Um1sbGJHUWdUbUZ0WlQwaVZtRnNhV1JHY205dElpQlVlWEJsUFNKRVlYUmxWR2x0WlNJZ0x6NDhSbWxsYkdRZ1RtRnRaVDBpVm1Gc2FXUlVieUlnVkhsd1pUMGlSR0YwWlZScGJXVWlJQzgrUEVacFpXeGtJRTVoYldVOUlrMXBibWx0ZFcxT2FXZG9kSE1pSUZSNWNHVTlJa2x1ZERNeUlp
-/// QXZQanhHYVdWc1pDQk9ZVzFsUFNKUWNtOXdaWEowZVVsa2N5SWdWSGx3WlQwaVUzUnlhVzVuSWlBdlBqeEdhV1ZzWkNCT1lXMWxQU0pEYjI1MFlXTjBTVVFpSUZSNWNHVTlJa2x1ZERNeUlpQXZQanhHYVdWc1pDQk9ZVzFsUFNKRWFYTmhZbXhsUVdSa1ZYQWlJRlI1Y0dVOUlrSnZiMnhsWVc0aUlDOCtQRVpwWld4a0lFNWhiV1U5SWtWNGNHbHlaVTl1UW05dmEyVmtJaUJVZVhCbFBTSkNiMjlzWldGdUlpQXZQanhHYVdWc1pDQk9ZVzFsUFNKRWFYTmpiM1Z1ZEZSNWNHVkpSQ0lnVkhsd1pUMGlTVzUwTXpJaUlDOCtQRVpwWld4a0lFNWhiV1U5SWs1dmRHVnpJaUJVZVhCbFBTSlRkSEpwYm1jaUlDOCtQRVpwWld4a0lFNWhiV1U5SWtOeVpXRjBhVzl1VkdsdFpTSWdW
-/// SGx3WlQwaVJHRjBaVlJwYldVaUlDOCtQRVpwWld4a0lFNWhiV1U5SWt4aGMzUlZjR1JoZEdWVWFXMWxJaUJVZVhCbFBTSkVZWFJsVkdsdFpTSWdMejQ4TDFacFpYYytQQzlFWVhSaFUyVjBQZz09</Resource>
+/// zsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAABAAAAAAAAAFBBRFBBRFAktpUwAAAAABcBAABWUwBxAGwAXwBEAGEAdABhAF8AUAByAG8AdgBpAGQAZQByADEALgBSAGUAcwB1AGwAdABTAGMAaABlAG0AYQBTAGUAcgBpAGEAbABpAHoAYQBiAGwAZQAAAAAAAbwHUEVSaGRHRlRaWFFnVG1GdFpUMGlVM0ZzWDBSaGRHRmZVSEp2ZG1sa1pYSXhJajQ4Vm1sbGR5Qk9ZVzFsUFNKV2IzVmphR1Z5Y3lJK1BFWnBaV3hrSUU1aGJXVTlJ
+/// bFp2ZFdOb1pYSkRiMlJsSWlCVWVYQmxQU0pUZEhKcGJtY2lJQzgrUEVacFpXeGtJRTVoYldVOUlsWnZkV05vWlhKV1lXeDFaU0lnVkhsd1pUMGlSR1ZqYVcxaGJDSWdMejQ4Um1sbGJHUWdUbUZ0WlQwaVEyRnNZM1ZzWVhScGIyNVVlWEJsU1VRaUlGUjVjR1U5SWtsdWRETXlJaUF2UGp4R2FXVnNaQ0JPWVcxbFBTSldZV3hwWkZSNWNHVkpSQ0lnVkhsd1pUMGlTVzUwTXpJaUlDOCtQRVpwWld4a0lFNWhiV1U5SWxaaGJHbGtSbkp2YlNJZ1ZIbHdaVDBpUkdGMFpWUnBiV1VpSUM4K1BFWnBaV3hrSUU1aGJXVTlJbFpoYkdsa1ZHOGlJRlI1Y0dVOUlrUmhkR1ZVYVcxbElpQXZQanhHYVdWc1pDQk9ZVzFsUFNKTmFXNXBiWFZ0VG1sbmFIUnpJaUJVZVhCbFBTSkpiblF6
+/// TWlJZ0x6NDhSbWxsYkdRZ1RtRnRaVDBpVUhKdmNHVnlkSGxKWkhNaUlGUjVjR1U5SWxOMGNtbHVaeUlnTHo0OFJtbGxiR1FnVG1GdFpUMGlRMjl1ZEdGamRFbEVJaUJVZVhCbFBTSkpiblF6TWlJZ0x6NDhSbWxsYkdRZ1RtRnRaVDBpUkdsellXSnNaVUZrWkZWd0lpQlVlWEJsUFNKQ2IyOXNaV0Z1SWlBdlBqeEdhV1ZzWkNCT1lXMWxQU0pGZUhCcGNtVlBia0p2YjJ0bFpDSWdWSGx3WlQwaVFtOXZiR1ZoYmlJZ0x6NDhSbWxsYkdRZ1RtRnRaVDBpUkdselkyOTFiblJVZVhCbFNVUWlJRlI1Y0dVOUlrbHVkRE15SWlBdlBqeEdhV1ZzWkNCT1lXMWxQU0pPYjNSbGN5SWdWSGx3WlQwaVUzUnlhVzVuSWlBdlBqeEdhV1ZzWkNCT1lXMWxQU0pEY21WaGRHbHZibFJwYldV
+/// aUlGUjVjR1U5SWtSaGRHVlVhVzFsSWlBdlBqeEdhV1ZzWkNCT1lXMWxQU0pNWVhOMFZYQmtZWFJsVkdsdFpTSWdWSGx3WlQwaVJHRjBaVlJwYldVaUlDOCtQQzlXYVdWM1Bqd3ZSR0YwWVZObGREND0=</Resource>
 ///   </Resources>
 /// </XRTypeInfo>
 namespace XtraReportSerialization {
@@ -99,13 +99,11 @@ namespace XtraReportSerialization {
         private DevExpress.XtraReports.UI.XRLabel label4;
         private DevExpress.XtraReports.UI.XRLabel label3;
         private DevExpress.XtraReports.UI.XRLabel label2;
-        private DevExpress.XtraReports.UI.DetailBand Detail1;
-        private DevExpress.XtraReports.UI.XRLabel label6;
-        private DevExpress.XtraReports.UI.XRLabel label5;
         private DevExpress.XtraReports.UI.XRLabel label1;
+        private DevExpress.XtraReports.UI.DetailBand Detail1;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin1;
-        private DevExpress.DataAccess.Sql.SqlDataSource SqlQueryProvider1;
-        private DevExpress.XtraReports.Parameters.Parameter code;
+        private DevExpress.DataAccess.Sql.SqlDataSource Sql_Data_Provider1;
+        private DevExpress.XtraReports.Parameters.Parameter search;
         private System.Resources.ResourceManager _resources;
         private string _resourceString;
         public defaultXtraReport1() {
@@ -130,11 +128,9 @@ namespace XtraReportSerialization {
             this.label4 = new DevExpress.XtraReports.UI.XRLabel();
             this.label3 = new DevExpress.XtraReports.UI.XRLabel();
             this.label2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.label6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.label5 = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.SqlQueryProvider1 = new DevExpress.DataAccess.Sql.SqlDataSource();
-            this.code = new DevExpress.XtraReports.Parameters.Parameter();
+            this.Sql_Data_Provider1 = new DevExpress.DataAccess.Sql.SqlDataSource();
+            this.search = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin1
@@ -142,17 +138,14 @@ namespace XtraReportSerialization {
             this.TopMargin1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
                         this.label4,
                         this.label3,
-                        this.label2});
-            this.TopMargin1.HeightF = 100F;
+                        this.label2,
+                        this.label1});
+            this.TopMargin1.HeightF = 121F;
             this.TopMargin1.Name = "TopMargin1";
             this.TopMargin1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // Detail1
             // 
-            this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-                        this.label6,
-                        this.label5,
-                        this.label1});
             this.Detail1.HeightF = 100F;
             this.Detail1.Name = "Detail1";
             this.Detail1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -165,79 +158,62 @@ namespace XtraReportSerialization {
             // 
             // label4
             // 
-            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(342.7F, 70.83F);
+            this.label4.LocationFloat = new DevExpress.Utils.PointFloat(360.4F, 61.45F);
             this.label4.Name = "label4";
             this.label4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label4.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.label4.Text = "Date From";
+            this.label4.Text = "Value\n";
             // 
             // label3
             // 
-            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(195.83F, 70.83F);
+            this.label3.LocationFloat = new DevExpress.Utils.PointFloat(173.95F, 61.45F);
             this.label3.Name = "label3";
             this.label3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label3.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.label3.Text = "Voucher Value";
+            this.label3.Text = "Code\n";
             // 
             // label2
             // 
-            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(47.91F, 70.83F);
+            this.label2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vouchers.VoucherValue")});
+            this.label2.LocationFloat = new DevExpress.Utils.PointFloat(360.41F, 97.83F);
             this.label2.Name = "label2";
             this.label2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label2.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.label2.Text = "Voucher Code";
-            // 
-            // label6
-            // 
-            this.label6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vouchers.ValidFrom")});
-            this.label6.LocationFloat = new DevExpress.Utils.PointFloat(341.66F, 44.79F);
-            this.label6.Name = "label6";
-            this.label6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.label6.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.label6.Text = "label6";
-            // 
-            // label5
-            // 
-            this.label5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vouchers.VoucherCode")});
-            this.label5.LocationFloat = new DevExpress.Utils.PointFloat(51.02F, 44.77F);
-            this.label5.Name = "label5";
-            this.label5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.label5.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.label5.Text = "label5";
+            this.label2.Text = "label2";
             // 
             // label1
             // 
             this.label1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vouchers.VoucherValue")});
-            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(198.95F, 44.79F);
+                        new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vouchers.VoucherCode")});
+            this.label1.LocationFloat = new DevExpress.Utils.PointFloat(173.95F, 97.83F);
             this.label1.Name = "label1";
             this.label1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.label1.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.label1.Text = "label1";
             // 
-            // SqlQueryProvider1
+            // Sql_Data_Provider1
             // 
-            this.SqlQueryProvider1.ConnectionName = "iPro";
-            this.SqlQueryProvider1.Name = "SqlQueryProvider1";
+            this.Sql_Data_Provider1.ConnectionName = "iPro";
+            this.Sql_Data_Provider1.Name = "Sql_Data_Provider1";
+            customSqlQuery1.MetaSerializable = null;
             customSqlQuery1.Name = "Vouchers";
-            queryParameter1.Name = "code";
+            queryParameter1.Name = "search";
             queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.code]", null);
-            queryParameter2.Name = "code1";
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.search]", typeof(string));
+            queryParameter2.Name = "code";
             queryParameter2.Type = typeof(string);
             customSqlQuery1.Parameters.Add(queryParameter1);
             customSqlQuery1.Parameters.Add(queryParameter2);
-            customSqlQuery1.Sql = "SELECT * FROM Voucher where VoucherCode = @code";
-            this.SqlQueryProvider1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1.Sql = "SELECT * FROM Voucher where VoucherCode = @search";
+            this.Sql_Data_Provider1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
                         customSqlQuery1});
-            this.SqlQueryProvider1.ResultSchemaSerializable = resources.GetString("SqlQueryProvider1.ResultSchemaSerializable");
+            this.Sql_Data_Provider1.ResultSchemaSerializable = resources.GetString("Sql_Data_Provider1.ResultSchemaSerializable");
             // 
-            // code
+            // search
             // 
-            this.code.Description = "voucher code";
-            this.code.Name = "code";
+            this.search.Description = "Search";
+            this.search.Name = "search";
             // 
             // defaultXtraReport1
             // 
@@ -246,17 +222,18 @@ namespace XtraReportSerialization {
                         this.Detail1,
                         this.BottomMargin1});
             this.DataMember = "Vouchers";
-            this.DataSource = this.SqlQueryProvider1;
-            this.DisplayName = "SqlQueryProvider (Vouchers)";
+            this.DataSource = this.Sql_Data_Provider1;
+            this.DisplayName = "Sql Data Provider - Vouchers";
             this.Extensions.Add("DataSerializationExtension", "DevExpress.XtraReports.Web.ReportDesigner.DefaultDataSerializer");
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 121, 100);
             this.Name = "defaultXtraReport1";
             this.PageHeight = 1100;
             this.PageWidth = 850;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-                        this.code});
+                        this.search});
             this.Version = "17.1";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
         }
     }
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

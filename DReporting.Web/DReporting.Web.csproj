@@ -275,15 +275,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportDatas\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDatas\DataSetProvider.cs" />
-    <Compile Include="ReportDatas\ObjectProvider.cs" />
-    <Compile Include="ReportDatas\SqlQueryProvider.cs" />
-    <Compile Include="ReportDatas\TypeListProvider.cs" />
+    <Compile Include="ReportDatas\EFDataProvider.cs" />
+    <Compile Include="ReportDatas\ExcelDataProvider.cs" />
+    <Compile Include="ReportDatas\ObjectDataProvider.cs" />
+    <Compile Include="ReportDatas\SqlDataProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -343,19 +338,8 @@
     <Content Include="Areas\Reporting\Views\Home\EditCategory.cshtml" />
     <Content Include="Areas\Reporting\Views\Shared\Category.cshtml" />
     <Content Include="Areas\Reporting\Views\Home\EditDataProvider.cshtml" />
-    <Content Include="ReportDatas\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Content>
     <Content Include="Views\GridDemo\Index.cshtml" />
     <Content Include="Views\Shared\Grid.cshtml" />
-    <None Include="ReportDatas\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="ReportDatas\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
