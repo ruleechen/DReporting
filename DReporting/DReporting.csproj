@@ -207,6 +207,9 @@
     <Compile Include="ReportingGlobal.cs" />
     <Compile Include="Core\IDataProvider.cs" />
     <Compile Include="Models\DataProviderModel.cs" />
+    <Compile Include="Services\BaseXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Web\Mvc\ViewModels\DataProviderVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\HomeVM.cs" />
     <Compile Include="Web\Mvc\ViewModels\CategoryVM.cs" />

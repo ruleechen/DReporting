@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using DevExpress.DataAccess;
+using System.Collections.Specialized;
 
 namespace DReporting.Core
 {
@@ -6,6 +7,6 @@ namespace DReporting.Core
     {
         string DataProviderName { get; }
 
-        object GetDataSource(NameValueCollection args, bool designTime);
+        DataComponentBase GetDataSource(NameValueCollection args, bool designTime);
     }
 }

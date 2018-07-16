@@ -142,7 +142,7 @@ namespace DReporting.Services
                 model.XtraReport.DisplayName = model.TemplateName;
 
                 var reportPath = Path.Combine(dir, xtrareport_xml);
-                File.WriteAllBytes(reportPath, model.XtraReport.GetBuffer());
+                File.WriteAllText(reportPath, model.XtraReport.GetXML());
             }
 
             return model;

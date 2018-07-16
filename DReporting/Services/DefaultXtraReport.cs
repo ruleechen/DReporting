@@ -7,7 +7,7 @@ using DReporting.Core;
 
 namespace DReporting.Services
 {
-    public partial class DefaultXtraReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class DefaultXtraReport : BaseXtraReport
     {
         public DefaultXtraReport()
         {

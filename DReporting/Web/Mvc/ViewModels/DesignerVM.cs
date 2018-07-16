@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.DataAccess;
+using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
 
 namespace DReporting.Web.Mvc.ViewModels
@@ -11,7 +12,7 @@ namespace DReporting.Web.Mvc.ViewModels
 
         public XtraReport XtraReport { get; set; }
 
-        public IDictionary<string, object> DataSources { get; set; }
+        public IDictionary<string, DataComponentBase> DataSources { get; set; }
 
         //public DevExpress.XtraReports.Web.ReportDesigner.ReportDesignerModel DesignerModel { get; set; }
     }
