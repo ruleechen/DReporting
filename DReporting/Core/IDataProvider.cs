@@ -7,6 +7,6 @@ namespace DReporting.Core
     {
         string DataProviderName { get; }
 
-        DataComponentBase GetDataSource(NameValueCollection args, bool designTime);
+        DataComponentBase GetDataSource(NameValueCollection args, bool designMode);
     }
 }

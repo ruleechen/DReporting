@@ -1,4 +1,5 @@
-﻿using DevExpress.DataAccess.ConnectionParameters;
+﻿using DevExpress.DataAccess;
+using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.Sql;
 using DReporting.Core;
 using System.Collections.Specialized;
@@ -14,25 +15,31 @@ namespace DReporting.Web.ReportDatas
             get { return "Sql Data Provider"; }
         }
 
-        public object GetDataSource(NameValueCollection args, bool designTime)
+        public DataComponentBase GetDataSource(NameValueCollection args, bool designMode)
         {
-            var query = new CustomSqlQuery { Name = "Vouchers" };
+            var designModeParameter = new QueryParameter();
+            designModeParameter.Name = "designMode";
+            designModeParameter.Type = typeof(bool);
+            designModeParameter.Value = designMode;
 
             // parameter from desiginer
             var search = new QueryParameter();
             search.Name = "search";
             search.Type = typeof(DevExpress.DataAccess.Expression);
             search.Value = new DevExpress.DataAccess.Expression("[Parameters.search]", typeof(string));
-            query.Parameters.Add(search);
 
             // parameter from runtime
             var code = new QueryParameter();
             code.Name = "code";
             code.Type = typeof(string);
             code.Value = args["code"];
+
+            var query = new CustomSqlQuery { Name = "Vouchers" };
+            query.Parameters.Add(designModeParameter);
+            query.Parameters.Add(search);
             query.Parameters.Add(code);
 
-            if (designTime)
+            if (designMode)
             {
                 query.Sql = "SELECT * FROM Voucher where VoucherCode = @search";
             }

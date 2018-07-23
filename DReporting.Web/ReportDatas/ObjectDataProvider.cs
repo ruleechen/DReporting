@@ -1,4 +1,5 @@
-﻿using DevExpress.DataAccess.ObjectBinding;
+﻿using DevExpress.DataAccess;
+using DevExpress.DataAccess.ObjectBinding;
 using DReporting.Core;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -19,8 +20,13 @@ namespace DReporting.Web.ReportDatas
             get { return "Object Data Provider"; }
         }
 
-        public object GetDataSource(NameValueCollection args, bool designTime)
+        public DataComponentBase GetDataSource(NameValueCollection args, bool designMode)
         {
+            var designModeParameter = new Parameter();
+            designModeParameter.Name = "designMode";
+            designModeParameter.Type = typeof(bool);
+            designModeParameter.Value = designMode;
+
             // parameter from desiginer
             var search = new Parameter();
             search.Name = "search";
@@ -34,7 +40,8 @@ namespace DReporting.Web.ReportDatas
             userName.Value = args["userName"];
 
             var ds = new ObjectDataSource();
-            ds.Constructor = new ObjectConstructorInfo(search, userName);
+            ds.Constructor = new ObjectConstructorInfo(designModeParameter, search, userName);
+            // ds.Parameters.Add(designModeParameter);
             // ds.Parameters.Add(userNameParameter);
             // ds.Parameters.Add(userNameParameter1);
             ds.DataSource = typeof(UserData);
@@ -48,11 +55,13 @@ namespace DReporting.Web.ReportDatas
 
     public class UserData
     {
+        private bool _designMode;
         private string _search;
         private string _userName;
 
-        public UserData(string search, string userName)
+        public UserData(bool designMode, string search, string userName)
         {
+            _designMode = designMode;
             _search = search;
             _userName = userName;
         }
