@@ -182,7 +182,7 @@ namespace XtraReportSerialization {
             // 
             // Object_Data_Provider1
             // 
-            parameter1.Name = "designTime";
+            parameter1.Name = "designMode";
             parameter1.Type = typeof(bool);
             parameter1.ValueInfo = "True";
             parameter2.Name = "search";
