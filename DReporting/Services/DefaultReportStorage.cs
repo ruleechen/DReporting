@@ -53,7 +53,7 @@ namespace DReporting.Services
         {
             var dirs = Directory.GetDirectories(TemplatesDir, "*", SearchOption.TopDirectoryOnly);
 
-            var query = dirs.Select(x => GetTemplate(Path.GetFileName(x))).Where(x => x != null);
+            var query = dirs.Select(x => GetTemplate(Path.GetFileName(x), false)).Where(x => x != null);
 
             return query.AsQueryable();
         }
@@ -74,7 +74,7 @@ namespace DReporting.Services
             };
         }
 
-        public TemplateModel GetTemplate(string templateId)
+        public TemplateModel GetTemplate(string templateId, bool loadReport)
         {
             if (string.IsNullOrEmpty(templateId))
             {
@@ -97,7 +97,7 @@ namespace DReporting.Services
             .Select(x => new
             {
                 settings = JsonConvert.DeserializeObject<TemplateSetting>(File.ReadAllText(x.settingsFile)),
-                xtrareport = XtraReport.FromFile(x.xtrareportFile, true)
+                xtrareport = loadReport ? XtraReport.FromFile(x.xtrareportFile, true) : null
             })
             .Select(x => new TemplateModel
             {
@@ -115,7 +115,7 @@ namespace DReporting.Services
 
         public TemplateModel SaveTemplate(TemplateModel model)
         {
-            var old = GetTemplate(model.TemplateID);
+            var old = GetTemplate(model.TemplateID, false);
 
             if (string.IsNullOrEmpty(model.TemplateID)) { model.TemplateID = Guid.NewGuid().ToString().ToLower(); }
 

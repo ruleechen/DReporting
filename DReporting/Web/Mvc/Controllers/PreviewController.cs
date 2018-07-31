@@ -29,7 +29,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult Export(string templateId, string dataProviderId, string dataProviderArgs)
         {
-            var template = TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId, true);
 
             if (!string.IsNullOrEmpty(dataProviderId))
             {
@@ -41,7 +41,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         private ViewerVM VM(string templateId, string dataProviderId, string dataProviderArgs)
         {
-            var template = TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId, true);
 
             if (!string.IsNullOrEmpty(dataProviderId))
             {

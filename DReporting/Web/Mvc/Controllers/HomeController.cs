@@ -58,7 +58,7 @@ namespace DReporting.Web.Mvc.Controllers
         {
             ViewData["Categories"] = CategoryMgr.QueryCategories().Select(x => ToVM(x));
 
-            var template = TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId, false);
 
             return View(ToVM(template));
         }
@@ -66,7 +66,7 @@ namespace DReporting.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult SaveTemplate(TemplateVM model, string returnUrl)
         {
-            var template = TemplateMgr.GetTemplate(model.TemplateID);
+            var template = TemplateMgr.GetTemplate(model.TemplateID, false);
 
             template.TemplateCode = model.TemplateCode;
             template.TemplateName = model.TemplateName;
@@ -87,7 +87,7 @@ namespace DReporting.Web.Mvc.Controllers
 
         public ActionResult CopyTemplate(string templateId)
         {
-            var template = TemplateMgr.GetTemplate(templateId);
+            var template = TemplateMgr.GetTemplate(templateId, true);
 
             template.TemplateID = Guid.NewGuid().ToString().ToLower();
             template.TemplateName = "Copy of " + template.TemplateName;

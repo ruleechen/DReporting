@@ -32,7 +32,7 @@ namespace DReporting.Web.Mvc.Controllers
             }
             else
             {
-                template = TemplateMgr.GetTemplate(templateId);
+                template = TemplateMgr.GetTemplate(templateId, true);
             }
 
             var query = HttpUtility.ParseQueryString(Request.Url.Query);
@@ -56,7 +56,7 @@ namespace DReporting.Web.Mvc.Controllers
             var xmlContent = ReportDesignerExtension.GetReportXml("reportDesigner");
             var xtraReport = XtraReport.FromStream(new MemoryStream(xmlContent), true);
 
-            var old = TemplateMgr.GetTemplate(templateId);
+            var old = TemplateMgr.GetTemplate(templateId, false);
 
             var model = TemplateMgr.SaveTemplate(new TemplateModel
             {

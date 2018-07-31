@@ -9,7 +9,7 @@ namespace DReporting.Core
 
         TemplateModel GetDefaultTemplate();
 
-        TemplateModel GetTemplate(string templateId);
+        TemplateModel GetTemplate(string templateId, bool loadReport);
 
         void DeleteTemplate(string templateId);
 
